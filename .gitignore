@@ -10,6 +10,7 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 /[Oo]ut/
+!/Assets/Scripts
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -44,7 +45,7 @@ ExportedObj/
 *.opendb
 *.VC.db
 *.apk
-*.aab
+
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -56,6 +57,7 @@ sysinfo.txt
 
 # Builds
 *.apk
+*.aab
 *.unitypackage
 
 # Crashlytics generated file
