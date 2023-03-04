@@ -1,0 +1,11 @@
+lastUpgrade=01101
+proj.pluginVersion=0.11.01
+proj.AppId=842886786754
+and.BundleId=com.pakachu.Parkor
+proj.classDir=Assets
+proj.ConstantsClassName=Parkor.GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--Google+Play+game+services+IDs.+Save+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--app_id--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e842886786754%3c%2fstring%3e%0d%0a++%3c%21--package_name--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.pakachu.Parkor%3c%2fstring%3e%0d%0a++%3c%21--achievement+%c4%b0lk+Kan--%3e%0d%0a++%3cstring+name%3d%22achievement_ilk_kan%22+translatable%3d%22false%22%3eCgkIwt3e_8MYEAIQBQ%3c%2fstring%3e%0d%0a++%3c%21--achievement+Tanr%c4%b1+Yarat%c4%b1k--%3e%0d%0a++%3cstring+name%3d%22achievement_tanr_yaratk%22+translatable%3d%22false%22%3eCgkIwt3e_8MYEAIQBg%3c%2fstring%3e%0d%0a++%3c%21--achievement+B%c3%b6cek+Patron--%3e%0d%0a++%3cstring+name%3d%22achievement_bcek_patron%22+translatable%3d%22false%22%3eCgkIwt3e_8MYEAIQCA%3c%2fstring%3e%0d%0a++%3c%21--achievement+%c3%96r%c3%bcmcek+Katili--%3e%0d%0a++%3cstring+name%3d%22achievement_rmcek_katili%22+translatable%3d%22false%22%3eCgkIwt3e_8MYEAIQCQ%3c%2fstring%3e%0d%0a++%3c%21--achievement+Yuva+Y%c4%b1kan--%3e%0d%0a++%3cstring+name%3d%22achievement_yuva_ykan%22+translatable%3d%22false%22%3eCgkIwt3e_8MYEAIQCg%3c%2fstring%3e%0d%0a++%3c%21--achievement+Nesil+T%c3%bcketen--%3e%0d%0a++%3cstring+name%3d%22achievement_nesil_tketen%22+translatable%3d%22false%22%3eCgkIwt3e_8MYEAIQCw%3c%2fstring%3e%0d%0a++%3c%21--achievement+Sezon+1--%3e%0d%0a++%3cstring+name%3d%22achievement_sezon_1%22+translatable%3d%22false%22%3eCgkIwt3e_8MYEAIQDA%3c%2fstring%3e%0d%0a++%3c%21--achievement+Ka%c3%a7%c4%b1%c5%9f--%3e%0d%0a++%3cstring+name%3d%22achievement_ka%22+translatable%3d%22false%22%3eCgkIwt3e_8MYEAIQBw%3c%2fstring%3e%0d%0a++%3c%21--achievement+Arena--%3e%0d%0a++%3cstring+name%3d%22achievement_arena%22+translatable%3d%22false%22%3eCgkIwt3e_8MYEAIQDQ%3c%2fstring%3e%0d%0a%3c%2fresources%3e
+and.ClientId=842886786754-lknl5f548c1rlfme43g6qb3rkbggr3og.apps.googleusercontent.com
+android.SetupDone=true
+App.NearbdServiceId=com.pakachu.Parkor
+android.NearbySetupDone=true
