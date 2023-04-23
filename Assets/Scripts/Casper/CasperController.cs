@@ -29,13 +29,13 @@ public class CasperController : MonoBehaviour
 
 	void Start()
 	{
-		levelManager = FindObjectOfType<LevelManager>();
+		levelManager = FindAnyObjectByType<LevelManager>();
 		audioSource = GetComponent<AudioSource>();
 		startpos = this.transform.position;
 		oldvalue = behindValue;
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0);
-		playerController = FindObjectOfType<PlayerController>();
+		playerController = FindAnyObjectByType<PlayerController>();
 		player = GameObject.FindGameObjectWithTag("Player");
 		animator = GetComponent<Animator>();
 

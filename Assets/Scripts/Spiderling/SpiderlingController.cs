@@ -26,7 +26,7 @@ public class SpiderlingController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         spawnpoint = transform.position;
-        levelManager = FindObjectOfType<LevelManager>();
+        levelManager = FindAnyObjectByType<LevelManager>();
     }
 
     void Update()

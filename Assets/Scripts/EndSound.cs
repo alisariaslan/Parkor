@@ -17,7 +17,7 @@ public class EndSound : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        LevelManager levelManager = FindObjectOfType<LevelManager>();
+        LevelManager levelManager = FindAnyObjectByType<LevelManager>();
         levelManager.MuteAudio();
         if (newSound != null)
             levelManager.PlayAudio(newSound, true);

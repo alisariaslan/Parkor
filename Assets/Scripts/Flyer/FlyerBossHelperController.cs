@@ -18,8 +18,8 @@ public class FlyerBossHelperController : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        levelManager = FindObjectOfType<LevelManager>();
-        playerController = FindObjectOfType<PlayerController>();
+        levelManager = FindAnyObjectByType<LevelManager>();
+        playerController = FindAnyObjectByType<PlayerController>();
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         if (startcarry)

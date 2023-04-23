@@ -10,7 +10,7 @@ public class RunAchievemt : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            WormBossController wormBossController = FindObjectOfType<WormBossController>();
+            WormBossController wormBossController = FindAnyObjectByType<WormBossController>();
             if(wormBossController!=null)
             {
 				ScoreManager.ReportScoreType(ScoreManager.scoreType.KACIS);

@@ -32,7 +32,7 @@ public class Asteroid : MonoBehaviour
                 Instantiate(booom, transform.position + new Vector3(Random.Range(-5, 5), Random.Range(-5, 5)), Quaternion.identity);
             }
             yield return new WaitForSeconds(1);
-            LevelManager levelManager = FindObjectOfType<LevelManager>();
+            LevelManager levelManager = FindAnyObjectByType<LevelManager>();
             levelManager.NextLevel("AraSahne");
         }
        

@@ -1,5 +1,5 @@
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
+//using GooglePlayGames;
+//using GooglePlayGames.BasicApi;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,39 +12,43 @@ public class PlayHizmetler : MonoBehaviour
 
 	void Start()
 	{
-		PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+		//PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
 	}
+	/*
+internal void ProcessAuthentication(SignInStatus status)
+{
 
-	internal void ProcessAuthentication(SignInStatus status)
+	if (status == SignInStatus.Success)
 	{
-		if (status == SignInStatus.Success)
-		{
-			// Continue with Play Games Services
+		// Continue with Play Games Services
 
-			playText.text = PlayGamesPlatform.Instance.GetUserDisplayName();
-			achievemnts.GetComponent<Image>().color = new Color(0.007843138f, 0.2352941f, 0f, 0.8f);
+		playText.text = PlayGamesPlatform.Instance.GetUserDisplayName();
+		achievemnts.GetComponent<Image>().color = new Color(0.007843138f, 0.2352941f, 0f, 0.8f);
 
-			if (ScoreManager.GetSpiderKills() > 0)
-				Social.ReportProgress("CgkIwt3e_8MYEAIQBQ", 100, (bool success) => { });
-			if (ScoreManager.GetSpiderKills() > 99)
-				Social.ReportProgress("CgkIwt3e_8MYEAIQCQ", 100, (bool success) => { });
-			if (ScoreManager.GetBossKills() > 0)
-				Social.ReportProgress("CgkIwt3e_8MYEAIQCA", 100, (bool success) => { });
-			if (ScoreManager.GetOmegaKills() > 0)
-				Social.ReportProgress("CgkIwt3e_8MYEAIQBg", 100, (bool success) => { });
-			if (ScoreManager.GetKozaKills() > 0)
-				Social.ReportProgress("CgkIwt3e_8MYEAIQCg", 100, (bool success) => { });
-		}
-		else
-		{
-			// Disable your integration with Play Games Services or show a login button
-			// to ask users to sign-in. Clicking it should call
-			// PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication).
-		}
+		if (ScoreManager.GetSpiderKills() > 0)
+			Social.ReportProgress("CgkIwt3e_8MYEAIQBQ", 100, (bool success) => { });
+		if (ScoreManager.GetSpiderKills() > 99)
+			Social.ReportProgress("CgkIwt3e_8MYEAIQCQ", 100, (bool success) => { });
+		if (ScoreManager.GetBossKills() > 0)
+			Social.ReportProgress("CgkIwt3e_8MYEAIQCA", 100, (bool success) => { });
+		if (ScoreManager.GetOmegaKills() > 0)
+			Social.ReportProgress("CgkIwt3e_8MYEAIQBg", 100, (bool success) => { });
+		if (ScoreManager.GetKozaKills() > 0)
+			Social.ReportProgress("CgkIwt3e_8MYEAIQCg", 100, (bool success) => { });
 	}
-
+	else
+	{
+		// Disable your integration with Play Games Services or show a login button
+		// to ask users to sign-in. Clicking it should call
+		// PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication).
+	}
+	
+}
+	*/
 	public void ShowAchievemnts()
 	{
+		achievemnts.GetComponent<Image>().color = Color.red;
+		/*
 		if (PlayGamesPlatform.Instance.IsAuthenticated())
 		{
 			PlayGamesPlatform.Instance.ShowAchievementsUI();
@@ -53,7 +57,7 @@ public class PlayHizmetler : MonoBehaviour
 		{
 			achievemnts.GetComponent<Image>().color = Color.red;
 		}
-
+		*/
 	}
 
 }

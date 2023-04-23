@@ -27,7 +27,7 @@ public class HeatRock : MonoBehaviour
 		audioSource = GetComponent<AudioSource>();
 		animator = GetComponent<Animator>();
 		rigidbody2Da = GetComponent<Rigidbody2D>();
-		carController = FindObjectOfType<CarController>();
+		carController = FindAnyObjectByType<CarController>();
 
 		if (audioSource != null)
 			audioSource.Play();

@@ -1,4 +1,3 @@
-using GooglePlayGames;
 using System.Collections;
 using UnityEngine;
 
@@ -33,10 +32,10 @@ public class OmegaController : MonoBehaviour
 	void Start()
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
-		levelManager = FindObjectOfType<LevelManager>();
-		playerController = FindObjectOfType<PlayerController>();
+		levelManager = FindAnyObjectByType<LevelManager>();
+		playerController = FindAnyObjectByType<PlayerController>();
 		rigidbody2Da = GetComponent<Rigidbody2D>();
-		simsekManager = FindObjectOfType<SimsekManager>();
+		simsekManager = FindAnyObjectByType<SimsekManager>();
 		audioSource = GetComponent<AudioSource>();
 		animator = GetComponent<Animator>();
 		spawnpoint = transform.position;

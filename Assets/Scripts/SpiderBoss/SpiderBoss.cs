@@ -32,8 +32,8 @@ public class SpiderBoss : MonoBehaviour
 		rigidbody2Da = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 		audioSource = GetComponent<AudioSource>();
-		levelManager = FindObjectOfType<LevelManager>();
-		bossdeadgateopen = FindObjectOfType<BossDeadGateOpen>();
+		levelManager = FindAnyObjectByType<LevelManager>();
+		bossdeadgateopen = FindAnyObjectByType<BossDeadGateOpen>();
 		if (startWaked)
 			StartCoroutine(wakeee());
 	}

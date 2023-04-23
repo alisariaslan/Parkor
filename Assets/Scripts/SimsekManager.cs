@@ -13,7 +13,7 @@ public class SimsekManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = FindObjectOfType<LevelManager>();
+        levelManager = FindAnyObjectByType<LevelManager>();
         randomInt = firstInt;
         nextUpdate = firstInt;
     }

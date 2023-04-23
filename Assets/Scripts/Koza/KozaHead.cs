@@ -23,7 +23,7 @@ public class KozaHead : MonoBehaviour
         {
             if(collision.transform.name.Equals("PlayerHuman"))
             {
-                PlayerController playerController = FindObjectOfType<PlayerController>();
+                PlayerController playerController = FindAnyObjectByType<PlayerController>();
                 kozaController.Damage(playerController.jumpDamage,"hop");
                 playerController.Bounce();
             } 

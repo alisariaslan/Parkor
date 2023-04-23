@@ -15,33 +15,30 @@ public class UcakController : MonoBehaviour
     private Rigidbody2D rigidbody2Da;
     CameraController cameraController;
     private bool crashed;
-    // Start is called before the first frame update
-    void Start()
-    {
+	private ControllersScript controllersScript;
+	private float horizontal = 0f;
+	private float vertical = 0f;
+	private bool release = false;
 
-        cameraController = FindObjectOfType<CameraController>();
+	void Start()
+    {
+		controllersScript = FindAnyObjectByType<ControllersScript>();
+		cameraController = FindAnyObjectByType<CameraController>();
         audioSource = GetComponent<AudioSource>();
-        levelManager = FindObjectOfType<LevelManager>();
+        levelManager = FindAnyObjectByType<LevelManager>();
         rigidbody2Da = GetComponent<Rigidbody2D>();
     }
-    private float horizontal = 0f;
-    private float vertical = 0f;
-    private bool release = false;
-    // Update is called once per frame
+
     void Update()
     {
         if (!crashed)
         {
-
-
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
-
             if (Input.GetKeyUp(KeyCode.Escape))
             {
-                levelManager.EscapePanel();
+				controllersScript.OpenMenu();
             }
-
             if (Input.touchCount == 1)
             {
                 Touch touch = Input.GetTouch(0);
@@ -83,16 +80,10 @@ public class UcakController : MonoBehaviour
             {
                 if (release)
                 {
-                    levelManager.EscapePanel();
+					controllersScript.OpenMenu();
                     release = false;
                 }
             }
-
-            float delta = Time.deltaTime;
-
-
-
-            //Debug.Log(transform.rotation.z);
             if (vertical > 0)
             {
                 ReleaseBomb();
@@ -101,13 +92,11 @@ public class UcakController : MonoBehaviour
             {
                 if (transform.rotation.z < .5f)
                     transform.Rotate(new Vector3(0, 0, -horizontal / 5));
-
             }
             else if (horizontal > 0)
             {
                 if (transform.rotation.z > -.5f)
                     transform.Rotate(new Vector3(0, 0, -horizontal / 5));
-                
             }
             else
             {
@@ -116,19 +105,11 @@ public class UcakController : MonoBehaviour
                 else if (transform.rotation.z < 0)
                     transform.Rotate(new Vector3(0, 0, .2f));
             }
-
-
-
             rigidbody2Da.velocity = new Vector2(-xSpeed, -transform.localRotation.z * 100);
-
-
             sagP.transform.Rotate(Vector3.forward, xSpeed);
             solP.transform.Rotate(Vector3.forward, xSpeed);
-
-            //print("rotPZ: " + transform.rotation.z + "\nrotLZ: " + transform.localRotation.z + "\nhorizontal: " + horizontal);
         }
     }
-
 
     private void ReleaseBomb()
     {
@@ -156,6 +137,5 @@ public class UcakController : MonoBehaviour
     {
         if (!crashed)
             Crash();
-
     }
 }

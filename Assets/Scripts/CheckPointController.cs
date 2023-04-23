@@ -7,7 +7,7 @@ public class CheckPointController : MonoBehaviour
 
     void Start()
     {
-        levelManager = FindObjectOfType<LevelManager>();
+        levelManager = FindAnyObjectByType<LevelManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     public GameObject resume;
-    private void Start()
+	public GameObject blackScreen;
+    void Start()
     {
         if (PlayerPrefs.GetInt("save") > 0 && resume != null)
             resume.SetActive(true);
@@ -13,12 +14,11 @@ public class MenuScript : MonoBehaviour
 
     private void Blackout(bool isString, string scenename, int index)
     {
-        GameObject panel = GameObject.Find("Panel");
         int waitTimer;
-        if (panel != null)
+        if (blackScreen != null)
         {
             waitTimer = 5;
-            panel.GetComponent<Animator>().Play("Blackout");
+			blackScreen.GetComponent<Animator>().Play("Blackout");
         }
         else
             waitTimer = 0;
@@ -31,7 +31,6 @@ public class MenuScript : MonoBehaviour
             else
                 SceneManager.LoadScene(index, LoadSceneMode.Single);
         }
-
     }
 
     public void NewGame()

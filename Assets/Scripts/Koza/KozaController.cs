@@ -20,7 +20,7 @@ public class KozaController : MonoBehaviour
     public AudioClip damaged;
     private void Start()
     {
-        levelManager = FindObjectOfType<LevelManager>();
+        levelManager = FindAnyObjectByType<LevelManager>();
     }
     private void Update()
     {

@@ -1,9 +1,11 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	[Header("General")]
+	public bool forceMobile = false;
+
 	[Header("Gameobjects")]
 	public GameObject healthbar;
 	public GameObject powerBar;
@@ -94,7 +96,9 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D rigidbody2Da;
 	private AudioSource soundHelper_audioSource;
 	private string activeWeapon = "";
-	private bool release = false;
+	private ControllersScript controllersScript;
+
+	private ControllersButtonScript gotoleftButtonScript, gotorightButtonScript, jumpButtonScript;
 
 	private void Use(bool active)
 	{
@@ -146,7 +150,7 @@ public class PlayerController : MonoBehaviour
 		{
 			if (active)
 			{
-				canvasManager.Sarjor.SetActive(true);
+				canvasManager.Ammo.SetActive(true);
 				if (horizontal > 0 || horizontal < 0)
 				{
 					if (kalanMermi > 0 && once == 0)
@@ -165,7 +169,7 @@ public class PlayerController : MonoBehaviour
 						for (int i = 0; i < gidecekler; i++)
 						{
 							if (kalanMermi < 7)
-								canvasManager.Sarjor.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(false);
+								canvasManager.Ammo.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(false);
 						}
 						once = 1;
 					}
@@ -186,7 +190,7 @@ public class PlayerController : MonoBehaviour
 		kalanMermi = toplamMermi;
 		for (int i = 0; i < 7; i++)
 		{
-			canvasManager.Sarjor.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(true);
+			canvasManager.Ammo.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(true);
 		}
 		soundHelper_audioSource.PlayOneShot(reloadGun, 5f);
 	}
@@ -214,7 +218,7 @@ public class PlayerController : MonoBehaviour
 
 	public void NoItem()
 	{
-		levelManager.EscapePanel(false);
+		//levelManager.EscapePanel(false);
 		activeWeapon = "";
 		jumpEnabled = true;
 		itemEquipped = false;
@@ -231,35 +235,6 @@ public class PlayerController : MonoBehaviour
 			weapon.SetActive(true);
 			activeWeapon = weapon.name;
 			itemEquipped = true;
-		}
-	}
-	void Start()
-	{
-		cameraController = FindObjectOfType<CameraController>();
-		levelManager = FindObjectOfType<LevelManager>();
-		canvasManager = FindObjectOfType<CanvasManager>();
-		rigidbody2Da = GetComponent<Rigidbody2D>();
-		animator = GetComponent<Animator>();
-		soundHelper_audioSource = soundHelper.GetComponent<AudioSource>();
-		if (noLeftAnim)
-			cameraController.facing = 1;
-		if (noRightAnim)
-			cameraController.facing = -1;
-		if (!noLeftAnim && !noRightAnim)
-			cameraController.facing = 1;
-		EnableRun(runEnabled);
-		speedX += 5;
-		isTouchingGround = true;
-
-		StartCoroutine(ExampleCoroutine());
-		IEnumerator ExampleCoroutine()
-		{
-			yield return new WaitForSeconds(1);
-			if (takePistol)
-				ItemSet(pistol);
-
-			if (takeFener)
-				ItemSet(fener);
 		}
 	}
 
@@ -340,6 +315,42 @@ public class PlayerController : MonoBehaviour
 		healthbar.transform.GetChild(0).localScale = new Vector2(health / maxHealth, size.y);
 		healthbar.GetComponent<Animator>().Play("healthbarfade");
 	}
+	void Start()
+	{
+		if (Application.isMobilePlatform || forceMobile)
+		{
+			controllersScript = FindAnyObjectByType<ControllersScript>();
+			gotoleftButtonScript = GameObject.Find("GoToLeft").GetComponentInChildren<ControllersButtonScript>();
+			gotorightButtonScript = GameObject.Find("GoToRight").GetComponentInChildren<ControllersButtonScript>();
+			jumpButtonScript = GameObject.Find("Jump").GetComponentInChildren<ControllersButtonScript>();
+		}
+		cameraController = FindAnyObjectByType<CameraController>();
+		levelManager = FindAnyObjectByType<LevelManager>();
+		canvasManager = FindAnyObjectByType<CanvasManager>();
+		rigidbody2Da = GetComponent<Rigidbody2D>();
+		animator = GetComponent<Animator>();
+		soundHelper_audioSource = soundHelper.GetComponent<AudioSource>();
+		if (noLeftAnim)
+			cameraController.facing = 1;
+		if (noRightAnim)
+			cameraController.facing = -1;
+		if (!noLeftAnim && !noRightAnim)
+			cameraController.facing = 1;
+		EnableRun(runEnabled);
+		speedX += 5;
+		isTouchingGround = true;
+
+		StartCoroutine(ExampleCoroutine());
+		IEnumerator ExampleCoroutine()
+		{
+			yield return new WaitForSeconds(1);
+			if (takePistol)
+				ItemSet(pistol);
+
+			if (takeFener)
+				ItemSet(fener);
+		}
+	}
 
 	void Update()
 	{
@@ -354,53 +365,27 @@ public class PlayerController : MonoBehaviour
 
 			if (Input.GetKeyUp(KeyCode.Escape))
 			{
-				levelManager.EscapePanel();
+				canvasManager.OpenMenu();
 			}
-			if (Input.touchCount == 1)
+			if (Input.GetKeyUp(KeyCode.Tab))
 			{
-				Touch touch = Input.GetTouch(0);
-				if (touch.position.y < Screen.height / 5)
-				{
-					vertical = Input.touches[0].maximumPossiblePressure;
-				}
-				else if (touch.position.y > Screen.height / 1.2f)
-				{
-					release = true;
-				}
-				else if (touch.position.x < Screen.width / 3)
-				{
-					horizontal = Input.touches[0].maximumPossiblePressure * -1;
-				}
-				else if (touch.position.x > Screen.width / 3)
-				{
-					horizontal = Input.touches[0].maximumPossiblePressure;
-				}
+				canvasManager.OpenInventory();
 			}
-			else if (Input.touchCount == 2)
+			if (Input.GetKeyUp(KeyCode.BackQuote))
 			{
-				Touch touch1 = Input.GetTouch(0);
-				Touch touch2 = Input.GetTouch(1);
-				if (touch2.position.y < Screen.height / 5)
-				{
-					vertical = Input.touches[0].maximumPossiblePressure;
-				}
-				if (touch1.position.x < Screen.width / 3)
-				{
-					horizontal = Input.touches[0].maximumPossiblePressure * -1;
-				}
-				else if (touch1.position.x > Screen.width / 3)
-				{
-					horizontal = Input.touches[0].maximumPossiblePressure;
-				}
+				canvasManager.OpenConsole();
 			}
-			else
+
+			if (Application.isMobilePlatform || forceMobile)
 			{
-				if (release)
-				{
-					levelManager.EscapePanel();
-					release = false;
-				}
+				if (gotoleftButtonScript.buttonPressed)
+					horizontal = -1;
+				else if (gotorightButtonScript.buttonPressed)
+					horizontal = 1;
+				if (jumpButtonScript.buttonPressed)
+					Jump();
 			}
+
 			if (rigidbody2Da.velocity.y < -5f)
 			{
 				audioSource.Stop();
@@ -431,12 +416,10 @@ public class PlayerController : MonoBehaviour
 				if (!audioSource.isPlaying & isTouchingGround && !ladder)
 				{
 					AudioPlay(walkSound, WalkSoundVolume, true);
-
 				}
 				if (noRightAnim)
 				{
 					animator.SetInteger("facing", -1);
-
 				}
 				else
 				{
@@ -452,7 +435,6 @@ public class PlayerController : MonoBehaviour
 				if (!audioSource.isPlaying & isTouchingGround && !ladder)
 				{
 					AudioPlay(walkSound, WalkSoundVolume, true);
-
 				}
 				if (noLeftAnim)
 				{
@@ -511,9 +493,9 @@ public class PlayerController : MonoBehaviour
 				}
 			}
 
-			animator.SetFloat("speed", Mathf.Abs(rigidbody2Da.velocity.x));
+			animator.SetFloat("speed", Mathf.Abs(horizontal));
 			animator.SetBool("ongroun", isTouchingGround);
-			animator.SetFloat("jumpSpeed", rigidbody2Da.velocity.y);
+			animator.SetFloat("jumpSpeed", Mathf.Abs(rigidbody2Da.velocity.y));
 		}
 		else
 		{
@@ -653,7 +635,7 @@ public class PlayerController : MonoBehaviour
 				HeatRock rock = collision.transform.GetComponent<HeatRock>();
 				if (rock.deadly)
 					Dead();
-			} 
+			}
 		}
 	}
 

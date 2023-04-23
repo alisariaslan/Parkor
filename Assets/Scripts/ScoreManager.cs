@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using GooglePlayGames;
+//using GooglePlayGames;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -47,18 +47,18 @@ public class ScoreManager : MonoBehaviour
 	{
 		string staticsString = "";
 
-		staticsString += "Oldurulen Orumcekler: " + spiderKills + "\n\n";
-		staticsString += "Oldurulen Orumcekcikler: " + spiderLingKills + "\n\n";
-		staticsString += "Oldurulen Omegalar: " + omegaKills + "\n\n";
-		staticsString += "Oldurulen Devasalar: " + bossKills + "\n\n";
-		staticsString += "Oldurulen Flyerlar: " + flyerKills + "\n\n";
-		staticsString += "Oldurulen Casperlar: " + casperKills + "\n\n";
-		staticsString += "Oldurulen Solucanlar: " + wormKills + "\n\n";
-		staticsString += "Kacirilan Mermiler: " + bulletMissShots + "\n\n";
-		staticsString += "Kafadan Vuruslar: " + bulletHeadShots + "\n\n";
-		staticsString += "Vucuttan Vuruslar: " + bulletBodyShots + "\n\n";
-		staticsString += "Ziplayarak Oldurulenler: " + jumpKills + "\n\n";
-		staticsString += "Patlatilan Kozalar: " + kozaKills + "\n\n";
+		staticsString += "ÖLDÜRÜLEN ÖRÜMCEKLER: " + spiderKills + "\n\n";
+		staticsString += "ÖLDÜRÜLEN ÖRÜMCEKCİKLER: " + spiderLingKills + "\n\n";
+		staticsString += "ÖLDÜRÜLEN OMEGALAR: " + omegaKills + "\n\n";
+		staticsString += "ÖLDÜRÜLEN DEVASALAR: " + bossKills + "\n\n";
+		staticsString += "ÖLDÜRÜLEN FLYER: " + flyerKills + "\n\n";
+		staticsString += "ÖLDÜRÜLEN CASPER: " + casperKills + "\n\n";
+		staticsString += "ÖLDÜRÜLEN SOLUCANLAR: " + wormKills + "\n\n";
+		staticsString += "KAÇIRILAN MERMİLER: " + bulletMissShots + "\n\n";
+		staticsString += "KAFADAN VURUŞLAR: " + bulletHeadShots + "\n\n";
+		staticsString += "VÜCUTTAN VURUŞLAR: " + bulletBodyShots + "\n\n";
+		staticsString += "ZIPLAYARAK ÖLDÜRÜLENLER: " + jumpKills + "\n\n";
+		staticsString += "PATLATILAN KOZALAR: " + kozaKills + "\n\n";
 		text.text = staticsString;
 	}
 
@@ -167,6 +167,7 @@ public class ScoreManager : MonoBehaviour
 
 	public static void ReportScoreType(scoreType type)
 	{
+		/*
 		if (PlayGamesPlatform.Instance.IsAuthenticated())
 		{
 			switch (type)
@@ -186,10 +187,12 @@ public class ScoreManager : MonoBehaviour
 
 			}
 		}
+		*/
 	}
 
 	private static void CheckSocialProgress()
 	{
+		/*
 		if (PlayGamesPlatform.Instance.IsAuthenticated())
 		{
 			if (spiderKills > 0)
@@ -210,6 +213,7 @@ public class ScoreManager : MonoBehaviour
 				Social.ReportProgress("CgkIwt3e_8MYEAIQCg", 100, (bool success) => { });
 
 		}
+		*/
 	}
 
 	public static int GetSpiderKills()

@@ -45,7 +45,7 @@ public class WormController : MonoBehaviour
         f = back4.transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
-        levelManager = FindObjectOfType<LevelManager>();
+        levelManager = FindAnyObjectByType<LevelManager>();
     }
     int yon = 1;
     int seriYon;

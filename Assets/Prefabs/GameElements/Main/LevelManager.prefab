@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5921285812225591101}
   m_RootOrder: 0
@@ -155,6 +156,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1297753054}
   m_Father: {fileID: 0}
@@ -172,17 +174,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19340b6f75e1aa4293e4c698d42b7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forceMobile: 0
   scoreEnabled: 0
-  score: 0
+  startScore: 0
   storyAsset: {fileID: 4900000, guid: 8cdcbe39946cc8d408782385004f3eab, type: 3}
-  storyText: 1
   storyNo: 0
-  allStory: 1
-  logScreen: 0
-  panelActive: 1
-  tutorialEnabled: 1
+  pcText: "KONTROLLER:\n\nW, A, S, D: Karakteri kontrol eder.\nSpace: Karakteri z\u0131plat\u0131r.\nESC:
+    Men\xFCy\xFC a\xE7ar.\nTab: Envanteri a\xE7ar."
   gotCheckpoint: 0
-  enablePlayerController: 1
   anonimController: 0
   whoosh: {fileID: 8300000, guid: 2357abe69eff10745851ce9c029287d9, type: 3}
   spawnpoint: {x: 0, y: 0}

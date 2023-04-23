@@ -23,8 +23,8 @@ public class SpiderBossSting : MonoBehaviour
 	{
 		audioSource = GetComponent<AudioSource>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
-		playerController = FindObjectOfType<PlayerController>();
-		levelManager = FindObjectOfType<LevelManager>();
+		playerController = FindAnyObjectByType<PlayerController>();
+		levelManager = FindAnyObjectByType<LevelManager>();
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)

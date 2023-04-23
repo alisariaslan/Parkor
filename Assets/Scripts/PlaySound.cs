@@ -9,7 +9,7 @@ public class PlaySound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = FindObjectOfType<LevelManager>();
+        levelManager = FindAnyObjectByType<LevelManager>();
     }
 
     // Update is called once per frame

@@ -16,8 +16,8 @@ public class SpiderLegs : MonoBehaviour
     void Start()
     {
         hasar = GetComponent<Hasar>();
-        playerController = FindObjectOfType<PlayerController>();
-        carController = FindObjectOfType<CarController>();
+        playerController = FindAnyObjectByType<PlayerController>();
+        carController = FindAnyObjectByType<CarController>();
 
         rigidbody2DParent = GetComponentInParent<Rigidbody2D>();
         spiderController = GetComponentInParent<SpiderController>();

@@ -16,7 +16,7 @@ public class TriggerMessage : MonoBehaviour
     {
         if (useLevelManagerSound)
             noSound = true;
-        levelManager = FindObjectOfType<LevelManager>();
+        levelManager = FindAnyObjectByType<LevelManager>();
         audioSource = GetComponent<AudioSource>();
 
     }

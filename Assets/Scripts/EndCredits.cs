@@ -12,8 +12,7 @@ public class EndCredits : MonoBehaviour
     {
         text = GetComponent<Text>();
         text.text = textAsset.text;
-        canvasManager = FindObjectOfType<CanvasManager>();
-        canvasManager.Ilistir(false, false, true, false, false);
+        canvasManager = FindAnyObjectByType<CanvasManager>();
         canvasManager.Aydinlat();
     }
 

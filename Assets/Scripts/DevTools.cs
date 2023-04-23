@@ -1,40 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DevTools : MonoBehaviour
 {
-	public static bool devmod = false;
-
-	public GameObject inputObject;
+	public InputField input;
 
 	private CarController carController;
 	private PlayerController playerController;
 	private GameObject player;
-	private InputField input;
 	private SwitchItem switchItem;
-	// Start is called before the first frame update
+
 	void Start()
 	{
-		carController = FindObjectOfType<CarController>();
-		switchItem = FindObjectOfType<SwitchItem>();
-		input = inputObject.GetComponent<InputField>();
-		playerController = FindObjectOfType<PlayerController>();
+		carController = FindAnyObjectByType<CarController>();
+		switchItem = FindAnyObjectByType<SwitchItem>();
+		playerController = FindAnyObjectByType<PlayerController>();
 		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
-	// Update is called once per frame
 	public void InitCommand()
 	{
-		Veritabani veritabani = FindObjectOfType<Veritabani>();
+		Veritabani veritabani = FindAnyObjectByType<Veritabani>();
 
 		int acikBolumler = PlayerPrefs.GetInt("acikBolumler");
 		switch (input.text)
 		{
 			case "yardim":
-				LevelManager levelManager = FindObjectOfType<LevelManager>();
+				LevelManager levelManager = FindAnyObjectByType<LevelManager>();
 				if (levelManager != null)
 				{
 					levelManager.Say("yardim,doldur,tasi,isinlan,sona isinlan,silah sil,silah ekle,kapat,kayit sil,kayit ac,canver,bolum ac,bolum kilitle,bolumleri ac,bolumleri kilitle,basar", 0.5f, false);
@@ -49,7 +42,7 @@ public class DevTools : MonoBehaviour
 					input.text = "doldur komutu sadece oyun icinde calisir.";
 				break;
 			case "tasi":
-				FlyerBossHelperController flyerBossHelperController = FindObjectOfType<FlyerBossHelperController>();
+				FlyerBossHelperController flyerBossHelperController = FindAnyObjectByType<FlyerBossHelperController>();
 				if (flyerBossHelperController != null)
 				{
 					player.transform.position = flyerBossHelperController.transform.position;
@@ -57,7 +50,6 @@ public class DevTools : MonoBehaviour
 				}
 				else
 					input.text = "helper bulunamadi!";
-
 				break;
 			case "isinlan":
 				GameObject checkpoint = GameObject.Find("Checkpoint");
@@ -68,7 +60,6 @@ public class DevTools : MonoBehaviour
 					player.transform.position = checkpoint.transform.position;
 					input.text = "Noktaya isinlanildi.";
 				}
-
 				break;
 			case "sona isinlan":
 				GameObject endpoint = GameObject.Find("Endpoint");
@@ -79,7 +70,6 @@ public class DevTools : MonoBehaviour
 					player.transform.position = endpoint.transform.position;
 					input.text = "Sona isinlanildi.";
 				}
-
 				break;
 			case "silah sil":
 				PlayerPrefs.SetInt("Envanter", 0);
@@ -92,7 +82,6 @@ public class DevTools : MonoBehaviour
 				if (envanter < 3)
 					envanter++;
 				PlayerPrefs.SetInt("Envanter", envanter);
-				//print("env:" + envanter);
 				if (switchItem != null)
 					switchItem.CheckEnvanter();
 				input.text = "Silah verildi.";
@@ -127,8 +116,6 @@ public class DevTools : MonoBehaviour
 						input.text = "Hata! PlayerCar veya PlayerHuman bulunamadi.";
 					}
 				}
-
-
 				break;
 			case "bolum ac":
 				if (veritabani != null)
@@ -150,20 +137,15 @@ public class DevTools : MonoBehaviour
 					input.text = veritabani.BolumleriKapa();
 				else goto default;
 				break;
-
 			case "basar":
 				Social.ReportProgress("CgkIwt3e_8MYEAIQCg", 100.0f, (bool success) =>
 				{
 					input.text = success.ToString();
 				});
 				break;
-
 			default:
 				input.text = "Geçersiz komut!";
 				break;
 		}
-
 	}
-
-
 }

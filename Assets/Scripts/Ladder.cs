@@ -7,7 +7,7 @@ public class Ladder : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<PlayerController>();
+        player = FindAnyObjectByType<PlayerController>();
 
     }
 

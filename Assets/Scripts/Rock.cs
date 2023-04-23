@@ -65,7 +65,7 @@ public class Rock : MonoBehaviour
                 //Debug.Log("Bom!");
                 if (!audioSource.isPlaying)
                     audioSource.Play();
-                CarController carController = FindObjectOfType<CarController>();
+                CarController carController = FindAnyObjectByType<CarController>();
                 if (carController.carHealth > 0)
 
                     carController.Damage(10);

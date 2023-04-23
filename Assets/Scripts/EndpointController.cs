@@ -20,12 +20,12 @@ public class EndpointController : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        levelManager = FindObjectOfType<LevelManager>();
+        levelManager = FindAnyObjectByType<LevelManager>();
 
-        print("This Scene Index: " + SceneManager.GetActiveScene().buildIndex);
-        print("Next Scene Index: " + (SceneManager.GetActiveScene().buildIndex + 1));
-        print("DB Save: " + PlayerPrefs.GetInt("save", 0));
-        print("Opened Scenes: " + PlayerPrefs.GetInt("acikBolumler", 0));
+        //print("This Scene Index: " + SceneManager.GetActiveScene().buildIndex);
+        //print("Next Scene Index: " + (SceneManager.GetActiveScene().buildIndex + 1));
+        //print("Save: " + PlayerPrefs.GetInt("save", 0));
+        //print("Opened Scenes: " + PlayerPrefs.GetInt("acikBolumler", 0));
     }
 
     // Update is called once per frame
@@ -54,11 +54,12 @@ public class EndpointController : MonoBehaviour
         //11 save
         //10 acik
 
+        /*
         print("ThisIndex: " + SceneManager.GetActiveScene().buildIndex);
         print("NextIndex: " + (SceneManager.GetActiveScene().buildIndex + 1));
         print("save: " + PlayerPrefs.GetInt("save", 0));
         print("acikBolumler: " + PlayerPrefs.GetInt("acikBolumler", 0));
-
+        */
         if (araSahne)
         levelManager.NextLevel("AraSahne");
         else

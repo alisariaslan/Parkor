@@ -96,8 +96,8 @@ public class WormBossController : MonoBehaviour
 		sp4 = back2.transform.position;
 		sp5 = back3.transform.position;
 		sp6 = back4.transform.position;
-		levelManager = FindObjectOfType<LevelManager>();
-		playerController = FindObjectOfType<PlayerController>();
+		levelManager = FindAnyObjectByType<LevelManager>();
+		playerController = FindAnyObjectByType<PlayerController>();
 		audioSource = GetComponent<AudioSource>();
 		rigid_head = head.GetComponent<Rigidbody2D>();
 		rigid_back = back.GetComponent<Rigidbody2D>();

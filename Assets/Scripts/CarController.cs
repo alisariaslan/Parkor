@@ -3,10 +3,6 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-
-	public int regenValue = 10;
-	public int regenRateSeconds = 10;
-
 	[Header("Car Status")]
 	public bool frozen;
 	public bool regenable;
@@ -18,6 +14,8 @@ public class CarController : MonoBehaviour
 	[Header("Car Health Settings")]
 	public float maxHealth = 100;
 	public float carHealth = 100;
+	public int regenValue = 10;
+	public int regenRateSeconds = 10;
 
 	[Header("Far Energy Settings")]
 	public float maxEnergy = 100;
@@ -50,9 +48,11 @@ public class CarController : MonoBehaviour
 	private float vertical = 0f;
 	private int a, f;
 	private JointMotor2D JointMotor;
-	private LevelManager levelManager;
 	private bool release = false;
 	private int nextUpdate = 1;
+	private bool forceMobile = false;
+	private LevelManager levelManager;
+	private CanvasManager canvasManager;
 
 	public void Heal(float giveHealth)
 	{
@@ -128,7 +128,11 @@ public class CarController : MonoBehaviour
 
 	void Start()
 	{
-		levelManager = FindObjectOfType<LevelManager>();
+		levelManager = FindAnyObjectByType<LevelManager>();
+		canvasManager = FindAnyObjectByType<CanvasManager>();
+		forceMobile = levelManager.forceMobile;
+
+		levelManager = FindAnyObjectByType<LevelManager>();
 		myRigidBody2d = GetComponent<Rigidbody2D>();
 		engineGameObject = GameObject.Find("Engine");
 		engineSource = engineGameObject.GetComponent<AudioSource>();
@@ -183,8 +187,7 @@ public class CarController : MonoBehaviour
 
 			if (Input.GetKeyUp(KeyCode.Escape))
 			{
-				levelManager.EscapePanel();
-
+				canvasManager.OpenMenu();
 			}
 			if (Input.touchCount == 1)
 			{
@@ -227,7 +230,7 @@ public class CarController : MonoBehaviour
 			{
 				if (release)
 				{
-					levelManager.EscapePanel();
+					canvasManager.OpenMenu();
 					release = false;
 				}
 			}

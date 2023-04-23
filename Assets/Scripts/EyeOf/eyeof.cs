@@ -13,7 +13,7 @@ public class eyeof : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = FindObjectOfType<LevelManager>();
+        levelManager = FindAnyObjectByType<LevelManager>();
         animator = GetComponent<Animator>();
    
         leftEyeBody = leftEye.GetComponent<Rigidbody2D>();

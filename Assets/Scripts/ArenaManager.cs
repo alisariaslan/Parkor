@@ -72,7 +72,7 @@ public class ArenaManager : MonoBehaviour
 	IEnumerator Exit()
 	{
 		yield return new WaitForSeconds(waitBeforeExit);
-		MenuScript menuScript = FindObjectOfType<MenuScript>();
+		MenuScript menuScript = FindAnyObjectByType<MenuScript>();
 		menuScript.StartGame("Menu");
 	}
 

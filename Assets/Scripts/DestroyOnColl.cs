@@ -102,7 +102,7 @@ public class DestroyOnColl : MonoBehaviour
             Eliminate(collision);
         if (collision.transform.CompareTag("Car"))
         {
-            carController = FindObjectOfType<CarController>();
+            carController = FindAnyObjectByType<CarController>();
             carController.BounceBack();
         }
 

@@ -23,7 +23,7 @@ public class SpiderHead : MonoBehaviour
     {
         animator = GetComponentInParent<Animator>();
         spiderController = GetComponentInParent<SpiderController>();
-        player = FindObjectOfType<PlayerController>();
+        player = FindAnyObjectByType<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

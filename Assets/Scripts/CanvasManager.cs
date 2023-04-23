@@ -1,121 +1,132 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
-    public GameObject Tutorial;
-    public GameObject StoryText, Log;
-    public GameObject Pause;
-    public GameObject DevTools;
-    public GameObject Panel;
-    public GameObject Sarjor;
+	[Header("Panels")]
+	public GameObject MobileControllers;
+	public GameObject PcControllers;
+	public GameObject menuPanel;
+	public GameObject inventoryPanel;
+	public GameObject consolePanel;
+	public GameObject DevTools;
+	public GameObject BlackPanel;
+	public GameObject StoryText;
+	public GameObject Log;
+	public GameObject Ammo;
+	
+	private LevelManager levelManager;
+	private bool devmode = false;
+	private bool forceMobile = false;
 
+	void Start()
+	{
+		levelManager = FindAnyObjectByType<LevelManager>();
+		forceMobile = levelManager.forceMobile;
 
-    private bool storyAll;
-    private bool tutorialPanel;
-    private bool blackPanel;
-    private bool pausePanel;
-    private bool log;
+		if (PlayerPrefs.GetInt("devtools") == 0)
+			devmode = false;
+		else
+			devmode = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (PlayerPrefs.GetInt("devtools") == 0)
-            DevTools.SetActive(false);
+		DevTools.SetActive(devmode);
+		StoryText.SetActive(levelManager.storyTexts);
+		BlackPanel.SetActive(levelManager.blackPanel);
+		Log.SetActive(levelManager.logs);
 
-    }
-    public void Tanitim()
-    {
-        StartCoroutine(ExampleCoroutine());
-        IEnumerator ExampleCoroutine()
-        {
-            if (blackPanel)
-                Aydinlat();
-            if (tutorialPanel)
-                Tutorial.GetComponent<Animator>().Play("tutorial");
-            yield return new WaitForSeconds(5);
-            if (storyAll)
-                StoryText.GetComponent<Animator>().Play("textAppear");
-        }
-    }
-    public void SetStoryText(TextAsset textAsset, int storyNo)
-    {
-        StoryText.GetComponent<Text>().text = Dialogs.Text(storyNo, textAsset) + "\n\n" + Dialogs.Text(storyNo + 1, textAsset);
+		if (Application.isMobilePlatform || forceMobile)
+		{
+			MobileControllers.SetActive(levelManager.controllers);
+		}
+		else
+		{
+			PcControllers.SetActive(levelManager.controllers);
+		}
+	}
 
-    }
-    public void Ilistir(bool storyAll, bool tutorialPanel, bool blackPanel, bool pausePanel, bool log)
-    {
+	public void PlaySay(string text, float normalizedTime)
+	{
+		if (levelManager.storyTexts)
+		{
+			StoryText.GetComponent<Text>().text = text;
+			StoryText.GetComponent<Animator>().Play("textAppear", 0, normalizedTime);
+		}
+	}
 
-        this.storyAll = storyAll;
-        this.tutorialPanel = tutorialPanel;
-        this.blackPanel = blackPanel;
-        this.pausePanel = pausePanel;
-        this.log = log;
-        SetActives();
+	public void StartGame()
+	{
+		if (levelManager.blackPanel)
+			Aydinlat();
+		StartCoroutine(ExampleCoroutine());
+		IEnumerator ExampleCoroutine()
+		{
+			yield return new WaitForSeconds(5);
+			if (levelManager.storyTexts)
+				StoryText.GetComponent<Animator>().Play("textAppear");
+		}
+	}
 
-    }
+	public void SetStoryText(TextAsset textAsset, int storyNo)
+	{
+		StoryText.GetComponent<Text>().text = Dialogs.Text(storyNo, textAsset) + "\n\n" + Dialogs.Text(storyNo + 1, textAsset);
+	}
 
-    public void SetActives()
-    {
-        Panel.SetActive(blackPanel);
-        Tutorial.SetActive(tutorialPanel);
-        StoryText.SetActive(storyAll);
+	public void SetLogText(string logString)
+	{
+		if (levelManager.logs)
+			Log.GetComponent<Text>().text = logString;
+	}
 
-    }
-    public void SetLog(string logString)
-    {
-        if (log)
-            Log.GetComponent<Text>().text = logString;
-    }
-    public void PlaySay(string text, float normalizedTime)
-    {
-        if (storyAll)
-        {
-            StoryText.GetComponent<Text>().text = text;
-            StoryText.GetComponent<Animator>().Play("textAppear", 0, normalizedTime);
-        }
+	public void Aydinlat()
+	{
+		if (levelManager.blackPanel)
+			BlackPanel.GetComponent<Animator>().Play("Brighten");
+	}
 
-    }
-    public void PausePanel()
-    {
-        if (pausePanel)
-        {
-            if (!Pause.activeSelf)
-            {
-                Pause.SetActive(true);
-                FindObjectOfType<SwitchItem>().CheckEnvanter();
-            }
+	public void Karart()
+	{
+		if (levelManager.blackPanel)
+			BlackPanel.GetComponent<Animator>().Play("Blackout");
+	}
 
-            else Pause.SetActive(false);
-        }
+	public void OpenMenu()
+	{
+		if (menuPanel.activeSelf)
+		{
+			menuPanel.SetActive(false);
+		}
+		else
+		{
+			menuPanel.SetActive(true);
+		}
+	}
 
-    }
+	public void OpenInventory()
+	{
+		if (inventoryPanel.activeSelf)
+		{
+			inventoryPanel.SetActive(false);
+		}
+		else
+		{
+			inventoryPanel.SetActive(true);
+		}
+	}
 
-    public void PausePanel(bool state)
-    {
-        if (pausePanel)
-        {
-            Pause.SetActive(state);
-            if (state)
-                FindObjectOfType<SwitchItem>().CheckEnvanter();
-
-        }
-
-    }
-
-    public void Aydinlat()
-    {
-        if (blackPanel)
-            Panel.GetComponent<Animator>().Play("Brighten");
-    }
-
-    public void Karart()
-    {
-        if (blackPanel)
-            Panel.GetComponent<Animator>().Play("Blackout");
-    }
-
-
+	public void OpenConsole()
+	{
+		if(devmode)
+		{
+			if (consolePanel.activeSelf)
+			{
+				consolePanel.SetActive(false);
+			}
+			else
+			{
+				consolePanel.SetActive(true);
+			}
+		}
+		
+	}
 }

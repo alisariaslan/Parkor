@@ -21,7 +21,7 @@ public class PlayEvent : MonoBehaviour
         {
             if (CarryNow)
             {
-                FlyerBossHelperController flyerBossHelperController = FindObjectOfType<FlyerBossHelperController>();
+                FlyerBossHelperController flyerBossHelperController = FindAnyObjectByType<FlyerBossHelperController>();
                 flyerBossHelperController.CarryNow();
             }
         }

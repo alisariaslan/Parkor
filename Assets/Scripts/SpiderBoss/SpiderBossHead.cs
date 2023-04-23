@@ -12,7 +12,7 @@ public class SpiderBossHead : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        playerController = FindObjectOfType<PlayerController>();
+        playerController = FindAnyObjectByType<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

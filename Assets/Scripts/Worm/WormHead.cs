@@ -12,7 +12,7 @@ public class WormHead : MonoBehaviour
     void Start()
     {
         wormController = GetComponentInParent<WormController>();
-        playerController = FindObjectOfType<PlayerController>();
+        playerController = FindAnyObjectByType<PlayerController>();
     }
 
   

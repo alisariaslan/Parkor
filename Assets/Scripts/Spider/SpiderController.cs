@@ -32,7 +32,7 @@ public class SpiderController : MonoBehaviour
 		h = GetComponent<Hasar>();
 
 		spawnpoint = transform.position;
-		levelManager = FindObjectOfType<LevelManager>();
+		levelManager = FindAnyObjectByType<LevelManager>();
 		animator = GetComponent<Animator>();
 		rigidbody2Da = GetComponent<Rigidbody2D>();
 		audioSource = GetComponent<AudioSource>();

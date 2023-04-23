@@ -1,74 +1,63 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SwitchItem : MonoBehaviour
 {
-    public Button slot1, slot2, slot3;
+	public List<Button> buttonList;
+	private PlayerController playerController;
 
-    private PlayerController playerController;
+	void Start()
+	{
+		playerController = FindAnyObjectByType<PlayerController>();
+		if (playerController != null)
+			CheckEnvanter();
+		else
+			ResetInventoryDiagram();
+	}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerController = FindObjectOfType<PlayerController>();
-        if (playerController != null)
-            CheckEnvanter();
-        else
-        {
-            slot1.interactable = false;
-            slot2.interactable = false;
-            slot3.interactable = false;
-        }
-    }
+	public void ResetInventoryDiagram()
+	{
+		foreach (Button button in buttonList)
+		{
+			if (button == buttonList[0])
+				continue;
+			button.interactable = false;
+			button.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+		}
+	}
 
+	public void CheckEnvanter()
+	{
+		ResetInventoryDiagram();
+		int IsPlayerHasLight = PlayerPrefs.GetInt("light", 0);
+		int IsPlayerHasPistol = PlayerPrefs.GetInt("pistol", 0);
+		if (IsPlayerHasLight == 1)
+		{
+			buttonList[1].interactable = true;
+			buttonList[1].gameObject.transform.GetChild(0).gameObject.SetActive(true);
+		}
+		if (IsPlayerHasPistol == 1)
+		{
+			buttonList[2].interactable = true;
+			buttonList[2].gameObject.transform.GetChild(0).gameObject.SetActive(true);
+		}
+	}
 
-
-    // Update is called once per frame
-    public void CheckEnvanter()
-    {
-
-        int envanter = PlayerPrefs.GetInt("Envanter", 0);
-        //print("env:" + envanter);
-        if (envanter == 0)
-        {
-            slot2.interactable = false;
-            slot2.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            slot3.interactable = false;
-            slot3.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        }
-        else if (envanter == 1)
-        {
-            slot2.interactable = true;
-            slot2.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-            slot3.interactable = false;
-            slot3.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        }
-        else if (envanter == 2)
-        {
-            slot2.interactable = true;
-            slot2.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-            slot3.interactable = true;
-            slot3.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-        }
-    }
-
-    public void Switch(int itemNo)
-    {
-        FindObjectOfType<CanvasManager>().Sarjor.SetActive(false);
-        switch (itemNo)
-        {
-            case 0:
-                playerController.NoItem();
-                break;
-            case 1:
-                playerController.ItemSet(playerController.fener);
-                break;
-            case 2:
-               
-                    playerController.ItemSet(playerController.pistol);
-                break;
-        }
-    }
+	public void Switch(int itemNo)
+	{
+		FindAnyObjectByType<CanvasManager>().Ammo.SetActive(false);
+		switch (itemNo)
+		{
+			case 0:
+				playerController.NoItem();
+				break;
+			case 1:
+				playerController.ItemSet(playerController.fener);
+				break;
+			case 2:
+				playerController.ItemSet(playerController.pistol);
+				break;
+		}
+	}
 }

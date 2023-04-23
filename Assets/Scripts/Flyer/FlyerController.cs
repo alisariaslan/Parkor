@@ -34,7 +34,7 @@ public class FlyerController : MonoBehaviour
 	void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
-		levelManager = FindObjectOfType<LevelManager>();
+		levelManager = FindAnyObjectByType<LevelManager>();
 		audioSource = GetComponent<AudioSource>();
 		rigidbody2Da = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();

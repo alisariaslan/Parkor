@@ -14,8 +14,8 @@ public class UcakAnimController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cameraController = FindObjectOfType<CameraController>();
-        player = FindObjectOfType<PlayerController>();
+        cameraController = FindAnyObjectByType<CameraController>();
+        player = FindAnyObjectByType<PlayerController>();
         audioSource = GetComponent<AudioSource>();
     }
 

@@ -3,8 +3,121 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using GoogleMobileAds.Api;
+
 using System;
+public class AraSahne : MonoBehaviour
+{
+	public AudioSource audioSource;
+	public AudioClip typing;
+
+	public bool test;
+	public string adUnitId;
+	public TextAsset textAsset;
+	public GameObject devamText;
+	public bool ready;
+
+	private Text text1;
+
+	private bool devam;
+	private int save = 0;
+
+	private void Update()
+	{
+		LevelManager.inGameTimer += Time.deltaTime;
+		//print("timer: " + LevelManager.inGameTimer);
+	}
+
+	void Start()
+	{
+		if (test)
+		{
+			adUnitId = "ca-app-pub-3940256099942544/1033173712";
+			LevelManager.inGameTimer = 105;
+		}
+
+		GameObject panel = GameObject.Find("Panel");
+		if (panel != null)
+			panel.GetComponent<Animator>().Play("Brighten");
+		text1 = GameObject.Find("Text").GetComponent<Text>();
+		int begin = PlayerPrefs.GetInt("save", 0);
+		if (begin > 1)
+			begin--;
+		//print("begin: " + begin);
+
+		begin = (begin * 10) - 10;
+		int end = begin + 9;
+		string assetString = textAsset.text;
+
+		char[] chars = assetString.ToCharArray();
+		int space = 0;
+		StartCoroutine(co());
+		IEnumerator co()
+		{
+			yield return new WaitForSeconds(3f);
+			devam = true;
+			foreach (char c in chars)
+			{
+				if (c.Equals('\n'))
+					space++;
+				if (space >= begin - 1 && space < end)
+				{
+					if (begin < end)
+					{
+						yield return new WaitForSeconds(.05f);
+						text1.text += c;
+						if (char.IsLetter(c))
+							audioSource.PlayOneShot(typing);
+						if (!devam)
+						{
+
+							Pass();
+							yield break;
+						}
+
+					}
+				}
+
+			}
+			Pass();
+		}
+	}
+
+	// Update is called once per frame
+	public void SeriYaz()
+	{
+		devam = false;
+		if (ready)
+		{
+			devamText.GetComponent<Text>().text = "Devam ediliyor...";
+			GameObject panel = GameObject.Find("Panel");
+			if (panel != null)
+				panel.GetComponent<Animator>().Play("Blackout");
+			StartCoroutine(co());
+			IEnumerator co()
+			{
+				yield return new WaitForSeconds(5f);
+				save = PlayerPrefs.GetInt("save", 0);
+				save += 1;
+				if (save == 2)
+					save++;
+				//print("save:" + save);
+
+				SceneManager.LoadScene(save);
+
+			}
+		}
+	}
+	public void Pass()
+	{
+		devamText.SetActive(true);
+		ready = true;
+	}
+}
+
+
+
+/*
+using GoogleMobileAds.Api;
 public class AraSahne : MonoBehaviour
 {
     public AudioSource audioSource;
@@ -195,6 +308,5 @@ public class AraSahne : MonoBehaviour
         devamText.SetActive(true);
         ready = true;
     }
-
-
 }
+*/
