@@ -3,695 +3,686 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	[Header("General")]
-	public bool forceMobile = false;
+    [Header("Gameobjects")]
+    public GameObject healthbar;
+    public GameObject powerBar;
+    public GameObject soundHelper;
+    public GameObject blood;
+    public GameObject fener;
+    public GameObject isik;
+    public GameObject pistol;
+    public GameObject bullet;
 
-	[Header("Gameobjects")]
-	public GameObject healthbar;
-	public GameObject powerBar;
-	public GameObject soundHelper;
-	public GameObject blood;
-	public GameObject fener;
-	public GameObject isik;
-	public GameObject pistol;
-	public GameObject bullet;
+    [Header("Ground Settings")]
+    public Transform groundCheckPoint;
+    public float groundCheckRadius;
+    public LayerMask groundLayer;
+    public LayerMask groundLayer2;
 
-	[Header("Ground Settings")]
-	public Transform groundCheckPoint;
-	public float groundCheckRadius;
-	public LayerMask groundLayer;
-	public LayerMask groundLayer2;
+    [Header("Sound Sources")]
+    public AudioSource audioSource;
+    public AudioClip jumpSound;
+    public AudioClip climbingStairsSound;
+    public AudioClip gettingHitSound;
+    public AudioClip deadSound;
+    public AudioClip emptyGun;
+    public AudioClip reloadGun;
+    public AudioClip walkSound;
+    public AudioClip concreteWalkSound;
+    public AudioClip grassWalkSound;
+    public AudioClip mudWalkSoundSound;
+    public AudioClip woolWalkSound;
+    public AudioClip woodWalkSound;
+    public AudioClip woodStairsWalkSound;
+    public AudioClip takeSound;
 
-	[Header("Sound Sources")]
-	public AudioSource audioSource;
-	public AudioClip jumpSound;
-	public AudioClip climbingStairsSound;
-	public AudioClip gettingHitSound;
-	public AudioClip deadSound;
-	public AudioClip emptyGun;
-	public AudioClip reloadGun;
-	public AudioClip walkSound;
-	public AudioClip concreteWalkSound;
-	public AudioClip grassWalkSound;
-	public AudioClip mudWalkSoundSound;
-	public AudioClip woolWalkSound;
-	public AudioClip woodWalkSound;
-	public AudioClip woodStairsWalkSound;
-	public AudioClip takeSound;
+    [Header("Sound Levels")]
+    public float WalkSoundVolume;
+    public float JumpSoundVolume;
 
-	[Header("Sound Levels")]
-	public float WalkSoundVolume;
-	public float JumpSoundVolume;
+    [Header("Player Stats (These are controlled by the PlayerController script!)")]
+    public bool moveable = false;
+    public bool jumpable = false;
+    public bool isTouchingGround = false;
+    public bool itemEquipped = false;
+    public bool jumping = false;
+    public bool moving = false;
+    public bool falling = false;
+    public bool pause = false;
+    public bool dead = false;
+    public bool ladder = false;
+    public bool inReplace = false;
 
-	[Header("Player Stats (These are controlled by the PlayerController script!)")]
-	public bool moveable = false;
-	public bool jumpable = false;
-	public bool isTouchingGround = false;
-	public bool itemEquipped = false;
-	public bool jumping = false;
-	public bool moving = false;
-	public bool falling = false;
-	public bool pause = false;
-	public bool dead = false;
-	public bool ladder = false;
-	public bool inReplace = false;
+    [Header("Player Attributes & Player Start Settings")]
+    public bool god = false;
+    public bool jumpEnabled = true;
+    public bool runEnabled = false;
+    public bool jumpAndRun = false;
+    public bool takeFener = false;
+    public bool takePistol = false;
+    public bool noLeftAnim = false;
+    public bool noRightAnim = false;
 
-	[Header("Player Attributes & Player Start Settings")]
-	public bool god = false;
-	public bool jumpEnabled = true;
-	public bool runEnabled = false;
-	public bool jumpAndRun = false;
-	public bool takeFener = false;
-	public bool takePistol = false;
-	public bool noLeftAnim = false;
-	public bool noRightAnim = false;
+    [Header("Health & Speed & Damage")]
+    public float maxHealth = 100;
+    public float health = 100;
+    public float speedX = 3f;
+    public float jumpForce = 15f;
+    public float jumpDamage = 150;
 
-	[Header("Health & Speed & Damage")]
-	public float maxHealth = 100;
-	public float health = 100;
-	public float speedX = 3f;
-	public float jumpForce = 15f;
-	public float jumpDamage = 150;
+    [Header("Fener & Energy")]
+    public float fenerEnergy = 100;
+    public float maxFenerEnergy = 100;
+    public float fenerEnergyRegen = .1f;
+    public float fenerEnergyDrain = 1;
+    public bool isInfinite = false;
+    public int secsForInfinite = -1;
 
-	[Header("Fener & Energy")]
-	public float fenerEnergy = 100;
-	public float maxFenerEnergy = 100;
-	public float fenerEnergyRegen = .1f;
-	public float fenerEnergyDrain = 1;
-	public bool isInfinite = false;
-	public int secsForInfinite = -1;
-
-	[Header("Pistol & Ammo")]
-	public int toplamMermi = 7;
-	public int kalanMermi;
-
-	private float horizontal = 0f;
-	private float vertical = 0f;
-	private int once = 0;
-	private Animator animator;
-	private LevelManager levelManager;
-	private CanvasManager canvasManager;
-	private CameraController cameraController;
-	private Bullet bulletC;
-	private Rigidbody2D rigidbody2Da;
-	private AudioSource soundHelper_audioSource;
-	private string activeWeapon = "";
-	private ControllersScript controllersScript;
-
-	private ControllersButtonScript gotoleftButtonScript, gotorightButtonScript, jumpButtonScript;
-
-	private void Use(bool active)
-	{
-		if (activeWeapon == "Fener")
-		{
-			bool allow = false;
-			if (active)
-			{
-				if (fenerEnergy > 0)
-				{
-					if (!isInfinite)
-						fenerEnergy--;
-					Vector2 vector2 = powerBar.transform.GetChild(0).transform.localScale;
-					vector2 = new Vector2(fenerEnergy / maxFenerEnergy, vector2.y);
-					powerBar.transform.GetChild(0).transform.localScale = vector2;
-					powerBar.GetComponent<Animator>().Play("healthbarfade");
-				}
+    [Header("Pistol & Ammo")]
+    public int toplamMermi = 7;
+    public int kalanMermi;
 
 
-			}
-			else
-			{
-				if (fenerEnergy < maxFenerEnergy)
-				{
-					fenerEnergy += .1f;
-					Vector2 vector2 = powerBar.transform.GetChild(0).transform.localScale;
-					vector2 = new Vector2(fenerEnergy / maxFenerEnergy, vector2.y);
-					powerBar.transform.GetChild(0).transform.localScale = vector2;
-					powerBar.GetComponent<Animator>().Play("healthbarfade");
-				}
+    [Header("Buttons")]
+    public ControllersButtonScript gotoleftButtonScript, gotorightButtonScript, jumpButtonScript;
 
-			}
-			if (fenerEnergy > 0)
-			{
-				allow = true;
-			}
-			else
-			{
-				allow = false;
-			}
-			if (allow)
-			{
-				isik.SetActive(active);
-			}
-			else
-				isik.SetActive(false);
-		}
-		else if (activeWeapon == "Pistol")
-		{
-			if (active)
-			{
-				canvasManager.Ammo.SetActive(true);
-				if (horizontal > 0 || horizontal < 0)
-				{
-					if (kalanMermi > 0 && once == 0)
-					{
-						float yon = 1f;
-						if (horizontal < 0)
-						{
-							yon = -1;
-						}
-						bulletC = bullet.GetComponent<Bullet>();
-						bulletC.yon = yon;
-						Instantiate(bullet, new Vector2(pistol.transform.position.x + .5f * yon, pistol.transform.position.y + 0.15f), Quaternion.identity);
-						kalanMermi--;
+    private float horizontal = 0f;
+    private float vertical = 0f;
+    private int once = 0;
+    private Animator animator;
+    private LevelManager levelManager;
+    private CanvasManager canvasManager;
+    private CameraController cameraController;
+    private Bullet bulletC;
+    private Rigidbody2D rigidbody2Da;
+    private AudioSource soundHelper_audioSource;
+    private string activeWeapon = "";
 
-						int gidecekler = 7 - kalanMermi;
-						for (int i = 0; i < gidecekler; i++)
-						{
-							if (kalanMermi < 7)
-								canvasManager.Ammo.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(false);
-						}
-						once = 1;
-					}
-					else if (kalanMermi == 0 && once == 0)
-					{
-						soundHelper_audioSource.PlayOneShot(emptyGun, 5f);
-						once = 1;
-					}
-
-				}
-			}
-
-		}
-	}
-
-	public void Reload()
-	{
-		kalanMermi = toplamMermi;
-		for (int i = 0; i < 7; i++)
-		{
-			canvasManager.Ammo.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(true);
-		}
-		soundHelper_audioSource.PlayOneShot(reloadGun, 5f);
-	}
-
-	public void ReLight(bool isSuper)
-	{
-		if (isSuper)
-		{
-			isInfinite = true;
-			if (secsForInfinite > -1)
-				StartCoroutine(LightsOut());
-		}
-		else
-		{
-
-		}
-	}
+    private void Use(bool active)
+    {
+        if (activeWeapon == "Fener")
+        {
+            bool allow = false;
+            if (active)
+            {
+                if (fenerEnergy > 0)
+                {
+                    if (!isInfinite)
+                        fenerEnergy--;
+                    Vector2 vector2 = powerBar.transform.GetChild(0).transform.localScale;
+                    vector2 = new Vector2(fenerEnergy / maxFenerEnergy, vector2.y);
+                    powerBar.transform.GetChild(0).transform.localScale = vector2;
+                    powerBar.GetComponent<Animator>().Play("healthbarfade");
+                }
 
 
-	IEnumerator LightsOut()
-	{
-		yield return new WaitForSeconds(secsForInfinite);
-		isInfinite = false;
-	}
+            }
+            else
+            {
+                if (fenerEnergy < maxFenerEnergy)
+                {
+                    fenerEnergy += .1f;
+                    Vector2 vector2 = powerBar.transform.GetChild(0).transform.localScale;
+                    vector2 = new Vector2(fenerEnergy / maxFenerEnergy, vector2.y);
+                    powerBar.transform.GetChild(0).transform.localScale = vector2;
+                    powerBar.GetComponent<Animator>().Play("healthbarfade");
+                }
 
-	public void NoItem()
-	{
-		//levelManager.EscapePanel(false);
-		activeWeapon = "";
-		jumpEnabled = true;
-		itemEquipped = false;
-		fener.SetActive(false);
-		pistol.SetActive(false);
-	}
+            }
+            if (fenerEnergy > 0)
+            {
+                allow = true;
+            }
+            else
+            {
+                allow = false;
+            }
+            if (allow)
+            {
+                isik.SetActive(active);
+            }
+            else
+                isik.SetActive(false);
+        }
+        else if (activeWeapon == "Pistol")
+        {
+            if (active)
+            {
+                canvasManager.Ammo.SetActive(true);
+                if (horizontal > 0 || horizontal < 0)
+                {
+                    if (kalanMermi > 0 && once == 0)
+                    {
+                        float yon = 1f;
+                        if (horizontal < 0)
+                        {
+                            yon = -1;
+                        }
+                        bulletC = bullet.GetComponent<Bullet>();
+                        bulletC.yon = yon;
+                        Instantiate(bullet, new Vector2(pistol.transform.position.x + .5f * yon, pistol.transform.position.y + 0.15f), Quaternion.identity);
+                        kalanMermi--;
 
-	public void ItemSet(GameObject weapon)
-	{
-		if (!ladder && isTouchingGround)
-		{
-			NoItem();
-			jumpEnabled = false;
-			weapon.SetActive(true);
-			activeWeapon = weapon.name;
-			itemEquipped = true;
-		}
-	}
+                        int gidecekler = 7 - kalanMermi;
+                        for (int i = 0; i < gidecekler; i++)
+                        {
+                            if (kalanMermi < 7)
+                                canvasManager.Ammo.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(false);
+                        }
+                        once = 1;
+                    }
+                    else if (kalanMermi == 0 && once == 0)
+                    {
+                        soundHelper_audioSource.PlayOneShot(emptyGun, 5f);
+                        once = 1;
+                    }
 
-	public void EnableRun(bool active)
-	{
-		if (active)
-		{
-			animator.SetBool("run", active);
-			speedX += 2;
-		}
-		else
-		{
-			animator.SetBool("run", active);
-			speedX -= 5;
-		}
+                }
+            }
 
-	}
+        }
+    }
 
-	public void Bounce()
-	{
-		rigidbody2Da.velocity = new Vector2(0, jumpForce);
-	}
+    public void Reload()
+    {
+        kalanMermi = toplamMermi;
+        for (int i = 0; i < 7; i++)
+        {
+            canvasManager.Ammo.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(true);
+        }
+        soundHelper_audioSource.PlayOneShot(reloadGun, 5f);
+    }
 
-	public void Jump()
-	{
-		if (isTouchingGround && jumpable && !jumping)
-		{
-			jumpable = false;
-			jumping = true;
-			audioSource.Stop();
-			soundHelper_audioSource.PlayOneShot(jumpSound, JumpSoundVolume);
-			StartCoroutine(Block());
-			IEnumerator Block()
-			{
-				yield return new WaitForSeconds(1);
-				jumping = false;
-				jumpable = true;
-			}
-			rigidbody2Da.velocity = new Vector2(0f, jumpForce);
-		}
-	}
+    public void ReLight(bool isSuper)
+    {
+        if (isSuper)
+        {
+            isInfinite = true;
+            if (secsForInfinite > -1)
+                StartCoroutine(LightsOut());
+        }
+        else
+        {
 
-	public void Dead()
-	{
-		if (!dead && !god)
-		{
-			Instantiate(blood, transform.position, Quaternion.identity);
-			dead = true;
-			pause = true;
-			rigidbody2Da.constraints = RigidbodyConstraints2D.FreezePositionX;
-			rigidbody2Da.constraints = RigidbodyConstraints2D.FreezeRotation;
-			animator.Play("PlayerDead");
-			audioSource.Stop();
-			audioSource.PlayOneShot(deadSound);
-			levelManager.Say("öldün!", .25f, false);
-			levelManager.StopEnemies();
-			if (levelManager.gotCheckpoint)
-			{
-				levelManager.Respawn(this.gameObject);
-			}
-			else
-			{
-				levelManager.Restart();
+        }
+    }
 
-			}
-		}
-	}
 
-	public void Spawn()
-	{
-		dead = false;
-		pause = false;
-		rigidbody2Da.constraints = RigidbodyConstraints2D.FreezeRotation;
-		animator.Play("PlayerIdle");
-		health = maxHealth;
+    IEnumerator LightsOut()
+    {
+        yield return new WaitForSeconds(secsForInfinite);
+        isInfinite = false;
+    }
 
-		Vector2 size = healthbar.transform.GetChild(0).localScale;
-		healthbar.transform.GetChild(0).localScale = new Vector2(health / maxHealth, size.y);
-		healthbar.GetComponent<Animator>().Play("healthbarfade");
-	}
-	void Start()
-	{
-		if (Application.isMobilePlatform || forceMobile)
-		{
-			controllersScript = FindAnyObjectByType<ControllersScript>();
-			gotoleftButtonScript = GameObject.Find("GoToLeft").GetComponentInChildren<ControllersButtonScript>();
-			gotorightButtonScript = GameObject.Find("GoToRight").GetComponentInChildren<ControllersButtonScript>();
-			jumpButtonScript = GameObject.Find("Jump").GetComponentInChildren<ControllersButtonScript>();
-		}
-		cameraController = FindAnyObjectByType<CameraController>();
-		levelManager = FindAnyObjectByType<LevelManager>();
-		canvasManager = FindAnyObjectByType<CanvasManager>();
-		rigidbody2Da = GetComponent<Rigidbody2D>();
-		animator = GetComponent<Animator>();
-		soundHelper_audioSource = soundHelper.GetComponent<AudioSource>();
-		if (noLeftAnim)
-			cameraController.facing = 1;
-		if (noRightAnim)
-			cameraController.facing = -1;
-		if (!noLeftAnim && !noRightAnim)
-			cameraController.facing = 1;
-		EnableRun(runEnabled);
-		speedX += 5;
-		isTouchingGround = true;
+    public void NoItem()
+    {
+        //levelManager.EscapePanel(false);
+        activeWeapon = "";
+        jumpEnabled = true;
+        itemEquipped = false;
+        fener.SetActive(false);
+        pistol.SetActive(false);
+    }
 
-		StartCoroutine(ExampleCoroutine());
-		IEnumerator ExampleCoroutine()
-		{
-			yield return new WaitForSeconds(1);
-			if (takePistol)
-				ItemSet(pistol);
+    public void ItemSet(GameObject weapon)
+    {
+        if (!ladder && isTouchingGround)
+        {
+            NoItem();
+            jumpEnabled = false;
+            weapon.SetActive(true);
+            activeWeapon = weapon.name;
+            itemEquipped = true;
+        }
+    }
 
-			if (takeFener)
-				ItemSet(fener);
-		}
-	}
+    public void EnableRun(bool active)
+    {
+        if (active)
+        {
+            animator.SetBool("run", active);
+            speedX += 2;
+        }
+        else
+        {
+            animator.SetBool("run", active);
+            speedX -= 5;
+        }
 
-	void Update()
-	{
-		if (!pause)
-		{
-			isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
-			if (!isTouchingGround)
-				isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer2);
+    }
 
-			horizontal = Input.GetAxis("Horizontal");
-			vertical = Input.GetAxis("Vertical");
+    public void Bounce()
+    {
+        rigidbody2Da.velocity = new Vector2(0, jumpForce);
+    }
 
-			if (Input.GetKeyUp(KeyCode.Escape))
-			{
-				canvasManager.OpenMenu();
-			}
-			if (Input.GetKeyUp(KeyCode.Tab))
-			{
-				canvasManager.OpenInventory();
-			}
-			if (Input.GetKeyUp(KeyCode.BackQuote))
-			{
-				canvasManager.OpenConsole();
-			}
+    public void Jump()
+    {
+        if (isTouchingGround && jumpable && !jumping)
+        {
+            jumpable = false;
+            jumping = true;
+            audioSource.Stop();
+            soundHelper_audioSource.PlayOneShot(jumpSound, JumpSoundVolume);
+            StartCoroutine(Block());
+            IEnumerator Block()
+            {
+                yield return new WaitForSeconds(1);
+                jumping = false;
+                jumpable = true;
+            }
+            rigidbody2Da.velocity = new Vector2(0f, jumpForce);
+        }
+    }
 
-			if (Application.isMobilePlatform || forceMobile)
-			{
-				if (gotoleftButtonScript.buttonPressed)
-					horizontal = -1;
-				else if (gotorightButtonScript.buttonPressed)
-					horizontal = 1;
-				if (jumpButtonScript.buttonPressed)
-					Jump();
-			}
+    public void Dead()
+    {
+        if (!dead && !god)
+        {
+            Instantiate(blood, transform.position, Quaternion.identity);
+            dead = true;
+            pause = true;
+            rigidbody2Da.constraints = RigidbodyConstraints2D.FreezePositionX;
+            rigidbody2Da.constraints = RigidbodyConstraints2D.FreezeRotation;
+            animator.Play("PlayerDead");
+            audioSource.Stop();
+            audioSource.PlayOneShot(deadSound);
+            levelManager.Say("ï¿½ldï¿½n!", .25f, false);
+            levelManager.StopEnemies();
+            if (levelManager.gotCheckpoint)
+            {
+                levelManager.Respawn(this.gameObject);
+            }
+            else
+            {
+                levelManager.Restart();
 
-			if (rigidbody2Da.velocity.y < -5f)
-			{
-				audioSource.Stop();
-			}
-			if (ladder & rigidbody2Da.velocity.x == 0)
-			{
-				if (vertical > 0f)
-				{
-					if (!audioSource.isPlaying)
-						AudioPlay(climbingStairsSound, WalkSoundVolume, true);
-					rigidbody2Da.velocity = new Vector2(0, 5);
-					animator.SetBool("ladder", ladder);
-				}
-				else
-				{
-					animator.SetBool("ladder", false);
-					audioSource.Stop();
-				}
-			}
-			else
-			{
-				animator.SetBool("ladder", false);
-			}
-			if (horizontal > 0f & moveable)
-			{
-				moving = true;
-				rigidbody2Da.velocity = new Vector2(horizontal * speedX, rigidbody2Da.velocity.y);
-				if (!audioSource.isPlaying & isTouchingGround && !ladder)
-				{
-					AudioPlay(walkSound, WalkSoundVolume, true);
-				}
-				if (noRightAnim)
-				{
-					animator.SetInteger("facing", -1);
-				}
-				else
-				{
-					animator.SetInteger("facing", 1);
-					if (isTouchingGround)
-						cameraController.facing = 1;
-				}
-			}
-			else if (horizontal < 0f & moveable)
-			{
-				moving = true;
-				rigidbody2Da.velocity = new Vector2(horizontal * speedX, rigidbody2Da.velocity.y);
-				if (!audioSource.isPlaying & isTouchingGround && !ladder)
-				{
-					AudioPlay(walkSound, WalkSoundVolume, true);
-				}
-				if (noLeftAnim)
-				{
-					animator.SetInteger("facing", 1);
+            }
+        }
+    }
 
-				}
-				else
-				{
-					animator.SetInteger("facing", -1);
-					if (isTouchingGround)
-						cameraController.facing = -1;
-				}
-			}
-			else
-			{
-				moving = false;
-				rigidbody2Da.velocity = new Vector2(0, rigidbody2Da.velocity.y);
-				animator.SetInteger("facing", 0);
-				if (isTouchingGround && !jumping && !moving)
-					audioSource.Stop();
-			}
+    public void Spawn()
+    {
+        dead = false;
+        pause = false;
+        rigidbody2Da.constraints = RigidbodyConstraints2D.FreezeRotation;
+        animator.Play("PlayerIdle");
+        health = maxHealth;
 
-			if (!ladder)
-			{
-				if (jumpEnabled)
-				{
-					if (!jumpAndRun)
-					{
-						if (vertical > 0 && isTouchingGround && jumpable && rigidbody2Da.velocity.x == 0)
-						{
-							Jump();
+        Vector2 size = healthbar.transform.GetChild(0).localScale;
+        healthbar.transform.GetChild(0).localScale = new Vector2(health / maxHealth, size.y);
+        healthbar.GetComponent<Animator>().Play("healthbarfade");
+    }
+    void Start()
+    {
+        levelManager = FindObjectOfType<LevelManager>();
+        cameraController = FindAnyObjectByType<CameraController>();
+        canvasManager = FindAnyObjectByType<CanvasManager>();
+        rigidbody2Da = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        soundHelper_audioSource = soundHelper.GetComponent<AudioSource>();
+        if (noLeftAnim)
+            cameraController.facing = 1;
+        if (noRightAnim)
+            cameraController.facing = -1;
+        if (!noLeftAnim && !noRightAnim)
+            cameraController.facing = 1;
+        EnableRun(runEnabled);
+        speedX += 5;
+        isTouchingGround = true;
 
-						}
-					}
-					else
-					{
-						if (vertical > 0 && isTouchingGround && jumpable)
-						{
-							Jump();
-						}
-					}
-				}
-				if (vertical > 0 && itemEquipped && !ladder)
-				{
+        StartCoroutine(ExampleCoroutine());
+        IEnumerator ExampleCoroutine()
+        {
+            yield return new WaitForSeconds(1);
+            if (takePistol)
+                ItemSet(pistol);
 
-					Use(true);
+            if (takeFener)
+                ItemSet(fener);
+        }
+    }
 
-				}
-				else
-				{
-					if (itemEquipped)
-					{
-						Use(false);
-						once = 0;
-					}
-				}
-			}
+    void Update()
+    {
+        if (!pause)
+        {
+            isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
+            if (!isTouchingGround)
+                isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer2);
 
-			animator.SetFloat("speed", Mathf.Abs(horizontal));
-			animator.SetBool("ongroun", isTouchingGround);
-			animator.SetFloat("jumpSpeed", Mathf.Abs(rigidbody2Da.velocity.y));
-		}
-		else
-		{
-			animator.StopPlayback();
-		}
-	}
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
 
-	public void AudioPlay(AudioClip clip, float volume, bool loop)
-	{
-		audioSource.clip = clip;
-		audioSource.loop = loop;
-		audioSource.volume = volume;
-		audioSource.Play();
-	}
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                canvasManager.OpenMenu();
+            }
+            if (Input.GetKeyUp(KeyCode.Tab))
+            {
+                canvasManager.OpenInventory();
+            }
+            if (Input.GetKeyUp(KeyCode.BackQuote))
+            {
+                canvasManager.OpenConsole();
+            }
 
-	private void OnCollisionStay2D(Collision2D collision)
-	{
-		if (collision.transform.CompareTag("Wall"))
-		{
-			if (!isTouchingGround)
-			{
-				jumpable = false;
-			}
-			if (moving & !isTouchingGround)
-			{
-				moveable = false;
-				jumpable = false;
-			}
-		}
-	}
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		if (collision.transform.CompareTag("Wall"))
-		{
-			if (!isTouchingGround)
-			{
-				jumpable = false;
-			}
-			if (moving & !isTouchingGround)
-			{
-				moveable = false;
-				jumpable = false;
-			}
-		}
-		else
-		{
-			StartCoroutine(ExampleCoroutine());
-			IEnumerator ExampleCoroutine()
-			{
-				yield return new WaitForSeconds(2);
-				jumpable = true;
-			}
-			moveable = true;
-			if (collision.transform.CompareTag("Ground") && !inReplace)
-			{
-				audioSource.Stop();
-				walkSound = concreteWalkSound;
+            if (Application.isMobilePlatform || levelManager.forceMobile)
+            {
+                if (gotoleftButtonScript.buttonPressed)
+                    horizontal = -1;
+                else if (gotorightButtonScript.buttonPressed)
+                    horizontal = 1;
+                if (jumpButtonScript.buttonPressed)
+                    Jump();
+            }
 
-			}
-			else if (collision.transform.CompareTag("DirtGround") && !inReplace)
-			{
-				audioSource.Stop();
-				walkSound = mudWalkSoundSound;
+            if (rigidbody2Da.velocity.y < -5f)
+            {
+                audioSource.Stop();
+            }
+            if (ladder & rigidbody2Da.velocity.x == 0)
+            {
+                if (vertical > 0f)
+                {
+                    if (!audioSource.isPlaying)
+                        AudioPlay(climbingStairsSound, WalkSoundVolume, true);
+                    rigidbody2Da.velocity = new Vector2(0, 5);
+                    animator.SetBool("ladder", ladder);
+                }
+                else
+                {
+                    animator.SetBool("ladder", false);
+                    audioSource.Stop();
+                }
+            }
+            else
+            {
+                animator.SetBool("ladder", false);
+            }
+            if (horizontal > 0f & moveable)
+            {
+                moving = true;
+                rigidbody2Da.velocity = new Vector2(horizontal * speedX, rigidbody2Da.velocity.y);
+                if (!audioSource.isPlaying & isTouchingGround && !ladder)
+                {
+                    AudioPlay(walkSound, WalkSoundVolume, true);
+                }
+                if (noRightAnim)
+                {
+                    animator.SetInteger("facing", -1);
+                }
+                else
+                {
+                    animator.SetInteger("facing", 1);
+                    if (isTouchingGround)
+                        cameraController.facing = 1;
+                }
+            }
+            else if (horizontal < 0f & moveable)
+            {
+                moving = true;
+                rigidbody2Da.velocity = new Vector2(horizontal * speedX, rigidbody2Da.velocity.y);
+                if (!audioSource.isPlaying & isTouchingGround && !ladder)
+                {
+                    AudioPlay(walkSound, WalkSoundVolume, true);
+                }
+                if (noLeftAnim)
+                {
+                    animator.SetInteger("facing", 1);
 
-			}
-			else if ((collision.transform.CompareTag("GrassGround")) && !inReplace)
-			{
-				audioSource.Stop();
-				walkSound = grassWalkSound;
-			}
-			else if ((collision.transform.CompareTag("WoodGround")) && !inReplace)
-			{
-				audioSource.Stop();
-				walkSound = woodWalkSound;
-				if (collision.transform.name.Equals("Tahta"))
-				{
-					if (rigidbody2Da.velocity.y < 0)
-					{
-						Tahta tahta = collision.transform.GetComponent<Tahta>();
-						if (tahta != null)
-							tahta.Break();
+                }
+                else
+                {
+                    animator.SetInteger("facing", -1);
+                    if (isTouchingGround)
+                        cameraController.facing = -1;
+                }
+            }
+            else
+            {
+                moving = false;
+                rigidbody2Da.velocity = new Vector2(0, rigidbody2Da.velocity.y);
+                animator.SetInteger("facing", 0);
+                if (isTouchingGround && !jumping && !moving)
+                    audioSource.Stop();
+            }
 
-					}
-				}
-			}
-			else if ((collision.transform.CompareTag("WoodStairs")) && !inReplace)
-			{
-				audioSource.Stop();
-				walkSound = woodStairsWalkSound;
-			}
-			else if ((collision.transform.CompareTag("Caroet")) && !inReplace)
-			{
-				audioSource.Stop();
-				walkSound = woolWalkSound;
-			}
-			else if (collision.transform.CompareTag("Item"))
-			{
-				switch (collision.transform.name)
-				{
-					case "FenerItem":
-						ItemSet(fener);
-						PlayerPrefs.SetInt("Envanter", 1);
-						break;
-					case "Pistol(item)":
-						ItemSet(pistol);
-						PlayerPrefs.SetInt("Envanter", 2);
-						break;
-					case "Sarjor":
-						Reload();
-						break;
-					case "BatteryPackSuper":
-						ReLight(true);
-						soundHelper_audioSource.PlayOneShot(takeSound);
-						break;
-					case "HealthPack":
-						health = maxHealth;
-						UpdateHealthBar();
-						soundHelper_audioSource.PlayOneShot(takeSound);
-						break;
-					default:
-						break;
-				}
-				GameObject.Destroy(collision.gameObject);
-			}
-			else if (collision.transform.CompareTag("Enemy"))
-			{
-				TriggerColl(collision.gameObject);
+            if (!ladder)
+            {
+                if (jumpEnabled)
+                {
+                    if (!jumpAndRun)
+                    {
+                        if (vertical > 0 && isTouchingGround && jumpable && rigidbody2Da.velocity.x == 0)
+                        {
+                            Jump();
 
-			}
-			else if (collision.transform.CompareTag("explosion"))
-			{
-				TriggerColl(collision.gameObject);
+                        }
+                    }
+                    else
+                    {
+                        if (vertical > 0 && isTouchingGround && jumpable)
+                        {
+                            Jump();
+                        }
+                    }
+                }
+                if (vertical > 0 && itemEquipped && !ladder)
+                {
 
-			}
-			else if (collision.transform.CompareTag("HeatRock"))
-			{
-				HeatRock rock = collision.transform.GetComponent<HeatRock>();
-				if (rock.deadly)
-					Dead();
-			}
-		}
-	}
+                    Use(true);
 
-	public void TriggerColl(GameObject collision)
-	{
-		int yon;
-		if (collision.transform.position.x < transform.position.x)
-			yon = 1;
-		else
-			yon = -1;
-		Hasar hasar = collision.transform.GetComponent<Hasar>();
-		if (hasar != null)
-			Damage(yon, hasar.hasar);
-	}
-	private void Damage(int yon, int hasar)
-	{
-		health -= hasar;
+                }
+                else
+                {
+                    if (itemEquipped)
+                    {
+                        Use(false);
+                        once = 0;
+                    }
+                }
+            }
 
-		Instantiate(blood, transform.position, Quaternion.identity);
-		BounceBack(yon);
-		UpdateHealthBar();
+            animator.SetFloat("speed", Mathf.Abs(horizontal));
+            animator.SetBool("ongroun", isTouchingGround);
+            animator.SetFloat("jumpSpeed", Mathf.Abs(rigidbody2Da.velocity.y));
+        }
+        else
+        {
+            animator.StopPlayback();
+        }
+    }
 
-		if (health < 0)
-		{
-			Dead();
-		}
-	}
+    public void AudioPlay(AudioClip clip, float volume, bool loop)
+    {
+        audioSource.clip = clip;
+        audioSource.loop = loop;
+        audioSource.volume = volume;
+        audioSource.Play();
+    }
 
-	private void UpdateHealthBar()
-	{
-		Vector2 size = healthbar.transform.GetChild(0).localScale;
-		healthbar.transform.GetChild(0).localScale = new Vector2(health / maxHealth, size.y);
-		if (health < 0)
-			healthbar.transform.GetChild(0).localScale = new Vector2(0, size.y);
-		healthbar.GetComponent<Animator>().Play("healthbarfade");
-	}
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Wall"))
+        {
+            if (!isTouchingGround)
+            {
+                jumpable = false;
+            }
+            if (moving & !isTouchingGround)
+            {
+                moveable = false;
+                jumpable = false;
+            }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Wall"))
+        {
+            if (!isTouchingGround)
+            {
+                jumpable = false;
+            }
+            if (moving & !isTouchingGround)
+            {
+                moveable = false;
+                jumpable = false;
+            }
+        }
+        else
+        {
+            StartCoroutine(ExampleCoroutine());
+            IEnumerator ExampleCoroutine()
+            {
+                yield return new WaitForSeconds(2);
+                jumpable = true;
+            }
+            moveable = true;
+            if (collision.transform.CompareTag("Ground") && !inReplace)
+            {
+                audioSource.Stop();
+                walkSound = concreteWalkSound;
 
-	private void BounceBack(int yon)
-	{
-		audioSource.Stop();
-		audioSource.PlayOneShot(gettingHitSound);
-		pause = true;
-		if (yon > 0)
-		{
-			rigidbody2Da.velocity = new Vector2(10, rigidbody2Da.velocity.y);
-		}
-		else
-		{
-			rigidbody2Da.velocity = new Vector2(-10, rigidbody2Da.velocity.y);
-		}
-		StartCoroutine(ExampleCoroutine());
-		IEnumerator ExampleCoroutine()
-		{
-			yield return new WaitForSeconds(.5f);
-			if (!dead)
-				pause = false;
-		}
-	}
+            }
+            else if (collision.transform.CompareTag("DirtGround") && !inReplace)
+            {
+                audioSource.Stop();
+                walkSound = mudWalkSoundSound;
+
+            }
+            else if ((collision.transform.CompareTag("GrassGround")) && !inReplace)
+            {
+                audioSource.Stop();
+                walkSound = grassWalkSound;
+            }
+            else if ((collision.transform.CompareTag("WoodGround")) && !inReplace)
+            {
+                audioSource.Stop();
+                walkSound = woodWalkSound;
+                if (collision.transform.name.Equals("Tahta"))
+                {
+                    if (rigidbody2Da.velocity.y < 0)
+                    {
+                        Tahta tahta = collision.transform.GetComponent<Tahta>();
+                        if (tahta != null)
+                            tahta.Break();
+
+                    }
+                }
+            }
+            else if ((collision.transform.CompareTag("WoodStairs")) && !inReplace)
+            {
+                audioSource.Stop();
+                walkSound = woodStairsWalkSound;
+            }
+            else if ((collision.transform.CompareTag("Caroet")) && !inReplace)
+            {
+                audioSource.Stop();
+                walkSound = woolWalkSound;
+            }
+            else if (collision.transform.CompareTag("Item"))
+            {
+                switch (collision.transform.name)
+                {
+                    case "FenerItem":
+                        ItemSet(fener);
+                        PlayerPrefs.SetInt("Envanter", 1);
+                        break;
+                    case "Pistol(item)":
+                        ItemSet(pistol);
+                        PlayerPrefs.SetInt("Envanter", 2);
+                        break;
+                    case "Sarjor":
+                        Reload();
+                        break;
+                    case "BatteryPackSuper":
+                        ReLight(true);
+                        soundHelper_audioSource.PlayOneShot(takeSound);
+                        break;
+                    case "HealthPack":
+                        health = maxHealth;
+                        UpdateHealthBar();
+                        soundHelper_audioSource.PlayOneShot(takeSound);
+                        break;
+                    default:
+                        break;
+                }
+                GameObject.Destroy(collision.gameObject);
+            }
+            else if (collision.transform.CompareTag("Enemy"))
+            {
+                TriggerColl(collision.gameObject);
+
+            }
+            else if (collision.transform.CompareTag("explosion"))
+            {
+                TriggerColl(collision.gameObject);
+
+            }
+            else if (collision.transform.CompareTag("HeatRock"))
+            {
+                HeatRock rock = collision.transform.GetComponent<HeatRock>();
+                if (rock.deadly)
+                    Dead();
+            }
+        }
+    }
+
+    public void TriggerColl(GameObject collision)
+    {
+        int yon;
+        if (collision.transform.position.x < transform.position.x)
+            yon = 1;
+        else
+            yon = -1;
+        Hasar hasar = collision.transform.GetComponent<Hasar>();
+        if (hasar != null)
+            Damage(yon, hasar.hasar);
+    }
+    private void Damage(int yon, int hasar)
+    {
+        health -= hasar;
+
+        Instantiate(blood, transform.position, Quaternion.identity);
+        BounceBack(yon);
+        UpdateHealthBar();
+
+        if (health < 0)
+        {
+            Dead();
+        }
+    }
+
+    private void UpdateHealthBar()
+    {
+        Vector2 size = healthbar.transform.GetChild(0).localScale;
+        healthbar.transform.GetChild(0).localScale = new Vector2(health / maxHealth, size.y);
+        if (health < 0)
+            healthbar.transform.GetChild(0).localScale = new Vector2(0, size.y);
+        healthbar.GetComponent<Animator>().Play("healthbarfade");
+    }
+
+    private void BounceBack(int yon)
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(gettingHitSound);
+        pause = true;
+        if (yon > 0)
+        {
+            rigidbody2Da.velocity = new Vector2(10, rigidbody2Da.velocity.y);
+        }
+        else
+        {
+            rigidbody2Da.velocity = new Vector2(-10, rigidbody2Da.velocity.y);
+        }
+        StartCoroutine(ExampleCoroutine());
+        IEnumerator ExampleCoroutine()
+        {
+            yield return new WaitForSeconds(.5f);
+            if (!dead)
+                pause = false;
+        }
+    }
 }

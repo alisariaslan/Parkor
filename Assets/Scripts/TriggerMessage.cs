@@ -3,7 +3,7 @@ using UnityEngine;
 public class TriggerMessage : MonoBehaviour
 {
     public TextAsset textAsset;
-    public int textNo = 0;
+    public string textKey;
     public AudioClip triggerSound;
     private AudioSource audioSource;
     private LevelManager levelManager;
@@ -25,7 +25,7 @@ public class TriggerMessage : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            levelManager.Say(Dialogs.Text(textNo,textAsset), normalizedTime, false);
+            levelManager.Say(textKey, normalizedTime, false);
             if (!noSound)
                 audioSource.PlayOneShot(triggerSound);
             if (useLevelManagerSound)

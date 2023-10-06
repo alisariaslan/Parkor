@@ -1,0 +1,253 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ArasahneTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 2952813a7149c4c2e90836498b67d9d1, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 483564445696
+    m_Localized: '10 DAYS AFTER THE CRASH:
+
+
+      Jack wakes up suddenly one night.
+
+      When
+      he sticks his head out of the window, he notices something incomprehensible
+      standing on the street.
+
+      Jack, decides to go down from the apartment
+      and examine the thing from closely.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 627651371008
+    m_Localized: 'Jack encountered a creature on the street.
+
+      Dozens of corpses
+      lie on the ground with their dried blood.
+
+      A fear fills him.
+
+      He
+      tries to call on his phone but cannot reach anyone.
+
+      The best he can
+      do is try to reach his car and check for the safety of his family in their
+      farm house.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 643048660992
+    m_Localized: 'Creatures are everywhere. The parking lot is split in half.
+
+      A
+      cocoon inside the crevice. A giant creature inside. Jack is surprised at what
+      happened.
+
+      He somehow overcomes the creature and makes his way back to
+      the parking lot through the sewers to his car.
+
+      Jack is curious about
+      his family. He gets on the highway and hits the gas.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 656004866048
+    m_Localized: "Jack reaches the village where his family lives outside the city.\nHis
+      family lives in one of the fields nearby.\nThe roads are made of dirt. There
+      are cold puddles on the ground.\nHe continues on his way, unaware of what he
+      will encounter.\nKar\u015F\u0131la\u015Faca\u011F\u0131 \u015Feylerden habersiz
+      yoluna devam eder."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 667098800128
+    m_Localized: 'Jack somehow made it to his family''s house.
+
+      Creature types
+      are becoming more and more diverse.
+
+      Attacking from the ground was not
+      enough, now they are attacking from the air.
+
+      The cold water on the ground
+      prevented the vehicle from heating.
+
+      Jack must make sure of his family''s
+      safety as soon as possible.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680096948224
+    m_Localized: 'Jack''s family was not at home.
+
+      This is not a good sign.
+      Were the scary paintings and ghosts found in the house related to Jack''s family?
+
+      Then,
+      just at that moment, a Flyer takes Jack and leaves him in the forest. It''s
+      a good thing he took the flashlight he found on the floor at home with him.
+      He took the flashlight out of his pocket and turned it on.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 691014721536
+    m_Localized: 'This lantern has extraordinary power against these creatures.
+
+      The
+      forest gets weirder as we progress.
+
+      The flowered land was very beautiful
+      at first, but as we progressed, we saw that the flowers began to turn black
+      and dark. Not to mention the gravestones.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 703576662016
+    m_Localized: 'Jack encountered a giant fiery worm in the forest.
+
+      If these
+      spread further around the world, very bad things could happen.
+
+      Jack
+      begins to follow the path. But the search does not end.
+
+      He searches
+      for hope, salvation...'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 712229511168
+    m_Localized: 'While Jack is walking on the road, a sign catches his eye.
+
+      He
+      sees the airport logo on the sign. It occurs to him that people might have
+      taken refuge here.
+
+      This sign gives him the hope he is looking for.
+
+      While
+      walking on the road, he sees wrecked cars and corpses on the ground.
+
+      Creatures
+      have literally taken over everywhere.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 720970440704
+    m_Localized: 'Arriving at the airport, Jack is surprised by the first thing he
+      encounters.
+
+      This creature is doing something that even humanity cannot
+      do.
+
+      The lightning he sends down from the sky does not harm him, and
+      he is not affected by fire.
+
+      Moreover, when his body is damaged, he raises
+      himself to the sky.
+
+      Is this invasive species an intelligent species?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731733024768
+    m_Localized: 'The Arena section is a bonus section. If you feel strong please
+
+      continue.
+      Otherwise be prepared to lose! Remember, losing gives the secret to winning.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118645568036864
+    m_Localized: 'Episode 1: Awakening
+
+      Jack notices a dead body in the street
+      and moves towards it.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118691093012480
+    m_Localized: 'Episode 2: Parking Lot
+
+      Jack tries to call everyone on the
+      phone, but no one answers. The lights of the buildings are on, but they are
+      all empty. It was as if the ground opened up and everyone fell in. Fear surrounds
+      him.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118700198846464
+    m_Localized: 'Episode 3: Travel
+
+      Jack begins to think that he is completely
+      alone and puts the tape he took from the window sill into the car radio. He
+      lights a cigarette and continues on his way. Despair is the thing he hates
+      the most.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118708201578496
+    m_Localized: 'Episode 4: Farm House
+
+      Jack has moved away from the dreary
+      city atmosphere. When he checks the gas gauge, he notices that the bar is at
+      the orange area. And he sees a difficult terrain ahead.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118717462601728
+    m_Localized: 'Episode 5: My Fears
+
+      Jack thinks about his family and home.
+      He has no idea what''s going on in the world. The creatures have made it this
+      far.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118735229673472
+    m_Localized: 'Episode 6: Desolate Forest
+
+      Jack was captured by a flying
+      creature and left in the forest. He needs to find his way as soon as possible.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118745849651200
+    m_Localized: 'Episode 7: Cemetery
+
+      The confusing forest roads are endless.
+      Jack has now reached an even more chilling place. There are often gravestones
+      around. Or is this a forgotten graveyard?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118755454607360
+    m_Localized: 'Episode 8: The Way
+
+      Even though Jack was afraid, what he
+      encountered was incredible. The fact that he survived by escaping the cemetery
+      and finding his way was a factor that showed that he was very strong. But where
+      is humanity? What happened to everyone?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118763708997632
+    m_Localized: 'Episode 9: Airport
+
+      Jack hopes that all the survivors are
+      gathered here. He continues to search for a trace of humanity.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118770960949248
+    m_Localized: 'Episode 10: Revenge
+
+      Jack captured a bomber he found. He
+      starts to take off the plane with the desire to return to the city and get
+      rid of the things he hates. There will be a massacre.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118782461730816
+    m_Localized: 'Bonus Episode: Arena
+
+      Jack entered an unfamiliar building
+      with large columns on the edge of the city.'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

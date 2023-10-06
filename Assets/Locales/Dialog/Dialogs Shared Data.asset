@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Dialogs Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Dialogs
+  m_TableCollectionNameGuidString: e41592aabe0184964aef3673c4a82dcd
+  m_Entries:
+  - m_Id: 1367828586496
+    m_Key: ep1_reaction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1667431915520
+    m_Key: ep1_dead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1753297707008
+    m_Key: ep1_sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1765746401280
+    m_Key: ep1_car
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6949949374843322375
+  references:
+    version: 2
+    RefIds:
+    - rid: 6949949374843322375
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1696609903672

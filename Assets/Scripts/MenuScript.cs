@@ -5,31 +5,34 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     public GameObject resume;
-	public GameObject blackScreen;
+    public GameObject blackScreen;
+
     void Start()
     {
         if (PlayerPrefs.GetInt("save") > 0 && resume != null)
             resume.SetActive(true);
     }
 
-    private void Blackout(bool isString, string scenename, int index)
+    private void Blackout(string scenename)
     {
-        int waitTimer;
-        if (blackScreen != null)
+
+        blackScreen.GetComponent<Animator>().Play("Blackout");
+        StartCoroutine(LoadSceneCoroutine());
+        IEnumerator LoadSceneCoroutine()
         {
-            waitTimer = 5;
-			blackScreen.GetComponent<Animator>().Play("Blackout");
+            yield return new WaitForSeconds(5);
+            SceneManager.LoadScene(scenename);
         }
-        else
-            waitTimer = 0;
-        StartCoroutine(ExampleCoroutine());
-        IEnumerator ExampleCoroutine()
+    }
+
+    private void Blackout(int index)
+    {
+        blackScreen.GetComponent<Animator>().Play("Blackout");
+        StartCoroutine(LoadSceneCoroutine());
+        IEnumerator LoadSceneCoroutine()
         {
-            yield return new WaitForSeconds(waitTimer);
-            if (isString)
-                SceneManager.LoadScene(scenename, LoadSceneMode.Single);
-            else
-                SceneManager.LoadScene(index, LoadSceneMode.Single);
+            yield return new WaitForSeconds(5);
+            SceneManager.LoadScene(index);
         }
     }
 
@@ -39,23 +42,23 @@ public class MenuScript : MonoBehaviour
         PlayerPrefs.SetInt("acikBolumler", 1);
         PlayerPrefs.SetInt("Envanter", 0);
         ScoreManager.ResetScores();
-        Blackout(true, "Intro", 0);
+        Blackout("Intro");
     }
 
     public void StartGameAndSave(int save)
     {
-        PlayerPrefs.SetInt("save", save+1);
-        Blackout(true, "AraSahne", 0);
+        PlayerPrefs.SetInt("save", save);
+        Blackout("AraSahne");
     }
 
     public void ResumeGame()
     {
-        Blackout(true, "AraSahne", 0);
+        Blackout("AraSahne");
     }
 
     public void StartGame(string sceneName)
     {
-        Blackout(true, sceneName, 0);
+        Blackout(sceneName);
     }
 
     public void QuitGame()
@@ -67,7 +70,7 @@ public class MenuScript : MonoBehaviour
     public void RestartGame()
     {
         int aktifIndex = SceneManager.GetActiveScene().buildIndex;
-        Blackout(false, null, aktifIndex);
+        Blackout(aktifIndex);
     }
 
 

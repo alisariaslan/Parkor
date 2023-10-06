@@ -61,11 +61,8 @@ public class ArenaManager : MonoBehaviour
 
 	private void Finish()
 	{
-		levelManager.Say("Tebrikler! Arenayi basariyla tamamladin. Yakinda gelecek olan sezon 2 için batarya ve can degerlerin iki katina cikti..", 0.5f, true);
+		levelManager.Say("Tebrikler! Arenayi basariyla tamamladin. Yakinda gelecek olan sezon 2 iï¿½in batarya ve can degerlerin iki katina cikti..", 0.5f, true);
 		PlayerPrefs.SetInt("ArenaCompleted", 1);
-
-		ScoreManager.ReportScoreType(ScoreManager.scoreType.ARENA);
-		
 		StartCoroutine(Exit());
 	}
 

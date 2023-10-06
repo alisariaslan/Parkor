@@ -1,41 +1,44 @@
 
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     [Header("General")]
-	public bool forceMobile = false;
+    public bool forceMobile = false;
+    public bool saveOnStart = true;
 
-	[Header("Timer")]
-	public static float inGameTimer = 0;
+    [Header("Timer")]
+    public static float inGameTimer = 0;
 
-	[Header("Scores")]
-	public bool scoreEnabled;
+    [Header("Scores")]
+    public bool scoreEnabled;
     public int startScore = 0;
 
-	[Header("Story")]
-	public TextAsset storyAsset;
-    public int storyNo = 0;
+    [Header("Story")]
+    public string storyTextKey;
 
     [Header("PcControllerText")]
     [Multiline]
     public string pcText = string.Empty;
 
-	[Header("Others")]
-	public bool gotCheckpoint;
+    [Header("Others")]
+    public bool gotCheckpoint;
     public bool anonimController;
     public AudioClip whoosh;
-	public Vector2 spawnpoint;
+    public Vector2 spawnpoint;
 
-	[Header("Panels")]
-	public bool storyTexts = true;
-	public bool logs = false;
-	public bool blackPanel = true;
-	public bool controllers = true;
+    [Header("Panels")]
+    public bool storyTexts = true;
+    public bool logs = false;
+    public bool blackPanel = true;
+    public bool controllers = true;
+    public bool tutorials = true;
+    public bool platformCheckForTutorials = true;
 
-	private AudioSource audioSource;
+    private AudioSource audioSource;
     private GameObject player;
     private CanvasManager canvasManager;
 
@@ -44,8 +47,6 @@ public class LevelManager : MonoBehaviour
         startScore += point;
         if (scoreEnabled)
             Say(thing + "\n" + "Toplam puan: " + startScore + "\n" + point + " puan eklendi.", .5f, false);
-		if (startScore == 500)
-			ScoreManager.ReportScoreType(ScoreManager.scoreType.NESIL_TUKETEN);
     }
 
     public void NextLevel(string sceneName)
@@ -75,14 +76,23 @@ public class LevelManager : MonoBehaviour
         audioSource.Stop();
     }
 
-    void Start()
+    async void Start()
     {
+        if (saveOnStart is true)
+        {
+            int aktifIndex = SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.SetInt("save", aktifIndex);
+        }
         audioSource = GetComponent<AudioSource>();
         canvasManager = FindAnyObjectByType<CanvasManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
             spawnpoint = player.transform.position;
-            canvasManager.SetStoryText(storyAsset, storyNo);
+        canvasManager.SetStoryText(storyTextKey);
+        if ((Application.isMobilePlatform || forceMobile)  && platformCheckForTutorials )
+            tutorials = false;
+        await Task.Delay(100);
+        canvasManager.StartGame();
     }
 
     private void Update()
@@ -92,7 +102,7 @@ public class LevelManager : MonoBehaviour
 
     public void Say(string text, float normalizedTime, bool enableWooshSound)
     {
-        canvasManager.PlaySay(text, normalizedTime);
+        canvasManager.PlayMessage(text, normalizedTime);
         if (enableWooshSound)
             audioSource.PlayOneShot(whoosh);
     }
