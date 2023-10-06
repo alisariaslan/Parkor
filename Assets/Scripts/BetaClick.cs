@@ -18,7 +18,7 @@ public class BetaClick : MonoBehaviour, IPointerClickHandler
             a = 11;
             GetComponent<Text>().color = Color.red;
             devtools.SetActive(true);
-            GetComponent<Text>().text = "BETA\nOP";
+            GetComponent<Text>().text = "Cheats\nACTIVE";
         }
     }
     public void OnPointerClick(PointerEventData pointerEventData)
@@ -29,7 +29,7 @@ public class BetaClick : MonoBehaviour, IPointerClickHandler
             GetComponent<Text>().color = Color.red;
             devtools.SetActive(true);
 			PlayerPrefs.SetInt("devtools", 1);
-			GetComponent<Text>().text = "BETA\nOP";
+			GetComponent<Text>().text = "Cheats\nACTIVE";
 		} else if (a==20) {
             SceneManager.LoadScene(14);
         }

@@ -9,46 +9,49 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 82c8952af8eaf1b4985ce4744359cfdd
   - enabled: 1
-    path: Assets/Scenes/AraSahne.unity
-    guid: 4d44969563653ed41b6cecd2e292fa7f
-  - enabled: 1
-    path: Assets/Scenes/Season1/Intro.unity
-    guid: 8d1c3ce2030228c4d9172ff0157e5a39
-  - enabled: 1
-    path: Assets/Scenes/Season1/Part1.unity
+    path: Assets/Scenes/Part1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Season1/Part2.unity
+    path: Assets/Scenes/Part2.unity
     guid: 6c703f2edc7f8b545885eff6e93b4823
   - enabled: 1
-    path: Assets/Scenes/Season1/Part3.unity
+    path: Assets/Scenes/Part3.unity
     guid: 1bc430294a0d38c4780d34856ac743ce
   - enabled: 1
-    path: Assets/Scenes/Season1/Part4.unity
+    path: Assets/Scenes/Part4.unity
     guid: b5404692bccb5a946a7f719fd904722f
   - enabled: 1
-    path: Assets/Scenes/Season1/Part5.unity
+    path: Assets/Scenes/Part5.unity
     guid: ccad7076f9753b642910801bb67d33f7
   - enabled: 1
-    path: Assets/Scenes/Season1/Part6.unity
+    path: Assets/Scenes/Part6.unity
     guid: ee1448632fb40c04fa6ddbdb1fbb6772
   - enabled: 1
-    path: Assets/Scenes/Season1/Part7.unity
+    path: Assets/Scenes/Part7.unity
     guid: eed24efe97bed504a8c148d5d761f276
   - enabled: 1
-    path: Assets/Scenes/Season1/Part8.unity
+    path: Assets/Scenes/Part8.unity
     guid: 48d835a56a389004a8ff4b0c2d37a800
   - enabled: 1
-    path: Assets/Scenes/Season1/Part9.unity
+    path: Assets/Scenes/Part9.unity
     guid: 83b794f9fd2c0184582bcc3404a8ce0f
   - enabled: 1
-    path: Assets/Scenes/Season1/Part10.unity
+    path: Assets/Scenes/Part10.unity
     guid: e1c81da7432af914cbed1c8b6c1c1ec3
-  - enabled: 1
-    path: Assets/Scenes/Season1/Arena.unity
-    guid: 616e229754885c445a3f3e1a1525f6d0
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 2fb018d552bd9b148bb1f96b962ee201
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 8d1c3ce2030228c4d9172ff0157e5a39
+  - enabled: 1
+    path: Assets/Scenes/AraSahne.unity
+    guid: 4d44969563653ed41b6cecd2e292fa7f
+  - enabled: 1
+    path: Assets/Scenes/Arena.unity
+    guid: 616e229754885c445a3f3e1a1525f6d0
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 2dc881c4609ab47ac91517e5b63fb6c2, type: 2}
+    com.unity.localization.addressable-group-rules: {fileID: 11400000, guid: ff0f527df3b0c4556bd73996ffc29ae0, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: b505e26efc3a948f5a1a2f8dcf02c20f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a98bd4092012a7441ac5db35bceebd16, type: 2}

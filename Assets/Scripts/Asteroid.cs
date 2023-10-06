@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Asteroid : MonoBehaviour
@@ -7,22 +6,19 @@ public class Asteroid : MonoBehaviour
     private AudioSource audioSource;
     public GameObject booom;
     public AudioClip audio1, audio2, audio3, audio4, audio5;
-    // Start is called before the first frame update
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
    
-    // Update is called once per frame
     void Update()
     {
-
         transform.Rotate(0f, 0.0f, Time.deltaTime * 100, Space.Self);
     }
 
     public void boom()
     {
-
         StartCoroutine(BOM());
         IEnumerator BOM()
         {
@@ -35,8 +31,6 @@ public class Asteroid : MonoBehaviour
             LevelManager levelManager = FindAnyObjectByType<LevelManager>();
             levelManager.NextLevel("AraSahne");
         }
-       
-
     }
 
     public void PlaySound(int soundNo)
@@ -59,10 +53,8 @@ public class Asteroid : MonoBehaviour
                 audioSource.PlayOneShot(audio5);
                 break;
         }
-
-
-
-
     }
+
+
 
 }

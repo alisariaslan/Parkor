@@ -86,7 +86,7 @@ public class DevTools : MonoBehaviour
 					switchItem.CheckEnvanter();
 				input.text = "Silah verildi.";
 				break;
-			case "kapat":
+			case "exit":
 				PlayerPrefs.SetInt("devtools", 0);
 				SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 				break;
@@ -144,7 +144,7 @@ public class DevTools : MonoBehaviour
 				});
 				break;
 			default:
-				input.text = "Geçersiz komut!";
+				input.text = "Geï¿½ersiz komut!";
 				break;
 		}
 	}
