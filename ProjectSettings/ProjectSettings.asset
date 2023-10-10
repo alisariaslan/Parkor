@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: pakachu
+  companyName: ASProject
   productName: Parkor
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -139,7 +139,7 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: AS
+  bundleVersion: FieryWorm
   preloadedAssets:
   - {fileID: 11400000, guid: b505e26efc3a948f5a1a2f8dcf02c20f, type: 2}
   metroInputSource: 0
@@ -162,9 +162,9 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.asproject.parkor
-    Standalone: com.pakachu.Parkor
+    Standalone: com.asproject.Parkor
   buildNumber:
-    Standalone: 0
+    Standalone: 1
     VisionOS: 0
     iPhone: 0
     tvOS: 0
