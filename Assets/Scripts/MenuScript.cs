@@ -13,19 +13,42 @@ public class MenuScript : MonoBehaviour
             resume.SetActive(true);
     }
 
-    private void Blackout(string scenename)
+    public void NewGame()
     {
+        blackScreen.GetComponent<Animator>().Play("Blackout");
+        PlayerPrefs.SetInt("save", 1);
+        PlayerPrefs.SetInt("acikBolumler", 1);
+        PlayerPrefs.SetInt("pistol", 0);
+        PlayerPrefs.SetInt("light", 0);
+        ScoreManager.ResetScores();
+    }
 
+    public void ResumeGame()
+    {
         blackScreen.GetComponent<Animator>().Play("Blackout");
         StartCoroutine(LoadSceneCoroutine());
         IEnumerator LoadSceneCoroutine()
         {
             yield return new WaitForSeconds(5);
-            SceneManager.LoadScene(scenename);
+            if (PlayerPrefs.GetInt("save", 1) is 11)
+                SceneManager.LoadScene("End");
+            else
+                SceneManager.LoadScene(PlayerPrefs.GetInt("save", 1));
         }
     }
 
-    private void Blackout(int index)
+    public void StartGame(string sceneName)
+    {
+        blackScreen.GetComponent<Animator>().Play("Blackout");
+        StartCoroutine(LoadSceneCoroutine());
+        IEnumerator LoadSceneCoroutine()
+        {
+            yield return new WaitForSeconds(5);
+            SceneManager.LoadScene(sceneName);
+        }
+    }
+
+    public void StartGame(int index)
     {
         blackScreen.GetComponent<Animator>().Play("Blackout");
         StartCoroutine(LoadSceneCoroutine());
@@ -36,41 +59,17 @@ public class MenuScript : MonoBehaviour
         }
     }
 
-    public void NewGame()
+    public void RestartGame()
     {
-        PlayerPrefs.SetInt("save", 1);
-        PlayerPrefs.SetInt("acikBolumler", 1);
-        PlayerPrefs.SetInt("Envanter", 0);
-        ScoreManager.ResetScores();
-        Blackout("Intro");
-    }
-
-    public void StartGameAndSave(int save)
-    {
-        PlayerPrefs.SetInt("save", save);
-        Blackout("AraSahne");
-    }
-
-    public void ResumeGame()
-    {
-        Blackout("AraSahne");
-    }
-
-    public void StartGame(string sceneName)
-    {
-        Blackout(sceneName);
+        blackScreen.GetComponent<Animator>().Play("Blackout");
+        int aktifIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(aktifIndex);
     }
 
     public void QuitGame()
     {
-        Debug.Log("QUIT");
+        Debug.Log("Quitted.");
         Application.Quit();
-    }
-
-    public void RestartGame()
-    {
-        int aktifIndex = SceneManager.GetActiveScene().buildIndex;
-        Blackout(aktifIndex);
     }
 
 

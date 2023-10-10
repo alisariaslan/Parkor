@@ -10,7 +10,7 @@ public class EndpointController : MonoBehaviour
     public AudioClip endSound;
     public bool destroyCollAfterColl = true;
     public bool noEndSound;
-   
+
     private LevelManager levelManager;
     private AudioSource audioSource;
 
@@ -29,13 +29,14 @@ public class EndpointController : MonoBehaviour
     public void Finish()
     {
         int save = PlayerPrefs.GetInt("save", 1);
-        int acikBolumler = PlayerPrefs.GetInt("acikBolumler",1);
+        int acikBolumler = PlayerPrefs.GetInt("acikBolumler", 1);
 
         save++;
         if (isSeasonEnd)
         {
-
-        } else
+            PlayerPrefs.SetInt("acikBolumler", 11);
+        }
+        else
         {
             PlayerPrefs.SetInt("save", save);
             if (save > acikBolumler)

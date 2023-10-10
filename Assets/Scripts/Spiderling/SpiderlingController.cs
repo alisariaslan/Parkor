@@ -54,7 +54,6 @@ public class SpiderlingController : MonoBehaviour
             }
         }
     }
-
     private void UpdateEverySecond()
     {
         if (isTouchingGround)
@@ -65,8 +64,6 @@ public class SpiderlingController : MonoBehaviour
         }
 		if (transform.position.y < player.transform.position.y - 100)
 			GameObject.Destroy(gameObject);
-
-
 	}
 
     public void Respawn()
@@ -97,7 +94,6 @@ public class SpiderlingController : MonoBehaviour
                 seen = true;
                 audioSource.Play();
             }
-
         }
     }
     public void Find()
@@ -112,15 +108,13 @@ public class SpiderlingController : MonoBehaviour
     {
 		if (dead)
 			return;
-
-		int LayerIgnoreRaycast = LayerMask.NameToLayer("Spiderboss");
+        dead = true;
+        int LayerIgnoreRaycast = LayerMask.NameToLayer("Spiderboss");
 		gameObject.layer = LayerIgnoreRaycast;
 		GameObject.Destroy(transform.GetChild(0).gameObject);
-		
 		GameObject b = Instantiate(blood, this.transform.position, Quaternion.identity, transform.parent);
         if (kozayabagil)
             b.transform.localScale = new Vector2(.5f, .5f);
-        dead = true;
         audioSource.Stop();
         audioSource.PlayOneShot(audio3);
         animator.Play("spiderlingDead");
@@ -128,15 +122,11 @@ public class SpiderlingController : MonoBehaviour
         rigidbody2Da.AddForce(new Vector2(-yon * 100, jumpY * 100f / 4));
         GameObject.Destroy(gameObject, 3f);
 		GameObject.Destroy(this);
-
-
 		ScoreManager.AddSpiderlingKill();
 		if (type.Equals("hop"))
 		{
 			ScoreManager.AddJumpKill();
 		}
-           
-
         if (levelManager.scoreEnabled)
             levelManager.Score("Böcük", deadScore);
     }
@@ -165,20 +155,14 @@ public class SpiderlingController : MonoBehaviour
             if(collision.transform.name.Equals("PlayerHuman"))
             {
                 Saw();
-            } else if (collision.transform.name.Equals("PlayerCar"))
-            {
-                //Saw();
-            }
+            } 
             if (collision.transform.name.Equals("PlayerUcak"))
             {
                 audioSource.pitch = 3;
                 audioSource.PlayOneShot(audio1);
             }
-
-        }
+        } 
     }
-
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -198,9 +182,7 @@ public class SpiderlingController : MonoBehaviour
             {
                 GameObject.Destroy(collision.gameObject, 1f);
             }
-               
-
-
         }
     }
+
 }

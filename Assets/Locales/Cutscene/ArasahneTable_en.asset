@@ -63,11 +63,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 656004866048
-    m_Localized: "Jack reaches the village where his family lives outside the city.\nHis
-      family lives in one of the fields nearby.\nThe roads are made of dirt. There
-      are cold puddles on the ground.\nHe continues on his way, unaware of what he
-      will encounter.\nKar\u015F\u0131la\u015Faca\u011F\u0131 \u015Feylerden habersiz
-      yoluna devam eder."
+    m_Localized: 'Jack reaches the village where his family lives outside the city.
+
+      His
+      family lives in one of the fields nearby.
+
+      The roads are made of dirt.
+      There are cold puddles on the ground.
+
+      He continues on his way, unaware
+      of what he will encounter.'
     m_Metadata:
       m_Items: []
   - m_Id: 667098800128
@@ -99,7 +104,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 691014721536
-    m_Localized: 'This lantern has extraordinary power against these creatures.
+    m_Localized: 'This flashlight has extraordinary power against these creatures.
 
       The
       forest gets weirder as we progress.
@@ -154,13 +159,6 @@ MonoBehaviour:
       Is this invasive species an intelligent species?'
     m_Metadata:
       m_Items: []
-  - m_Id: 731733024768
-    m_Localized: 'The Arena section is a bonus section. If you feel strong please
-
-      continue.
-      Otherwise be prepared to lose! Remember, losing gives the secret to winning.'
-    m_Metadata:
-      m_Items: []
   - m_Id: 118645568036864
     m_Localized: 'Episode 1: Awakening
 
@@ -210,20 +208,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 118745849651200
-    m_Localized: 'Episode 7: Cemetery
+    m_Localized: 'Episode 7: Graveyard
 
-      The confusing forest roads are endless.
+      The confusing forest like its endless.
       Jack has now reached an even more chilling place. There are often gravestones
-      around. Or is this a forgotten graveyard?'
+      around.'
     m_Metadata:
       m_Items: []
   - m_Id: 118755454607360
     m_Localized: 'Episode 8: The Way
 
       Even though Jack was afraid, what he
-      encountered was incredible. The fact that he survived by escaping the cemetery
-      and finding his way was a factor that showed that he was very strong. But where
-      is humanity? What happened to everyone?'
+      encountered was incredible. But where is humanity? What happened to everyone?'
     m_Metadata:
       m_Items: []
   - m_Id: 118763708997632
@@ -242,10 +238,49 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 118782461730816
-    m_Localized: 'Bonus Episode: Arena
+    m_Localized: Where am I?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 467019645808640
+    m_Localized: '
 
-      Jack entered an unfamiliar building
-      with large columns on the edge of the city.'
+      I can''t remember..
+
+      Where I was before..
+
+      What
+      I was doing.
+
+      It''s like someone else..
+
+      Inside my body..
+
+      That
+      i feel.
+
+      I must focus.
+
+      I have to reach my family.
+
+      They
+      remind me some emotions..
+
+      What i haven''t.
+
+      I see something in
+      them..
+
+      Something I don''t have.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1314484125134848
+    m_Localized: "Jack has found no evidence that humanity still exists.\r\n\r\n\r\nBut
+      he did not lose hope.\r\n\r\n\r\nHe will continue to fight against this invasive
+      species until the end.\r\n\r\n\r\nBombing the city he lives in with the bomber
+      plane he found makes him on his in tears.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTHE
+      END.\r\n\r\n\r\n\r\n\r\nTHANK YOU FOR PLAYING.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nProject
+      Management,\r\n\r\n\r\nLevel  Design,\r\n\r\n\r\nScripts,\r\n\r\n\r\nControls,\r\n\r\n\r\nUI,\r\n\r\n\r\nEffects,\r\n\r\n\r\nDrawings,\r\n\r\n\r\nGraphic,\r\n\r\n\r\nStory,\r\n\r\n\r\nAudio
+      Placement and\r\n\r\n\r\nMusic Placement:\r Ali SARIASLAN."
     m_Metadata:
       m_Items: []
   references:

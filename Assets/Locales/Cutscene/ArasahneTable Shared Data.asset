@@ -55,10 +55,6 @@ MonoBehaviour:
     m_Key: story_episode10
     m_Metadata:
       m_Items: []
-  - m_Id: 731733024768
-    m_Key: story_episode_arena
-    m_Metadata:
-      m_Items: []
   - m_Id: 118645568036864
     m_Key: start_episode1
     m_Metadata:
@@ -100,7 +96,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 118782461730816
-    m_Key: start_episode_arena
+    m_Key: arena_start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 467019645808640
+    m_Key: ep3_credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1314484125134848
+    m_Key: the_end
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -15,16 +15,13 @@ public class LevelManager : MonoBehaviour
 
     [Header("Scores")]
     public bool scoreEnabled;
-    public int startScore = 0;
+    public int totalScore = 0;
 
     [Header("Story")]
     public string storyTextKey;
 
-    [Header("PcControllerText")]
-    [Multiline]
-    public string pcText = string.Empty;
-
     [Header("Others")]
+    public bool arenaLevel;
     public bool gotCheckpoint;
     public bool anonimController;
     public AudioClip whoosh;
@@ -44,9 +41,9 @@ public class LevelManager : MonoBehaviour
 
     public void Score(string thing, int point)
     {
-        startScore += point;
+        totalScore += point;
         if (scoreEnabled)
-            Say(thing + "\n" + "Toplam puan: " + startScore + "\n" + point + " puan eklendi.", .5f, false);
+            SayWithoutLocalization($"+{point} -> {totalScore}", .5f, false);
     }
 
     public void NextLevel(string sceneName)
@@ -89,7 +86,7 @@ public class LevelManager : MonoBehaviour
         if (player != null)
             spawnpoint = player.transform.position;
         canvasManager.SetStoryText(storyTextKey);
-        if ((Application.isMobilePlatform || forceMobile)  && platformCheckForTutorials )
+        if ((Application.isMobilePlatform || forceMobile) && platformCheckForTutorials)
             tutorials = false;
         await Task.Delay(100);
         canvasManager.StartGame();
@@ -103,6 +100,13 @@ public class LevelManager : MonoBehaviour
     public void Say(string text, float normalizedTime, bool enableWooshSound)
     {
         canvasManager.PlayMessage(text, normalizedTime);
+        if (enableWooshSound)
+            audioSource.PlayOneShot(whoosh);
+    }
+
+    public void SayWithoutLocalization(string text, float normalizedTime, bool enableWooshSound)
+    {
+        canvasManager.PlayMessageWithoutLocalization(text, normalizedTime);
         if (enableWooshSound)
             audioSource.PlayOneShot(whoosh);
     }
@@ -127,8 +131,9 @@ public class LevelManager : MonoBehaviour
             yield return new WaitForSeconds(5);
             gameObject.transform.position = spawnpoint;
             canvasManager.Aydinlat();
-            PlayerController playerController = FindAnyObjectByType<PlayerController>();
-            playerController.Spawn();
+            if (arenaLevel)
+                FindObjectOfType<ArenaManager>().RestartWave();
+            FindObjectOfType<PlayerController>().Spawn();
         }
     }
 

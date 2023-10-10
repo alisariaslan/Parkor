@@ -48,13 +48,14 @@ public class CarController : MonoBehaviour
 	private float vertical = 0f;
 	private int a, f;
 	private JointMotor2D JointMotor;
-	private bool release = false;
 	private int nextUpdate = 1;
-	private bool forceMobile = false;
 	private LevelManager levelManager;
 	private CanvasManager canvasManager;
 
-	public void Heal(float giveHealth)
+    [Header("Buttons")]
+    public ControllersButtonScript gotoleftButtonScript, gotorightButtonScript, jumpButtonScript;
+
+    public void Heal(float giveHealth)
 	{
 		if (carHealth < maxHealth)
 			carHealth += giveHealth;
@@ -93,7 +94,6 @@ public class CarController : MonoBehaviour
 		if (carHealth <= 0)
 		{
 			Crash();
-			levelManager.Say("Araban bozuldu...", 0.5f, false);
 			levelManager.Restart();
 		}
 	}
@@ -130,7 +130,6 @@ public class CarController : MonoBehaviour
 	{
 		levelManager = FindAnyObjectByType<LevelManager>();
 		canvasManager = FindAnyObjectByType<CanvasManager>();
-		forceMobile = levelManager.forceMobile;
 
 		levelManager = FindAnyObjectByType<LevelManager>();
 		myRigidBody2d = GetComponent<Rigidbody2D>();
@@ -188,54 +187,22 @@ public class CarController : MonoBehaviour
 			if (Input.GetKeyUp(KeyCode.Escape))
 			{
 				canvasManager.OpenMenu();
-			}
-			if (Input.touchCount == 1)
-			{
-				Touch touch = Input.GetTouch(0);
-				if (touch.position.y < Screen.height / 5)
-				{
-					vertical = Input.touches[0].maximumPossiblePressure;
-				}
-				else if (touch.position.y > Screen.height / 1.2f)
-				{
-					release = true;
-				}
-				else if (touch.position.x < Screen.width / 3)
-				{
-					horizontal = Input.touches[0].maximumPossiblePressure * -1;
-				}
-				else if (touch.position.x > Screen.width / 3)
-				{
-					horizontal = Input.touches[0].maximumPossiblePressure;
-				}
-			}
-			else if (Input.touchCount == 2)
-			{
-				Touch touch1 = Input.GetTouch(0);
-				Touch touch2 = Input.GetTouch(1);
-				if (touch2.position.y < Screen.height / 5)
-				{
-					vertical = Input.touches[0].maximumPossiblePressure;
-				}
-				if (touch1.position.x < Screen.width / 3)
-				{
-					horizontal = Input.touches[0].maximumPossiblePressure * -1;
-				}
-				else if (touch1.position.x > Screen.width / 3)
-				{
-					horizontal = Input.touches[0].maximumPossiblePressure;
-				}
-			}
-			else
-			{
-				if (release)
-				{
-					canvasManager.OpenMenu();
-					release = false;
-				}
-			}
+            }
+            if (Input.GetKeyUp(KeyCode.BackQuote))
+            {
+                canvasManager.OpenConsole();
+            }
+            if (Application.isMobilePlatform || levelManager.forceMobile)
+            {
+                if (gotoleftButtonScript.buttonPressed)
+                    horizontal = -1;
+                else if (gotorightButtonScript.buttonPressed)
+                    horizontal = 1;
+                if (jumpButtonScript.buttonPressed)
+                    vertical = 1;
+            }
 
-			if (horizontal > 0)
+            if (horizontal > 0)
 			{
 
 				if (!audioSource.isPlaying)

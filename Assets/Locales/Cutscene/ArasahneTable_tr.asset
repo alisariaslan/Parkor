@@ -47,7 +47,9 @@ MonoBehaviour:
   - m_Id: 656004866048
     m_Localized: "Jack \u015Fehir d\u0131\u015F\u0131na ailesinin ya\u015Fad\u0131\u011F\u0131
       k\xF6ye ula\u015F\u0131r.\nYak\u0131nlardaki tarlalardan birinde ailesi ya\u015Famaktad\u0131r.\nYollar
-      topraktand\u0131r. Yerlerde so\u011Fuk su birikintileri bulunmaktad\u0131r."
+      topraktand\u0131r. Yerlerde so\u011Fuk su birikintileri bulunmaktad\u0131r.
+      \nKar\u015F\u0131la\u015Faca\u011F\u0131 \u015Feylerden habersiz yoluna devam
+      eder."
     m_Metadata:
       m_Items: []
   - m_Id: 667098800128
@@ -100,12 +102,6 @@ MonoBehaviour:
       m\xFCd\xFCr?"
     m_Metadata:
       m_Items: []
-  - m_Id: 731733024768
-    m_Localized: "Arena b\xF6l\xFCm\xFC bir bonus b\xF6l\xFCmd\xFCr. L\xFCtfen kendini
-      g\xFC\xE7l\xFC hissediyorsan\ndevam et. Aksi takdirde kaybetmeye haz\u0131r
-      ol! Unutma, kaybetmek\nkazanman\u0131n s\u0131rr\u0131d\u0131r."
-    m_Metadata:
-      m_Items: []
   - m_Id: 118645568036864
     m_Localized: "1. B\xF6l\xFCm: Uyan\u0131\u015F\nJack sokakta bir ceset oldu\u011Funu
       fark eder ve ona do\u011Fru ilerler."
@@ -146,16 +142,13 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 118745849651200
     m_Localized: "7. B\xF6l\xFCm: Mezarl\u0131k\nKafa kar\u0131\u015Ft\u0131r\u0131c\u0131
-      orman yollar\u0131 bitmek bilmiyor. Jack \u015Fimdi daha da \xFCrpertici bir
-      yere varm\u0131\u015Ft\u0131r. \xC7evrede s\u0131k s\u0131k mezar ta\u015Flar\u0131
-      vard\u0131r. Yoksa buras\u0131 unutulmu\u015F bir mezarl\u0131k m\u0131d\u0131r?"
+      orman bitmek bilmiyor. Jack \u015Fimdi daha da \xFCrpertici bir yere varm\u0131\u015Ft\u0131r.
+      \xC7evrede s\u0131k s\u0131k mezar ta\u015Flar\u0131 vard\u0131r."
     m_Metadata:
       m_Items: []
   - m_Id: 118755454607360
     m_Localized: "8. B\xF6l\xFCm: Yol\nJack her ne kadar korksa dahi kar\u015F\u0131la\u015Ft\u0131\u011F\u0131
-      \u015Fey inan\u0131lmazd\u0131. Mezarl\u0131ktan kurtulup yolunu bularak hayatta
-      kalmas\u0131 onun \xE7ok g\xFC\xE7l\xFC oldu\u011Funu g\xF6steren bir etkendi.
-      Fakat insanl\u0131k nerede? Herkese ne oldu?"
+      \u015Fey inan\u0131lmazd\u0131. Fakat insanl\u0131k nerede? Herkese ne oldu?"
     m_Metadata:
       m_Items: []
   - m_Id: 118763708997632
@@ -173,8 +166,28 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 118782461730816
-    m_Localized: "Bonus B\xF6l\xFCm : Arena\nJack \u015Fehir kenar\u0131ndaki b\xFCy\xFCk
-      s\xFCtunlu bilmedi\u011Fi bir binan\u0131n i\xE7ine girmi\u015Ftir."
+    m_Localized: Neredeyim ben?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 467019645808640
+    m_Localized: "\nHat\u0131rlam\u0131yorum.\r\n\xD6nceden nerede oldu\u011Fumu...\r\nNeler
+      yapt\u0131\u011F\u0131m\u0131...\r\nSanki bir ba\u015Fkas\u0131\r\nBenim bedenimi
+      kullan\u0131yormu\u015F\xE7as\u0131na\r\nHissediyorum.\r\nOdaklanmal\u0131y\u0131m.\r\nAileme
+      ula\u015Fmak zorunday\u0131m.\r\nBana yoksun oldu\u011Fum\r\nDuygular\u0131
+      hat\u0131rlat\u0131yorlar..\r\nOnlarda bir \u015Fey g\xF6r\xFCyorum\r\nSahip
+      olmad\u0131\u011F\u0131m bir \u015Fey.\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1314484125134848
+    m_Localized: "Jack insanl\u0131\u011F\u0131n halen var oldu\u011Funa dair bir
+      kan\u0131t bulamam\u0131\u015Ft\u0131r.\r\n\r\n\r\nFakat umudunu da yitirmemi\u015Ftir.\r\n\r\n\r\nKar\u015F\u0131s\u0131na
+      \xE7\u0131kan bu istilac\u0131 t\xFCre kar\u015F\u0131 sonuna kadar sava\u015F\u0131
+      devam ettirecektir.\r\n\r\n\r\nBuldu\u011Fu bombard\u0131man u\xE7a\u011F\u0131
+      ile ya\u015Fad\u0131\u011F\u0131 \u015Fehri bombalayan Jack, g\xF6zya\u015Flar\u0131
+      ile yoluna devam eder.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nSON.\r\n\r\n\r\n\r\n\r\nOYNADI\u011EINIZ
+      \u0130\xC7\u0130N TE\u015EEKK\xDCR EDER\u0130Z.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nProje
+      Y\xF6netimi,\r\n\r\n\r\nB\xF6l\xFCm Tasar\u0131m\u0131,\r\n\r\n\r\nScriptler,\r\n\r\n\r\nKontroller,\r\n\r\n\r\nUI,\r\n\r\n\r\nEfektler,\r\n\r\n\r\n\xC7izimler,\r\n\r\n\r\nGrafik,\r\n\r\n\r\nHikaye,\r\n\r\n\r\nSes
+      Yerle\u015Ftirme ve\r\n\r\n\r\nM\xFCzik Yerle\u015Ftirme: Ali SARIASLAN."
     m_Metadata:
       m_Items: []
   references:

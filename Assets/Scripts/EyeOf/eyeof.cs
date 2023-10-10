@@ -15,7 +15,7 @@ public class eyeof : MonoBehaviour
     {
         levelManager = FindAnyObjectByType<LevelManager>();
         animator = GetComponent<Animator>();
-   
+
         leftEyeBody = leftEye.GetComponent<Rigidbody2D>();
         rightEyeBody = rightEye.GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
@@ -35,7 +35,8 @@ public class eyeof : MonoBehaviour
         flameRight.SetActive(true);
         animator.Play("eyeofclose");
         audioSource.PlayOneShot(flames);
-        levelManager.Say(sayOnDead, .5f, true);
+        if (string.IsNullOrEmpty(sayOnDead) is false)
+            levelManager.Say(sayOnDead, .5f, true);
     }
 
     private bool once = false;
@@ -46,7 +47,8 @@ public class eyeof : MonoBehaviour
             animator.Play("eyeofopen");
             audioSource.Play();
             if (!once)
-                levelManager.Say(sayOnSaw, .5f, false);
+                if (string.IsNullOrEmpty(sayOnSaw) is false)
+                    levelManager.Say(sayOnSaw, .5f, false);
             once = true;
         }
     }

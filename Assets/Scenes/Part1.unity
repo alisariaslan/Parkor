@@ -4848,6 +4848,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8939422220534502679, guid: 2f91d99874a6d4b4a892e7749ecf10c5, type: 3}
+      propertyPath: kalanMermi
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939422220534502679, guid: 2f91d99874a6d4b4a892e7749ecf10c5, type: 3}
       propertyPath: jumpButtonScript
       value: 
       objectReference: {fileID: 258387105}

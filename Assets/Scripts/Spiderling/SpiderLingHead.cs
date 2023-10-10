@@ -1,35 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpiderLingHead : MonoBehaviour
 {
     SpiderlingController spiderlingController;
-    // Start is called before the first frame update
+
     void Start()
     {
         spiderlingController = GetComponentInParent<SpiderlingController>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Bullet"))
+        if (collision.CompareTag("Bullet"))
         {
             Bullet bullet = collision.transform.GetComponent<Bullet>();
             if (bullet.impacted == 0)
             {
                 spiderlingController.Dead("bullet");
+                ScoreManager.AddBulletHeadshotKill();
+            }
 
-				ScoreManager.AddBulletHeadshotKill();
-			}
-               
-        } else if(collision.CompareTag("Player"))
+        }
+        else if (collision.CompareTag("Player"))
         {
-            if(collision.transform.name.Equals("PlayerHuman"))
+            if (collision.transform.name.Equals("PlayerHuman"))
             {
-				collision.gameObject.GetComponent<PlayerController>().Bounce();
-				spiderlingController.Dead("hop");
-			}
+                collision.gameObject.GetComponent<PlayerController>().Bounce();
+                spiderlingController.Dead("hop");
+            }
+        }
+        else if (collision.CompareTag("Fener"))
+        {
+            spiderlingController.Dead("bullet");
         }
     }
 }

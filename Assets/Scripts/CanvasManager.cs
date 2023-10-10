@@ -40,11 +40,25 @@ public class CanvasManager : MonoBehaviour
         Log.SetActive(levelManager.logs);
     }
 
+    public void SetAmmo(int count)
+    {
+        Ammo.GetComponentInChildren<Text>().text = count.ToString();
+    }
+
     public void PlayMessage(string key, float normalizedTime)
     {
         if (levelManager.storyTexts)
         {
             var text = LocalizationSettings.StringDatabase.GetLocalizedString(dialogTableCollection.name, key);
+            StoryText.GetComponent<Text>().text = text;
+            StoryText.GetComponent<Animator>().Play("textAppear", 0, normalizedTime);
+        }
+    }
+
+    public void PlayMessageWithoutLocalization(string text, float normalizedTime)
+    {
+        if (levelManager.storyTexts)
+        {
             StoryText.GetComponent<Text>().text = text;
             StoryText.GetComponent<Animator>().Play("textAppear", 0, normalizedTime);
         }

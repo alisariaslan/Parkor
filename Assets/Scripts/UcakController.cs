@@ -1,32 +1,40 @@
+using System;
 using UnityEngine;
 
 public class UcakController : MonoBehaviour
 {
     public GameObject bomb;
     LevelManager levelManager;
-    public float xSpeed = 10;
-    public float ySpeed = 10;
+    public float xSpeed = 10f;
+    public float ySpeed = 10f;
+    public float yGravity = 0.1f;
+    public float dropSpeed = -10f;
     public float roatationZ = 0;
     public GameObject sagP, solP, merkez;
     public bool flying;
     private AudioSource audioSource;
     public AudioSource audioSource2;
     public AudioClip audio1, audio2, audio3;
-    private Rigidbody2D rigidbody2Da;
     CameraController cameraController;
     private bool crashed;
-	private ControllersScript controllersScript;
-	private float horizontal = 0f;
-	private float vertical = 0f;
-	private bool release = false;
+    private float horizontal = 0f;
+    private float vertical = 0f;
+    private CanvasManager canvasManager;
 
-	void Start()
+    [Header("Buttons")]
+    public ControllersButtonScript gotoleftButtonScript, gotorightButtonScript, jumpButtonScript;
+
+    private BoxCollider2D boxCollider;
+    private Rigidbody2D rigidbdy;
+
+    void Start()
     {
-		controllersScript = FindAnyObjectByType<ControllersScript>();
-		cameraController = FindAnyObjectByType<CameraController>();
+        cameraController = FindAnyObjectByType<CameraController>();
         audioSource = GetComponent<AudioSource>();
         levelManager = FindAnyObjectByType<LevelManager>();
-        rigidbody2Da = GetComponent<Rigidbody2D>();
+        rigidbdy = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        canvasManager = FindAnyObjectByType<CanvasManager>();
     }
 
     void Update()
@@ -35,55 +43,26 @@ public class UcakController : MonoBehaviour
         {
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
+
             if (Input.GetKeyUp(KeyCode.Escape))
             {
-				controllersScript.OpenMenu();
+                canvasManager.OpenMenu();
             }
-            if (Input.touchCount == 1)
+            if (Input.GetKeyUp(KeyCode.BackQuote))
             {
-                Touch touch = Input.GetTouch(0);
-                if (touch.position.y < Screen.height / 5)
-                {
-                    vertical = Input.touches[0].maximumPossiblePressure;
-                }
-                else if (touch.position.y > Screen.height / 1.2f)
-                {
-                    release = true;
-                }
-                else if (touch.position.x < Screen.width / 3)
-                {
-                    horizontal = Input.touches[0].maximumPossiblePressure * -1;
-                }
-                else if (touch.position.x > Screen.width / 3)
-                {
-                    horizontal = Input.touches[0].maximumPossiblePressure;
-                }
+                canvasManager.OpenConsole();
             }
-            else if (Input.touchCount == 2)
+
+            if (Application.isMobilePlatform || levelManager.forceMobile)
             {
-                Touch touch1 = Input.GetTouch(0);
-                Touch touch2 = Input.GetTouch(1);
-                if (touch2.position.y < Screen.height / 5)
-                {
-                    vertical = Input.touches[0].maximumPossiblePressure;
-                }
-                if (touch1.position.x < Screen.width / 3)
-                {
-                    horizontal = Input.touches[0].maximumPossiblePressure * -1;
-                }
-                else if (touch1.position.x > Screen.width / 3)
-                {
-                    horizontal = Input.touches[0].maximumPossiblePressure;
-                }
+                if (gotoleftButtonScript.buttonPressed)
+                    horizontal = -1;
+                else if (gotorightButtonScript.buttonPressed)
+                    horizontal = 1;
+                if (jumpButtonScript.buttonPressed)
+                    vertical = 1;
             }
-            else
-            {
-                if (release)
-                {
-					controllersScript.OpenMenu();
-                    release = false;
-                }
-            }
+
             if (vertical > 0)
             {
                 ReleaseBomb();
@@ -105,7 +84,15 @@ public class UcakController : MonoBehaviour
                 else if (transform.rotation.z < 0)
                     transform.Rotate(new Vector3(0, 0, .2f));
             }
-            rigidbody2Da.velocity = new Vector2(-xSpeed, -transform.localRotation.z * 100);
+
+            //rigidbody2Da.velocity = new Vector2(-xSpeed, -transform.localRotation.z * 100);
+
+            float y = transform.localRotation.z;
+            y *= -ySpeed;
+
+            Vector3 hareket = new Vector3(xSpeed, y, 0f);
+            transform.position += hareket * Time.deltaTime;
+
             sagP.transform.Rotate(Vector3.forward, xSpeed);
             solP.transform.Rotate(Vector3.forward, xSpeed);
         }
@@ -115,12 +102,9 @@ public class UcakController : MonoBehaviour
     {
         if (!audioSource.isPlaying)
         {
-
             GameObject bomba = Instantiate(bomb, merkez.transform.position, Quaternion.identity);
-            Rigidbody2D rigidbody2DBomba = bomba.GetComponent<Rigidbody2D>();
-            rigidbody2DBomba.velocity = rigidbody2Da.velocity;
+            bomba.GetComponent<Rigidbody2D>().velocity = new Vector2(xSpeed/2, dropSpeed);
             audioSource.PlayOneShot(audio1, 5f);
-
         }
     }
 
@@ -133,9 +117,14 @@ public class UcakController : MonoBehaviour
         levelManager.Say("Kaza yaptýn", 1f, false);
         levelManager.Restart();
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!crashed)
+        if (collision.CompareTag("Ground"))
+        {
+            Destroy(boxCollider);
+            rigidbdy.isKinematic = false;
             Crash();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -22,12 +23,13 @@ public class Bullet : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         GameObject pat = Instantiate(parlama, this.transform.position, Quaternion.identity, transform.parent);
         GameObject.Destroy(pat, .1f);
-        GameObject.Destroy(gameObject, 10f);
+        StartCoroutine(ExampleCoroutine());
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (LayerMask.LayerToName(collision.gameObject.layer).Equals("Ground"))
+        if (LayerMask.LayerToName(collision.gameObject.layer).Equals("Ground") && isdestroyed is false)
         {
             if (impacted == 0)
             {
@@ -36,21 +38,26 @@ public class Bullet : MonoBehaviour
 				int bulletMissShots = PlayerPrefs.GetInt("bulletMissShots", 0);
 				bulletMissShots++;
 				PlayerPrefs.SetInt("bulletMissShots", bulletMissShots);
-                //print(ScoreManager.bulletMissShots);
-
             }
             else if (impacted == 1)
             {
                 audioSource.PlayOneShot(bulletShell);
                 impacted = 2;
-                
             }
         }
         else
         {
             GameObject.Destroy(gameObject, .1f);
+            isdestroyed = true;
         }
+    }
 
+    bool isdestroyed = false;
+    IEnumerator ExampleCoroutine()
+    {
+        yield return new WaitForSeconds(10);
+        isdestroyed = true;
+        GameObject.Destroy(gameObject, .1f);
     }
 
 

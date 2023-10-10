@@ -835,6 +835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8889480394124253942, guid: 535588b437faf1249b5d4c426a408202, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1362,6 +1366,10 @@ PrefabInstance:
     - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
       propertyPath: textNo
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
+      propertyPath: textKey
+      value: ep2_saw
       objectReference: {fileID: 0}
     - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
       propertyPath: triggerSound
@@ -3140,6 +3148,10 @@ PrefabInstance:
     - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
       propertyPath: textNo
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
+      propertyPath: textKey
+      value: ep2_park
       objectReference: {fileID: 0}
     - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
       propertyPath: triggerSound
@@ -7852,11 +7864,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1464256023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 80.49}
---- !u!4 &1021891768 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-  m_PrefabInstance: {fileID: 1920104730}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1027209226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9068,6 +9075,10 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
+      propertyPath: textKey
+      value: ep2_that
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
       propertyPath: triggerSound
       value: 
       objectReference: {fileID: 8300000, guid: 2357abe69eff10745851ce9c029287d9, type: 3}
@@ -9432,6 +9443,10 @@ PrefabInstance:
     - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
       propertyPath: textNo
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
+      propertyPath: textKey
+      value: ep2_reach
       objectReference: {fileID: 0}
     - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
       propertyPath: triggerSound
@@ -11951,7 +11966,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1957678482}
-  - {fileID: 1021891768}
   - {fileID: 266703332}
   - {fileID: 174921079}
   - {fileID: 415533195}
@@ -12619,79 +12633,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5851949494044926369, guid: ccf33305045478249b88e0f383951dc9, type: 3}
   m_PrefabInstance: {fileID: 1757551203}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1920104730
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1766182235}
-    m_Modifications:
-    - target: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 53.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 27.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754736, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754893, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: m_Name
-      value: TriggerText 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: text
-      value: "Aq \xFCst\xFCm ba\u015F\u0131m ne hale geldi"
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: textNo
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
-      propertyPath: triggerSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 2357abe69eff10745851ce9c029287d9, type: 3}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
 --- !u!4 &1929056707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5851949494044926369, guid: ccf33305045478249b88e0f383951dc9, type: 3}
@@ -13107,6 +13048,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8939422220534502679, guid: 2f91d99874a6d4b4a892e7749ecf10c5, type: 3}
+      propertyPath: jumpAndRun
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939422220534502679, guid: 2f91d99874a6d4b4a892e7749ecf10c5, type: 3}
+      propertyPath: kalanMermi
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939422220534502679, guid: 2f91d99874a6d4b4a892e7749ecf10c5, type: 3}
       propertyPath: forceMobile
       value: 0
       objectReference: {fileID: 0}
@@ -13404,6 +13353,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
+      propertyPath: tutorials
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
       propertyPath: blackPanel
       value: 1
       objectReference: {fileID: 0}
@@ -13412,12 +13365,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
+      propertyPath: forceMobile
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
       propertyPath: storyString
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
       propertyPath: storyTextKey
       value: start_episode2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
+      propertyPath: gotCheckpoint
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
       propertyPath: storyStringNo
@@ -13555,6 +13516,10 @@ PrefabInstance:
     - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
       propertyPath: textNo
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
+      propertyPath: textKey
+      value: ep2_spiders
       objectReference: {fileID: 0}
     - target: {fileID: 3204345067244754894, guid: 06505fb891ad44f40ab32c6e6f9afcca, type: 3}
       propertyPath: triggerSound
@@ -13998,11 +13963,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2089763466482923806, guid: 0007288ae34417246ab0b8bc39579b75, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 184.8
+      value: 87.8
       objectReference: {fileID: 0}
     - target: {fileID: 2089763466482923806, guid: 0007288ae34417246ab0b8bc39579b75, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.3
+      value: -10.8
       objectReference: {fileID: 0}
     - target: {fileID: 2089763466482923806, guid: 0007288ae34417246ab0b8bc39579b75, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14802,7 +14767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333621909719545827, guid: 7cc9bb45b3960ce4296591c14b506797, type: 3}
       propertyPath: say
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7333621909719545827, guid: 7cc9bb45b3960ce4296591c14b506797, type: 3}
       propertyPath: yon
@@ -14818,7 +14783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333621909719545827, guid: 7cc9bb45b3960ce4296591c14b506797, type: 3}
       propertyPath: sayAfterDead
-      value: "\xD6l art\u0131k yeter i\u011Fren\xE7..."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7333621909719545827, guid: 7cc9bb45b3960ce4296591c14b506797, type: 3}
       propertyPath: muteLevelAudioAfterDeath

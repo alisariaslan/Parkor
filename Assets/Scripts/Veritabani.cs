@@ -1,41 +1,25 @@
-using System.Data;
-
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 public class Veritabani : MonoBehaviour
 {
-
-
-    private Array bolumler;
-    private int acikBolumSayisi = 0;
-    private int toplamBolumSayisi = 0;
+    private int toplamBolumSayisi = 11;
 
     private void Start()
     {
-        acikBolumSayisi = PlayerPrefs.GetInt("acikBolumler", 0);
-        if (acikBolumSayisi == 0)
-        {
-            PlayerPrefs.SetInt("acikBolumler", 1);
-            acikBolumSayisi = 1;
-        }
-           
         toplamBolumSayisi = transform.childCount;
-
         StartCoroutine(co());
         IEnumerator co()
         {
             yield return new WaitForSeconds(1);
             Check();
         }
-
     }
 
     private void Check()
     {
+        var acikBolumSayisi = PlayerPrefs.GetInt("acikBolumler", 1);
         for (int i = 0; i < toplamBolumSayisi; i++)
         {
             if (i < acikBolumSayisi)
@@ -43,58 +27,52 @@ public class Veritabani : MonoBehaviour
             else
                 transform.GetChild(i).GetComponent<BolumSec>().Lock();
         }
-
     }
 
-    public string BolumleriAc()
+    public string UnlockAll()
     {
-        PlayerPrefs.SetInt("acikBolumler", toplamBolumSayisi);
-        acikBolumSayisi = toplamBolumSayisi;
+        PlayerPrefs.SetInt("acikBolumler", 11);
         Check();
-        return toplamBolumSayisi + " bölüm acildi";
+        return toplamBolumSayisi + " levels unlocked.";
     }
 
-    public string BolumleriKapa()
+    public string LockAll()
     {
-        PlayerPrefs.SetInt("acikBolumler", 0);
-        acikBolumSayisi = 0;
+        PlayerPrefs.SetInt("acikBolumler", 1);
         Check();
-        return toplamBolumSayisi + " bölüm kilitlendi";
+        return toplamBolumSayisi + " levels locked.";
     }
 
-    public string BolumKapa()
+    public string Unlock()
     {
-        if (acikBolumSayisi > 0)
-        {
-            acikBolumSayisi--;
-            PlayerPrefs.SetInt("acikBolumler", acikBolumSayisi);
-            Check();
-            return "1 Bölüm Kilitlendi.";
-        }
-        else
-        {
-            return "Hata! Tüm bölümler kilitli!";
-        }
-    }
-
-    public string BolumAc()
-    {
+        var acikBolumSayisi = PlayerPrefs.GetInt("acikBolumler", 1);
         if (acikBolumSayisi < toplamBolumSayisi)
         {
             acikBolumSayisi++;
             PlayerPrefs.SetInt("acikBolumler", acikBolumSayisi);
             Check();
-            return "1 Bölüm Açýldý.";
+            return "1 level is unlocked.";
         }
         else
         {
-            return "Hata! Tüm bölümler açýk!";
+            return "All levels are unlocked.";
         }
     }
+
+    public string Lock()
+    {
+        var acikBolumSayisi = PlayerPrefs.GetInt("acikBolumler", 1);
+        if (acikBolumSayisi > 1)
+        {
+            acikBolumSayisi--;
+            PlayerPrefs.SetInt("acikBolumler", acikBolumSayisi);
+            Check();
+            return "1 level is locked.";
+        }
+        else
+        {
+            return "All levels are locked.";
+        }
+    }
+
 }
-
-
-
-
-
-

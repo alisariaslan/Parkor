@@ -20,7 +20,6 @@ public class WormBossController : MonoBehaviour
 	public float partCount = 5;
 
 	[Header("Messages")]
-	public bool sayOn = false;
 	public string sayOnSaw;
 	public string sayOnDead;
 
@@ -73,17 +72,12 @@ public class WormBossController : MonoBehaviour
 		dead = true;
 		letsGO = false;
 		GameObject.Destroy(gameObject, 5f);
-
-		if (sayOn)
-			levelManager.Say(sayOnDead, .5f, true);
-
+        if (string.IsNullOrEmpty(sayOnDead) is false)
+            levelManager.Say(sayOnDead, .5f, true);
 		GameObject.Destroy(destroy);
 		GameObject[] flames = GameObject.FindGameObjectsWithTag("Flame");
 		foreach (var item in flames)
-		{
 			GameObject.Destroy(item, Random.Range(5, 15));
-		}
-
 		ScoreManager.AddBossKill();
 	}
 
@@ -108,14 +102,12 @@ public class WormBossController : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
 		if (readyFight)
 		{
-
 			head.GetComponent<Animator>().enabled = false;
 			back.GetComponent<Animator>().enabled = false;
 			back1.GetComponent<Animator>().enabled = false;
 			back2.GetComponent<Animator>().enabled = false;
 			back3.GetComponent<Animator>().enabled = false;
 			back4.GetComponent<Animator>().enabled = false;
-
 			head.transform.localScale = new Vector3(10, 10, 1);
 			back.transform.localScale = new Vector3(10, 10, 1);
 			back1.transform.localScale = new Vector3(10, 10, 1);
@@ -135,14 +127,13 @@ public class WormBossController : MonoBehaviour
 			if (!aktarmaTamam)
 				head.GetComponent<Animator>().Play("getBigger", 1);
 			else Fight();
-
 		else
 			Fight();
-
-		if(sayOn)
-			levelManager.Say(sayOnSaw, .5f, true);
+        if (string.IsNullOrEmpty(sayOnSaw) is false)
+            levelManager.Say(sayOnSaw, .5f, true);
 		wormBossEyes.seen = 2;
 	}
+
 	private void AyaklanVeSicra(int yon)
 	{
 		StartCoroutine(ExampleCoroutine());
@@ -248,7 +239,6 @@ public class WormBossController : MonoBehaviour
 				case 1: power = 1.8f; break;
 				case 0: power = 2f; break;
 			}
-
 			if (head != null)
 			{
 				if (head.transform.position.x > player.transform.position.x)
@@ -260,7 +250,6 @@ public class WormBossController : MonoBehaviour
 				else
 					tyon = -1;
 			}
-
 			if (Time.time >= nextUpdate)
 			{
 				nextUpdate = Mathf.FloorToInt(Time.time) + 5; //SECOND
@@ -269,4 +258,5 @@ public class WormBossController : MonoBehaviour
 			}
 		}
 	}
+
 }

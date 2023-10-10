@@ -1,24 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class EndCredits : MonoBehaviour
 {
-    public TextAsset textAsset;
-    private Text text;
-    CanvasManager canvasManager;
-    void Start()
-    {
-        text = GetComponent<Text>();
-        text.text = textAsset.text;
-        canvasManager = FindAnyObjectByType<CanvasManager>();
-        canvasManager.Aydinlat();
-    }
-
     public void NextScene()
     {
-        canvasManager.Karart();
+        FindObjectOfType<CanvasManager>().Karart();
         StartCoroutine(ExampleCoroutine());
         IEnumerator ExampleCoroutine()
         {

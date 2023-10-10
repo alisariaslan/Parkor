@@ -26,63 +26,49 @@ public class DevTools : MonoBehaviour
 		int acikBolumler = PlayerPrefs.GetInt("acikBolumler");
 		switch (input.text)
 		{
-			case "yardim":
-				LevelManager levelManager = FindAnyObjectByType<LevelManager>();
-				if (levelManager != null)
-				{
-					levelManager.Say("yardim,doldur,tasi,isinlan,sona isinlan,silah sil,silah ekle,kapat,kayit sil,kayit ac,canver,bolum ac,bolum kilitle,bolumleri ac,bolumleri kilitle,basar", 0.5f, false);
-				}
-				else
-					input.text = "yardim komutu sadece oyun icinde calisir.";
-				break;
-			case "doldur":
+			case "reload":
 				if (playerController != null)
 					playerController.Reload();
 				else
-					input.text = "doldur komutu sadece oyun icinde calisir.";
+					input.text = "Reload error.";
 				break;
-			case "tasi":
+			case "carry":
 				FlyerBossHelperController flyerBossHelperController = FindAnyObjectByType<FlyerBossHelperController>();
 				if (flyerBossHelperController != null)
 				{
 					player.transform.position = flyerBossHelperController.transform.position;
-					input.text = "helper bulundu.";
 				}
 				else
-					input.text = "helper bulunamadi!";
+					input.text = "Carry error.";
 				break;
-			case "isinlan":
+			case "checkpoint":
 				GameObject checkpoint = GameObject.Find("Checkpoint");
 				if (checkpoint == null)
-					input.text = "Nokta bulunamadi.";
+					input.text = "No checkpoint.";
 				else
 				{
 					player.transform.position = checkpoint.transform.position;
-					input.text = "Noktaya isinlanildi.";
 				}
 				break;
-			case "sona isinlan":
+			case "end":
 				GameObject endpoint = GameObject.Find("Endpoint");
 				if (endpoint == null)
-					input.text = "Son bulunamadi.";
+					input.text = "No end.";
 				else
 				{
 					player.transform.position = endpoint.transform.position;
-					input.text = "Sona isinlanildi.";
 				}
 				break;
-			case "silah sil":
+			case "reset":
 				PlayerPrefs.SetInt("Envanter", 0);
 				if (switchItem != null)
 					switchItem.CheckEnvanter();
-				input.text = "Silahlar sifirlandi.";
+				input.text = "Inventory resetted.";
 				break;
-			case "silah ekle":
-				int envanter = PlayerPrefs.GetInt("Envanter", 0);
-				if (envanter < 3)
-					envanter++;
-				PlayerPrefs.SetInt("Envanter", envanter);
-				if (switchItem != null)
+			case "add":
+                PlayerPrefs.SetInt("light", 1);
+                PlayerPrefs.SetInt("pistol", 1);
+                if (switchItem != null)
 					switchItem.CheckEnvanter();
 				input.text = "Silah verildi.";
 				break;
@@ -90,61 +76,47 @@ public class DevTools : MonoBehaviour
 				PlayerPrefs.SetInt("devtools", 0);
 				SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 				break;
-			case "kayit sil":
-				PlayerPrefs.SetInt("save", 0);
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-				break;
-			case "kayit ac":
-				PlayerPrefs.SetInt("save", 2);
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-				break;
-			case "canver":
+			case "heal":
 				if (playerController != null)
 				{
 					playerController.health = playerController.maxHealth;
-					input.text = "PlayerHuman can fullendi: " + playerController.maxHealth;
+					input.text = "PlayerHuman healed: " + playerController.maxHealth;
 				}
 				else
 				{
 					if (carController != null)
 					{
 						carController.carHealth = carController.maxHealth;
-						input.text = "PlayerCar can fullendi: " + carController.maxHealth;
+						input.text = "PlayerCar healed: " + carController.maxHealth;
 					}
 					else
 					{
-						input.text = "Hata! PlayerCar veya PlayerHuman bulunamadi.";
+						input.text = "No player found.";
 					}
 				}
 				break;
-			case "bolum ac":
+			case "unlock":
 				if (veritabani != null)
-					input.text = veritabani.BolumAc();
+					input.text = veritabani.Unlock();
 				else goto default;
 				break;
-			case "bolum kilitle":
+			case "lock":
 				if (veritabani != null)
-					input.text = veritabani.BolumKapa();
+					input.text = veritabani.Lock();
 				else goto default;
 				break;
-			case "bolumleri ac":
+			case "unlock all":
 				if (veritabani != null)
-					input.text = veritabani.BolumleriAc();
+					input.text = veritabani.UnlockAll();
 				else goto default;
 				break;
-			case "bolumleri kilitle":
+			case "lock all":
 				if (veritabani != null)
-					input.text = veritabani.BolumleriKapa();
+					input.text = veritabani.LockAll();
 				else goto default;
-				break;
-			case "basar":
-				Social.ReportProgress("CgkIwt3e_8MYEAIQCg", 100.0f, (bool success) =>
-				{
-					input.text = success.ToString();
-				});
 				break;
 			default:
-				input.text = "Ge�ersiz komut!";
+				input.text = "No command found.";
 				break;
 		}
 	}

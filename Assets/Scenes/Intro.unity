@@ -1248,11 +1248,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
+      propertyPath: tutorials
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
       propertyPath: blackPanel
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
       propertyPath: pausePanel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
+      propertyPath: storyTexts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
+      propertyPath: controllers
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
@@ -1265,6 +1277,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
       propertyPath: tutorialPanel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921285812225591100, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}
+      propertyPath: platformCheckForTutorials
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5921285812225591101, guid: d7e114e93d47bfd498ab698047ad11c6, type: 3}

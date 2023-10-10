@@ -51,13 +51,14 @@ public class SwitchItem : MonoBehaviour
 		{
 			case 0:
 				playerController.NoItem();
-				break;
+                break;
 			case 1:
 				playerController.ItemSet(playerController.fener);
 				break;
 			case 2:
 				playerController.ItemSet(playerController.pistol);
-				break;
+                FindObjectOfType<CanvasManager>().Ammo.SetActive(true);
+                break;
 		}
 	}
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -34,7 +33,12 @@ public class WormController : MonoBehaviour
 
     private LevelManager levelManager;
     private Vector2 a, b, c, d, e, f;
-    // Start is called before the first frame update
+
+    int yon = 1;
+    int seriYon;
+    bool unconsions;
+    int before;
+
     void Start()
     {
         a = head.transform.position;
@@ -47,10 +51,7 @@ public class WormController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         levelManager = FindAnyObjectByType<LevelManager>();
     }
-    int yon = 1;
-    int seriYon;
-    // Update is called once per frame
-    bool unconsions;
+
     void Update()
     {
         if (seen)
@@ -71,10 +72,7 @@ public class WormController : MonoBehaviour
                     if (wormHead.transform.position.x > wormTailEnd.transform.position.x)
                         wormHeadRigidbody2D.velocity = new Vector2(-jumpSpeed, jumpSpeed);
                 }
-
             }
-
-
             if (Time.time >= nextUpdate)
             {
                 nextUpdate = Mathf.FloorToInt(Time.time) + updateTime;
@@ -84,25 +82,20 @@ public class WormController : MonoBehaviour
                 wormHeadRigidbody2D.velocity = new Vector2(speed * yon, this.wormHeadRigidbody2D.velocity.y);
             before = yon;
             seriYon = getYon(player, head);
-
         }
     }
 
-    int before;
     private void UpdateEverySecond()
     {
-
         if (!audioSource.isPlaying)
         {
             audioSource.Play();
         }
-
-
-
         yon = getYon(player, head);
         if (yon != before)
             wormHeadRigidbody2D.velocity = new Vector2(this.wormHeadRigidbody2D.velocity.x, jumpSpeed);
     }
+
     public void Saw(GameObject player)
     {
         
@@ -122,10 +115,12 @@ public class WormController : MonoBehaviour
         }
 
     }
+
     public void Stop()
     {
         seen = false;
     }
+
     public void Respawn()
     {
         seen = false;
@@ -159,12 +154,9 @@ public class WormController : MonoBehaviour
     {
         if (audioSource.isPlaying)
             audioSource.Stop();
-
         Damage(damage);
-
         animator.Play("wormuncons");
         unconsions = true;
-
         wormHeadRigidbody2D.velocity = new Vector2(kickbackPower * seriYon * -1, jumpSpeed * 2);
         StartCoroutine(Wait());
         IEnumerator Wait()
@@ -187,7 +179,6 @@ public class WormController : MonoBehaviour
                 Destroy(GetComponentInChildren<Hasar>());
 				ScoreManager.AddWormKill();
 			}
-
         }
     }
 

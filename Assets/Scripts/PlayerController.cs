@@ -82,7 +82,6 @@ public class PlayerController : MonoBehaviour
     public int toplamMermi = 7;
     public int kalanMermi;
 
-
     [Header("Buttons")]
     public ControllersButtonScript gotoleftButtonScript, gotorightButtonScript, jumpButtonScript;
 
@@ -114,8 +113,6 @@ public class PlayerController : MonoBehaviour
                     powerBar.transform.GetChild(0).transform.localScale = vector2;
                     powerBar.GetComponent<Animator>().Play("healthbarfade");
                 }
-
-
             }
             else
             {
@@ -162,13 +159,7 @@ public class PlayerController : MonoBehaviour
                         bulletC.yon = yon;
                         Instantiate(bullet, new Vector2(pistol.transform.position.x + .5f * yon, pistol.transform.position.y + 0.15f), Quaternion.identity);
                         kalanMermi--;
-
-                        int gidecekler = 7 - kalanMermi;
-                        for (int i = 0; i < gidecekler; i++)
-                        {
-                            if (kalanMermi < 7)
-                                canvasManager.Ammo.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(false);
-                        }
+                        canvasManager.SetAmmo(kalanMermi);
                         once = 1;
                     }
                     else if (kalanMermi == 0 && once == 0)
@@ -186,10 +177,7 @@ public class PlayerController : MonoBehaviour
     public void Reload()
     {
         kalanMermi = toplamMermi;
-        for (int i = 0; i < 7; i++)
-        {
-            canvasManager.Ammo.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(true);
-        }
+        canvasManager.SetAmmo(kalanMermi);
         soundHelper_audioSource.PlayOneShot(reloadGun, 5f);
     }
 
@@ -207,7 +195,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     IEnumerator LightsOut()
     {
         yield return new WaitForSeconds(secsForInfinite);
@@ -216,7 +203,6 @@ public class PlayerController : MonoBehaviour
 
     public void NoItem()
     {
-        //levelManager.EscapePanel(false);
         activeWeapon = "";
         jumpEnabled = true;
         itemEquipped = false;
@@ -248,7 +234,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("run", active);
             speedX -= 5;
         }
-
     }
 
     public void Bounce()
@@ -277,7 +262,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dead()
     {
-        if (!dead && !god)
+        if (dead is false)
         {
             Instantiate(blood, transform.position, Quaternion.identity);
             dead = true;
@@ -287,7 +272,6 @@ public class PlayerController : MonoBehaviour
             animator.Play("PlayerDead");
             audioSource.Stop();
             audioSource.PlayOneShot(deadSound);
-            levelManager.Say("�ld�n!", .25f, false);
             levelManager.StopEnemies();
             if (levelManager.gotCheckpoint)
             {
@@ -296,7 +280,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 levelManager.Restart();
-
             }
         }
     }
@@ -308,11 +291,11 @@ public class PlayerController : MonoBehaviour
         rigidbody2Da.constraints = RigidbodyConstraints2D.FreezeRotation;
         animator.Play("PlayerIdle");
         health = maxHealth;
-
         Vector2 size = healthbar.transform.GetChild(0).localScale;
         healthbar.transform.GetChild(0).localScale = new Vector2(health / maxHealth, size.y);
         healthbar.GetComponent<Animator>().Play("healthbarfade");
     }
+
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
@@ -330,7 +313,6 @@ public class PlayerController : MonoBehaviour
         EnableRun(runEnabled);
         speedX += 5;
         isTouchingGround = true;
-
         StartCoroutine(ExampleCoroutine());
         IEnumerator ExampleCoroutine()
         {
@@ -447,7 +429,6 @@ public class PlayerController : MonoBehaviour
                 if (isTouchingGround && !jumping && !moving)
                     audioSource.Stop();
             }
-
             if (!ladder)
             {
                 if (jumpEnabled)
@@ -483,7 +464,6 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-
             animator.SetFloat("speed", Mathf.Abs(horizontal));
             animator.SetBool("ongroun", isTouchingGround);
             animator.SetFloat("jumpSpeed", Mathf.Abs(rigidbody2Da.velocity.y));
@@ -568,7 +548,6 @@ public class PlayerController : MonoBehaviour
                         Tahta tahta = collision.transform.GetComponent<Tahta>();
                         if (tahta != null)
                             tahta.Break();
-
                     }
                 }
             }
@@ -588,13 +567,16 @@ public class PlayerController : MonoBehaviour
                 {
                     case "FenerItem":
                         ItemSet(fener);
-                        PlayerPrefs.SetInt("Envanter", 1);
+                        PlayerPrefs.SetInt("light", 1);
                         break;
                     case "Pistol(item)":
                         ItemSet(pistol);
-                        PlayerPrefs.SetInt("Envanter", 2);
+                        PlayerPrefs.SetInt("pistol", 1);
                         break;
                     case "Sarjor":
+                        Reload();
+                        break;
+                    case "AmmoPack":
                         Reload();
                         break;
                     case "BatteryPackSuper":
@@ -644,11 +626,9 @@ public class PlayerController : MonoBehaviour
     private void Damage(int yon, int hasar)
     {
         health -= hasar;
-
         Instantiate(blood, transform.position, Quaternion.identity);
         BounceBack(yon);
         UpdateHealthBar();
-
         if (health < 0)
         {
             Dead();
@@ -685,4 +665,5 @@ public class PlayerController : MonoBehaviour
                 pause = false;
         }
     }
+
 }
