@@ -1364,7 +1364,7 @@ MonoBehaviour:
   god: 0
   jumpEnabled: 1
   runEnabled: 0
-  jumpAndRun: 1
+  jumpAndRun: 0
   takeFener: 0
   takePistol: 0
   noLeftAnim: 0

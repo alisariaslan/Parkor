@@ -53,7 +53,7 @@ public class SpiderHead : MonoBehaviour
                 spiderController.Damage(bullet.damage * 3, 0);
                 GameObject.Destroy(collision.gameObject, .1f);
 
-				ScoreManager.AddBulletHeadshotKill();
+				ScoreManager.AddBulletHeadshot();
 			}
             else
             {

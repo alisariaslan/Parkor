@@ -35,9 +35,7 @@ public class Bullet : MonoBehaviour
             {
                 audioSource.PlayOneShot(bulletDrop);
                 impacted = 1;
-				int bulletMissShots = PlayerPrefs.GetInt("bulletMissShots", 0);
-				bulletMissShots++;
-				PlayerPrefs.SetInt("bulletMissShots", bulletMissShots);
+                ScoreManager.AddBulletMissedshot();
             }
             else if (impacted == 1)
             {

@@ -10,7 +10,8 @@ public class eyeof : MonoBehaviour
     private bool seen;
     private Rigidbody2D leftEyeBody, rightEyeBody, playerBody;
     public GameObject leftEye, rightEye, flameLeft, flameRight;
-    // Start is called before the first frame update
+    private bool once;
+
     void Start()
     {
         levelManager = FindAnyObjectByType<LevelManager>();
@@ -19,12 +20,6 @@ public class eyeof : MonoBehaviour
         leftEyeBody = leftEye.GetComponent<Rigidbody2D>();
         rightEyeBody = rightEye.GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void Dead()
@@ -39,8 +34,7 @@ public class eyeof : MonoBehaviour
             levelManager.Say(sayOnDead, .5f, true);
     }
 
-    private bool once = false;
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "Player")
         {
@@ -53,16 +47,14 @@ public class eyeof : MonoBehaviour
         }
     }
 
-
-
-    private void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.tag == "Player")
         {
             animator.Play("eyeofclose");
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.tag == "Player")
         {

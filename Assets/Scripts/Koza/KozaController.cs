@@ -150,7 +150,7 @@ public class KozaController : MonoBehaviour
             {
                 Damage(bullet.damage,"bullet");
 
-				ScoreManager.AddBulletBodyshotKill();
+				ScoreManager.AddBulletBodyshot();
 			}
            
         }

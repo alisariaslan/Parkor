@@ -126,7 +126,7 @@ public class SpiderlingController : MonoBehaviour
 		if (type.Equals("hop"))
 		{
 			ScoreManager.AddJumpKill();
-		}
+        }
         if (levelManager.scoreEnabled)
             levelManager.Score("Böcük", deadScore);
     }
@@ -176,7 +176,7 @@ public class SpiderlingController : MonoBehaviour
             if (bullet.impacted == 0)
             {
                 Dead("bullet");
-				ScoreManager.AddBulletBodyshotKill();
+				ScoreManager.AddBulletBodyshot();
 
 			} else
             {

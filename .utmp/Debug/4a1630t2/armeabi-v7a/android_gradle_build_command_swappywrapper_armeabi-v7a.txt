@@ -1,7 +1,0 @@
-Executable : C:\Program Files\Unity\Hub\Editor\2023.1.0b6\Editor\Data\PlaybackEngines\AndroidPlayer\SDK\cmake\3.22.1\bin\ninja.exe
-arguments : 
--C
-C:\Projects\Parkor\.utmp\Debug\4a1630t2\armeabi-v7a
-swappywrapper
-jvmArgs : 
-

@@ -17,7 +17,7 @@ public class SpiderLingHead : MonoBehaviour
             if (bullet.impacted == 0)
             {
                 spiderlingController.Dead("bullet");
-                ScoreManager.AddBulletHeadshotKill();
+                ScoreManager.AddBulletHeadshot();
             }
 
         }
@@ -31,7 +31,7 @@ public class SpiderLingHead : MonoBehaviour
         }
         else if (collision.CompareTag("Fener"))
         {
-            spiderlingController.Dead("bullet");
+            spiderlingController.Dead("light");
         }
     }
 }

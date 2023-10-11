@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297753053}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5921285812225591101}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1297753055
 AudioSource:
@@ -153,6 +153,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5921285812225591091}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -160,7 +161,6 @@ Transform:
   m_Children:
   - {fileID: 1297753054}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5921285812225591100
 MonoBehaviour:
@@ -175,16 +175,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceMobile: 0
+  saveOnStart: 1
   scoreEnabled: 0
-  startScore: 0
-  storyAsset: {fileID: 4900000, guid: 8cdcbe39946cc8d408782385004f3eab, type: 3}
-  storyNo: 0
-  pcText: "KONTROLLER:\n\nW, A, S, D: Karakteri kontrol eder.\nSpace: Karakteri z\u0131plat\u0131r.\nESC:
-    Men\xFCy\xFC a\xE7ar.\nTab: Envanteri a\xE7ar."
+  totalScore: 0
+  storyTextKey: 
+  arenaLevel: 0
   gotCheckpoint: 0
   anonimController: 0
   whoosh: {fileID: 8300000, guid: 2357abe69eff10745851ce9c029287d9, type: 3}
   spawnpoint: {x: 0, y: 0}
+  storyTexts: 1
+  logs: 0
+  blackPanel: 1
+  controllers: 1
+  tutorials: 0
+  platformCheckForTutorials: 1
 --- !u!82 &1500614378
 AudioSource:
   m_ObjectHideFlags: 0

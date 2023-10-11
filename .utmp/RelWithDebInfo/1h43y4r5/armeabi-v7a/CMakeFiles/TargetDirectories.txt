@@ -1,5 +1,0 @@
-C:/Projects/Parkor/.utmp/RelWithDebInfo/1h43y4r5/armeabi-v7a/CMakeFiles/edit_cache.dir
-C:/Projects/Parkor/.utmp/RelWithDebInfo/1h43y4r5/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-C:/Projects/Parkor/.utmp/RelWithDebInfo/1h43y4r5/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
-C:/Projects/Parkor/.utmp/RelWithDebInfo/1h43y4r5/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
-C:/Projects/Parkor/.utmp/RelWithDebInfo/1h43y4r5/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

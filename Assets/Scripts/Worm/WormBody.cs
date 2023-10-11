@@ -12,7 +12,7 @@ public class WormBody : MonoBehaviour
             {
                 bullet.impacted = 1;
                 GetComponentInParent<WormController>().Damage(bullet.damage / 2);
-                ScoreManager.AddBulletBodyshotKill();
+                ScoreManager.AddBulletHeadshot();
             }
             GameObject.Destroy(collision.gameObject);
         }

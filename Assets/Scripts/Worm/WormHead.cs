@@ -67,7 +67,7 @@ public class WormHead : MonoBehaviour
                         yield return new WaitForSeconds(3);
                         wait = 0;
                     }
-					ScoreManager.AddBulletBodyshotKill();
+					ScoreManager.AddBulletBodyshot();
 				}
                 GameObject.Destroy(collision.gameObject);
               

@@ -62,7 +62,7 @@ public class SpiderLegs : MonoBehaviour
                 spiderController.Damage(bullet.damage,0);
                 GameObject.Destroy(collision.gameObject,.1f);
 
-				ScoreManager.AddBulletBodyshotKill();
+				ScoreManager.AddBulletBodyshot();
 			}
             else
             {

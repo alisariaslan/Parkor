@@ -1,0 +1,422 @@
+[
+    {
+        "key": "btn_newgame",
+        "value": "NEW GAME"
+    },
+    {
+        "key": "btn_continue",
+        "value": "CONTINUE"
+    },
+    {
+        "key": "btn_selectlevel",
+        "value": "SELECT LEVEL"
+    },
+    {
+        "key": "btn_statics",
+        "value": "STATICS"
+    },
+    {
+        "key": "btn_exit",
+        "value": "EXIT"
+    },
+    {
+        "key": "lbl_welcome",
+        "value": "Welcome"
+    },
+    {
+        "key": "btn_back",
+        "value": "BACK"
+    },
+    {
+        "key": "season1",
+        "value": "SEASON 1"
+    },
+    {
+        "key": "episode1",
+        "value": "EPISODE 1:\nAWAKENING"
+    },
+    {
+        "key": "episode2",
+        "value": "EPISODE 2:\nPARKING LOT"
+    },
+    {
+        "key": "episode3",
+        "value": "EPISODE 3:\nTRAVEL"
+    },
+    {
+        "key": "episode4",
+        "value": "EPISODE 4:\nFARM HOUSE"
+    },
+    {
+        "key": "episode5",
+        "value": "EPISODE 5:\nMY FEARS"
+    },
+    {
+        "key": "episode6",
+        "value": "EPISODE 6:\nDESOLATE FOREST"
+    },
+    {
+        "key": "episode7",
+        "value": "EPISODE 7:\nGRAVEYARD"
+    },
+    {
+        "key": "episode8",
+        "value": "EPISODE 8:\nTHE WAY"
+    },
+    {
+        "key": "episode9",
+        "value": "EPISODE 9:\nAIRPORT"
+    },
+    {
+        "key": "episode10",
+        "value": "EPISODE 10:\nREVENGE"
+    },
+    {
+        "key": "arena",
+        "value": "BONUS EPISODE:\nARENA"
+    },
+    {
+        "key": "newgame_warning",
+        "value": "ARE YOU SURE YOU WANT TO START A NEW GAME? *YOUR PROGRESS WILL BE RESET!"
+    },
+    {
+        "key": "start",
+        "value": "START"
+    },
+    {
+        "key": "cancel",
+        "value": "CANCEL"
+    },
+    {
+        "key": "spiderKills",
+        "value": "KILLED SPIDERS:"
+    },
+    {
+        "key": "spiderLingKills",
+        "value": "KILLED SPIDERLINGS:"
+    },
+    {
+        "key": "omegaKills",
+        "value": "KILLED OMEGAS:"
+    },
+    {
+        "key": "bossKills",
+        "value": "KILLED GIANTS:"
+    },
+    {
+        "key": "flyerKills",
+        "value": "KILLED FLYERS:"
+    },
+    {
+        "key": "casperKills",
+        "value": "KILLED GHOSTS:"
+    },
+    {
+        "key": "wormKills",
+        "value": "KILLED WORMS:"
+    },
+    {
+        "key": "bulletMissShots",
+        "value": "MISSED SHOTS:"
+    },
+    {
+        "key": "bulletHeadShots",
+        "value": "HEAD SHOTS:"
+    },
+    {
+        "key": "bulletBodyShots",
+        "value": "BODY SHOTS:"
+    },
+    {
+        "key": "jumpKills",
+        "value": "JUMP KILLS:"
+    },
+    {
+        "key": "kozaKills",
+        "value": "DESTROYED EGGS:"
+    },
+    {
+        "key": "maxScore",
+        "value": "MAX BOMBING SCORE:"
+    },
+    {
+        "key": "click_to_continue",
+        "value": "CLICK TO CONTINUE!"
+    },
+    {
+        "key": "continues",
+        "value": "GAME CONTINUES..."
+    },
+    {
+        "key": "tutorials_ok",
+        "value": "OK (ENTER)"
+    },
+    {
+        "key": "pc_controllers",
+        "value": "[A] : Walk to Left\n[D]: Walk to Right\n[Space]: Jump or Use\n[Tab]: Inventory\n[ESC]: Menu"
+    },
+    {
+        "key": "menu_panel",
+        "value": "MENU PANEL"
+    },
+    {
+        "key": "to_menu",
+        "value": "Return\nto Menu"
+    },
+    {
+        "key": "to_exit",
+        "value": "Exit\nGame"
+    },
+    {
+        "key": "inventory",
+        "value": "INVENTORY"
+    },
+    {
+        "key": "select_item",
+        "value": "SELECT WEAPON"
+    },
+    {
+        "key": "story_episode1",
+        "value": "10 DAYS AFTER THE CRASH:\n\nJack wakes up suddenly one night.\nWhen he sticks his head out of the window, he notices something incomprehensible standing on the street.\nJack, decides to go down from the apartment and examine the thing from closely."
+    },
+    {
+        "key": "story_episode2",
+        "value": "Jack encountered a creature on the street.\nDozens of corpses lie on the ground with their dried blood.\nA fear fills him.\nHe tries to call on his phone but cannot reach anyone.\nThe best he can do is try to reach his car and check for the safety of his family in their farm house."
+    },
+    {
+        "key": "story_episode3",
+        "value": "Creatures are everywhere. The parking lot is split in half.\nA cocoon inside the crevice. A giant creature inside. Jack is surprised at what happened.\nHe somehow overcomes the creature and makes his way back to the parking lot through the sewers to his car.\nJack is curious about his family. He gets on the highway and hits the gas."
+    },
+    {
+        "key": "story_episode4",
+        "value": "Jack reaches the village where his family lives outside the city.\nHis family lives in one of the fields nearby.\nThe roads are made of dirt. There are cold puddles on the ground.\nHe continues on his way, unaware of what he will encounter."
+    },
+    {
+        "key": "story_episode5",
+        "value": "Jack somehow made it to his family's house.\nCreature types are becoming more and more diverse.\nAttacking from the ground was not enough, now they are attacking from the air.\nThe cold water on the ground prevented the vehicle from heating.\nJack must make sure of his family's safety as soon as possible."
+    },
+    {
+        "key": "story_episode6",
+        "value": "Jack's family was not at home.\nThis is not a good sign. Were the scary paintings and ghosts found in the house related to Jack's family?\nThen, just at that moment, a Flyer takes Jack and leaves him in the forest. It's a good thing he took the flashlight he found on the floor at home with him. He took the flashlight out of his pocket and turned it on."
+    },
+    {
+        "key": "story_episode7",
+        "value": "This flashlight has extraordinary power against these creatures.\nThe forest gets weirder as we progress.\nThe flowered land was very beautiful at first, but as we progressed, we saw that the flowers began to turn black and dark. Not to mention the gravestones."
+    },
+    {
+        "key": "story_episode8",
+        "value": "Jack encountered a giant fiery worm in the forest.\nIf these spread further around the world, very bad things could happen.\nJack begins to follow the path. But the search does not end.\nHe searches for hope, salvation..."
+    },
+    {
+        "key": "story_episode9",
+        "value": "While Jack is walking on the road, a sign catches his eye.\nHe sees the airport logo on the sign. It occurs to him that people might have taken refuge here.\nThis sign gives him the hope he is looking for.\nWhile walking on the road, he sees wrecked cars and corpses on the ground.\nCreatures have literally taken over everywhere."
+    },
+    {
+        "key": "story_episode10",
+        "value": "Arriving at the airport, Jack is surprised by the first thing he encounters.\nThis creature is doing something that even humanity cannot do.\nThe lightning he sends down from the sky does not harm him, and he is not affected by fire.\nMoreover, when his body is damaged, he raises himself to the sky.\nIs this invasive species an intelligent species?"
+    },
+    {
+        "key": "start_episode1",
+        "value": "Episode 1: Awakening\nJack notices a dead body in the street and moves towards it."
+    },
+    {
+        "key": "start_episode2",
+        "value": "Episode 2: Parking Lot\nJack tries to call everyone on the phone, but no one answers. The lights of the buildings are on, but they are all empty. It was as if the ground opened up and everyone fell in. Fear surrounds him."
+    },
+    {
+        "key": "start_episode3",
+        "value": "Episode 3: Travel\nJack begins to think that he is completely alone and puts the tape he took from the window sill into the car radio. He lights a cigarette and continues on his way. Despair is the thing he hates the most."
+    },
+    {
+        "key": "start_episode4",
+        "value": "Episode 4: Farm House\nJack has moved away from the dreary city atmosphere. When he checks the gas gauge, he notices that the bar is at the orange area. And he sees a difficult terrain ahead."
+    },
+    {
+        "key": "start_episode5",
+        "value": "Episode 5: My Fears\nJack thinks about his family and home. He has no idea what's going on in the world. The creatures have made it this far."
+    },
+    {
+        "key": "start_episode6",
+        "value": "Episode 6: Desolate Forest\nJack was captured by a flying creature and left in the forest. He needs to find his way as soon as possible."
+    },
+    {
+        "key": "start_episode7",
+        "value": "Episode 7: Graveyard\nThe confusing forest like its endless. Jack has now reached an even more chilling place. There are often gravestones around."
+    },
+    {
+        "key": "start_episode8",
+        "value": "Episode 8: The Way\nEven though Jack was afraid, what he encountered was incredible. But where is humanity? What happened to everyone?"
+    },
+    {
+        "key": "start_episode9",
+        "value": "Episode 9: Airport\nJack hopes that all the survivors are gathered here. He continues to search for a trace of humanity."
+    },
+    {
+        "key": "start_episode10",
+        "value": "Episode 10: Revenge\nJack captured a bomber he found. He starts to take off the plane with the desire to return to the city and get rid of the things he hates. There will be a massacre."
+    },
+    {
+        "key": "arena_start",
+        "value": "Where am I?"
+    },
+    {
+        "key": "ep3_credits",
+        "value": "\nI can't remember..\nWhere I was before..\nWhat I was doing.\n It's like someone else..\nInside my body..\nThat i feel.\nI must focus.\nI have to reach my family.\nThey remind me some emotions..\nWhat i haven't.\nI see something in them..\nSomething I don't have."
+    },
+    {
+        "key": "the_end",
+        "value": "Jack has found no evidence that humanity still exists.\n\n\nBut he did not lose hope.\n\n\nHe will continue to fight against this invasive species until the end.\n\n\nBombing the city he lives in with the bomber plane he found makes him on his in tears.\n\n\n\n\n\n\n\n\nTHE END.\n\n\n\n\nTHANK YOU FOR PLAYING.\n\n\n\n\n\n\n\n\nProject Management,\n\n\nLevel Design,\n\n\nScripts,\n\n\nControls,\n\n\nUI,\n\n\nEffects,\n\n\nDrawings,\n\n\nGraphic,\n\n\nStory,\n\n\nAudio Placement and\n\n\nMusic Placement: Ali SARIASLAN."
+    },
+    {
+        "key": "ep1_reaction",
+        "value": "What is that?"
+    },
+    {
+        "key": "ep1_dead",
+        "value": "Oh my god, he's dead!"
+    },
+    {
+        "key": "ep1_sound",
+        "value": "What was that sound?"
+    },
+    {
+        "key": "ep1_car",
+        "value": "I need to reach my vehicle."
+    },
+    {
+        "key": "ep2_spiders",
+        "value": "What the hell are these?"
+    },
+    {
+        "key": "ep2_park",
+        "value": "No way, the parking lot is split in half!"
+    },
+    {
+        "key": "ep2_that",
+        "value": "What is that!"
+    },
+    {
+        "key": "ep2_saw",
+        "value": "I can't believe what I saw."
+    },
+    {
+        "key": "ep2_reach",
+        "value": "Finally I reached my vehicle."
+    },
+    {
+        "key": "ep3_2",
+        "value": "These flying things seem sensitive to light."
+    },
+    {
+        "key": "ep3_3",
+        "value": "I better not go any further before I kill these creatures!"
+    },
+    {
+        "key": "ep3_4",
+        "value": "I can almost see the house."
+    },
+    {
+        "key": "ep5_1",
+        "value": "Home home sweet home."
+    },
+    {
+        "key": "ep5_2",
+        "value": "Where did everyone go?"
+    },
+    {
+        "key": "ep5_3",
+        "value": "Where is everybody?"
+    },
+    {
+        "key": "ep5_4",
+        "value": "I'll check the upper floors."
+    },
+    {
+        "key": "ep5_5",
+        "value": "Its a phoenix!"
+    },
+    {
+        "key": "ep5_6",
+        "value": "Where is she taking me?"
+    },
+    {
+        "key": "ep5_7",
+        "value": "She left me in the forest."
+    },
+    {
+        "key": "ep5_8",
+        "value": "Wrong direction, I guess."
+    },
+    {
+        "key": "ep5_9",
+        "value": "These creatures are faster when i walk. If I time it well, I can avoid them."
+    },
+    {
+        "key": "ep6_1",
+        "value": "So where did I end up?"
+    },
+    {
+        "key": "ep6_2",
+        "value": "I'm going in the wrong direction."
+    },
+    {
+        "key": "ep6_3",
+        "value": "The flowers have faded in this area."
+    },
+    {
+        "key": "ep6_4",
+        "value": "Are these gravestones?"
+    },
+    {
+        "key": "ep7_1",
+        "value": "Everywhere is burning. What is going on here?"
+    },
+    {
+        "key": "ep7_2",
+        "value": "Maybe I can escape."
+    },
+    {
+        "key": "ep7_3",
+        "value": "I can see the road. Its close!"
+    },
+    {
+        "key": "ep8_1",
+        "value": "This gun will come in handy, I'm very lucky."
+    },
+    {
+        "key": "ep8_2",
+        "value": "It looks like an airport sign."
+    },
+    {
+        "key": "ep8_3",
+        "value": "I wonder how much longer will I walk?"
+    },
+    {
+        "key": "ep8_4",
+        "value": "I'm getting close to the airport."
+    },
+    {
+        "key": "ep9_1",
+        "value": "I'm not seeing any survivors."
+    },
+    {
+        "key": "ep9_2",
+        "value": "I will slaughter them all."
+    },
+    {
+        "key": "wave",
+        "value": "Wave"
+    },
+    {
+        "key": "arena_complete",
+        "value": "Congratulations! You have successfully completed the arena."
+    },
+    {
+        "key": "points_added",
+        "value": "points added."
+    },
+    {
+        "key": "points_total",
+        "value": "Total points"
+    }
+]

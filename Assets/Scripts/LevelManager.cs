@@ -43,7 +43,10 @@ public class LevelManager : MonoBehaviour
     {
         totalScore += point;
         if (scoreEnabled)
-            SayWithoutLocalization($"+{point} -> {totalScore}", .5f, false);
+        {
+            SayWithoutLocalization($"{point} {LangHelper.GetLanguageValue("points_added")}\n{LangHelper.GetLanguageValue("points_total")}: {totalScore}", .5f, false);
+            ScoreManager.SetMaxScore(totalScore);
+        }
     }
 
     public void NextLevel(string sceneName)
