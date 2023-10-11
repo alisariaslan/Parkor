@@ -60,19 +60,25 @@ public class DevTools : MonoBehaviour
 				}
 				break;
 			case "reset":
-				PlayerPrefs.SetInt("Envanter", 0);
-				if (switchItem != null)
+				PlayerPrefs.SetInt("pistol", 0);
+                PlayerPrefs.SetInt("light", 0);
+                if (switchItem != null)
 					switchItem.CheckEnvanter();
 				input.text = "Inventory resetted.";
 				break;
-			case "add":
-                PlayerPrefs.SetInt("light", 1);
+			case "give pistol":
                 PlayerPrefs.SetInt("pistol", 1);
                 if (switchItem != null)
 					switchItem.CheckEnvanter();
-				input.text = "Silah verildi.";
+				input.text = "Gun added to inventory.";
 				break;
-			case "exit":
+            case "give light":
+                PlayerPrefs.SetInt("light", 1);
+                if (switchItem != null)
+                    switchItem.CheckEnvanter();
+                input.text = "Flashlight added to inventory.";
+                break;
+            case "exit":
 				PlayerPrefs.SetInt("devtools", 0);
 				SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 				break;

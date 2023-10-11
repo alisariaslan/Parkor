@@ -7,16 +7,16 @@ public class SwitchItem : MonoBehaviour
 	public List<Button> buttonList;
 	private PlayerController playerController;
 
-	void Start()
-	{
-		playerController = FindAnyObjectByType<PlayerController>();
-		if (playerController != null)
-			CheckEnvanter();
-		else
-			ResetInventoryDiagram();
-	}
+    void OnEnable()
+    {
+        playerController = FindAnyObjectByType<PlayerController>();
+        if (playerController != null)
+            CheckEnvanter();
+        else
+            ResetInventoryDiagram();
+    }
 
-	public void ResetInventoryDiagram()
+    public void ResetInventoryDiagram()
 	{
 		foreach (Button button in buttonList)
 		{
