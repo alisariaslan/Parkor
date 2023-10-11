@@ -1,11 +1,8 @@
-using UnityEditor.Localization;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class Credits : MonoBehaviour
 {
-    public StringTableCollection arasahnetable;
     private Text text;
     public Animator animator;
     string[] texts;
@@ -16,7 +13,7 @@ public class Credits : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        string introText = LocalizationSettings.StringDatabase.GetLocalizedString(arasahnetable.name, "ep3_credits");
+        string introText = LangHelper.GetLanguageValue("ep3_credits");
         texts = introText.Split('\n');
         text.text = texts[a];
         RandomPositionY();

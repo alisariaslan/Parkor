@@ -866,8 +866,6 @@ MonoBehaviour:
   StoryText: {fileID: 1718064987973496876}
   Log: {fileID: 1824822928}
   Ammo: {fileID: 1952694079391219665}
-  storyTableCollection: {fileID: 11400000, guid: f5e2c2e2a16744f5c8df0370caa62f6e, type: 2}
-  dialogTableCollection: {fileID: 11400000, guid: 92c12f3ac2eaa4508bc0276cb3d2c43c, type: 2}
 --- !u!1 &1718064987973496876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,7 +1530,7 @@ GameObject:
   - component: {fileID: 8049040864747295364}
   - component: {fileID: 6513712933220186367}
   - component: {fileID: 2393391674530719260}
-  - component: {fileID: 2112748604096170109}
+  - component: {fileID: 3650120601991687982}
   m_Layer: 5
   m_Name: Baslik
   m_TagString: Untagged
@@ -1601,7 +1599,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: SELECT WEAPON
---- !u!114 &2112748604096170109
+--- !u!114 &3650120601991687982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1610,37 +1608,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2004837052113820279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Script: {fileID: 11500000, guid: 734cb070a1c64194b907434b8346b243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:01de1ff30c1be4a069e957a831efa8cb
-    m_TableEntryReference:
-      m_KeyId: 213183368257536
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2393391674530719260}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  references:
-    version: 2
-    RefIds: []
+  key: select_item
 --- !u!1 &2096890388753204531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,6 +1698,7 @@ GameObject:
   - component: {fileID: 8889480394124253942}
   - component: {fileID: 2367657428494720732}
   - component: {fileID: 1318488325089892976}
+  - component: {fileID: 7332309560215642375}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1795,6 +1767,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: OK
+--- !u!114 &7332309560215642375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2155690930736823143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734cb070a1c64194b907434b8346b243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: tutorials_ok
 --- !u!1 &2418713426234410233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1791,7 @@ GameObject:
   - component: {fileID: 9178672414367569414}
   - component: {fileID: 450533322696220118}
   - component: {fileID: 8417335593775445210}
-  - component: {fileID: 109661156146807571}
+  - component: {fileID: 4303790364831422351}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1877,7 +1862,7 @@ MonoBehaviour:
   m_Text: 'Exit
 
     Game'
---- !u!114 &109661156146807571
+--- !u!114 &4303790364831422351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1886,37 +1871,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2418713426234410233}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Script: {fileID: 11500000, guid: 734cb070a1c64194b907434b8346b243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:01de1ff30c1be4a069e957a831efa8cb
-    m_TableEntryReference:
-      m_KeyId: 212061282885632
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8417335593775445210}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  references:
-    version: 2
-    RefIds: []
+  key: to_exit
 --- !u!1 &2647781221488128250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3032,7 +2990,6 @@ GameObject:
   - component: {fileID: 1654630193749199228}
   - component: {fileID: 522740935867851196}
   - component: {fileID: 3084306460221997358}
-  - component: {fileID: 2977401462403012216}
   m_Layer: 5
   m_Name: EnvanterCloseButton
   m_TagString: Untagged
@@ -3154,46 +3111,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2977401462403012216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3756187125964692938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:01de1ff30c1be4a069e957a831efa8cb
-    m_TableEntryReference:
-      m_KeyId: 8158729723904
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6863075843670121050}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  references:
-    version: 2
-    RefIds: []
 --- !u!1 &3846618333928020518
 GameObject:
   m_ObjectHideFlags: 0
@@ -3557,6 +3474,7 @@ GameObject:
   - component: {fileID: 5042459463134684909}
   - component: {fileID: 5474899518304748350}
   - component: {fileID: 6863075843670121050}
+  - component: {fileID: 7599626904004629545}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3625,6 +3543,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: EXIT
+--- !u!114 &7599626904004629545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932617705570726394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734cb070a1c64194b907434b8346b243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btn_exit
 --- !u!1 &4143029998278605552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3871,7 +3802,7 @@ GameObject:
   - component: {fileID: 5906913869846274583}
   - component: {fileID: 3122174780076177162}
   - component: {fileID: 4102126242779816005}
-  - component: {fileID: 8464725394196940823}
+  - component: {fileID: 3069167062575106860}
   m_Layer: 5
   m_Name: TutorialText
   m_TagString: Untagged
@@ -3940,7 +3871,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: WASD
---- !u!114 &8464725394196940823
+--- !u!114 &3069167062575106860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3949,37 +3880,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4402452160641969741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Script: {fileID: 11500000, guid: 734cb070a1c64194b907434b8346b243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:01de1ff30c1be4a069e957a831efa8cb
-    m_TableEntryReference:
-      m_KeyId: 207441437384704
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4102126242779816005}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  references:
-    version: 2
-    RefIds: []
+  key: pc_controllers
 --- !u!1 &4605968315770036501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3991,7 +3895,7 @@ GameObject:
   - component: {fileID: 6561228006148227596}
   - component: {fileID: 3943001279162921166}
   - component: {fileID: 7718611253520753735}
-  - component: {fileID: 5270888486607561598}
+  - component: {fileID: 8741769053712503831}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -4062,7 +3966,7 @@ MonoBehaviour:
   m_Text: 'Return
 
     to Menu'
---- !u!114 &5270888486607561598
+--- !u!114 &8741769053712503831
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4071,37 +3975,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4605968315770036501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Script: {fileID: 11500000, guid: 734cb070a1c64194b907434b8346b243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:01de1ff30c1be4a069e957a831efa8cb
-    m_TableEntryReference:
-      m_KeyId: 211929158115328
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7718611253520753735}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  references:
-    version: 2
-    RefIds: []
+  key: to_menu
 --- !u!1 &4933604985569101936
 GameObject:
   m_ObjectHideFlags: 0
@@ -4541,7 +4418,7 @@ GameObject:
   - component: {fileID: 2517171742116272988}
   - component: {fileID: 3676783713711094228}
   - component: {fileID: 8599759643204843864}
-  - component: {fileID: 8619987307169639952}
+  - component: {fileID: 4225434474918416619}
   m_Layer: 5
   m_Name: Baslik
   m_TagString: Untagged
@@ -4610,7 +4487,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: INVENTORY
---- !u!114 &8619987307169639952
+--- !u!114 &4225434474918416619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4619,37 +4496,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5301783061243307580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Script: {fileID: 11500000, guid: 734cb070a1c64194b907434b8346b243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:01de1ff30c1be4a069e957a831efa8cb
-    m_TableEntryReference:
-      m_KeyId: 213113046556672
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8599759643204843864}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  references:
-    version: 2
-    RefIds: []
+  key: inventory
 --- !u!1 &5684566019146142133
 GameObject:
   m_ObjectHideFlags: 0
@@ -5840,7 +5690,6 @@ GameObject:
   - component: {fileID: 1635801309090960150}
   - component: {fileID: 4061748508422332359}
   - component: {fileID: 1801943733636746898}
-  - component: {fileID: 8565533858335542140}
   - component: {fileID: 429534594510122457}
   m_Layer: 5
   m_Name: CloseTutorial
@@ -5963,46 +5812,6 @@ MonoBehaviour:
           m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8565533858335542140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7061276484644188144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:01de1ff30c1be4a069e957a831efa8cb
-    m_TableEntryReference:
-      m_KeyId: 187770805936128
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1318488325089892976}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &429534594510122457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6026,7 +5835,7 @@ GameObject:
   - component: {fileID: 3282440951609469205}
   - component: {fileID: 5388856089894378078}
   - component: {fileID: 3928113764857727340}
-  - component: {fileID: 3187272254375171162}
+  - component: {fileID: 5449473734014144014}
   m_Layer: 5
   m_Name: OyunPanelHeader
   m_TagString: Untagged
@@ -6095,7 +5904,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: MENU PANEL
---- !u!114 &3187272254375171162
+--- !u!114 &5449473734014144014
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6104,37 +5913,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7067711631047874037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Script: {fileID: 11500000, guid: 734cb070a1c64194b907434b8346b243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:01de1ff30c1be4a069e957a831efa8cb
-    m_TableEntryReference:
-      m_KeyId: 211845196537856
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3928113764857727340}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  references:
-    version: 2
-    RefIds: []
+  key: menu_panel
 --- !u!1 &7623062928667049086
 GameObject:
   m_ObjectHideFlags: 0

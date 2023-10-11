@@ -1,6 +1,4 @@
-using UnityEditor.Localization;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
@@ -19,7 +17,6 @@ public class ScoreManager : MonoBehaviour
     private static int bulletBodyShots = 0;
     private static int jumpKills = 0;
     private static int kozaKills = 0;
-    public StringTableCollection stringTableCollection;
 
     void Start()
     {
@@ -46,18 +43,18 @@ public class ScoreManager : MonoBehaviour
     private void SetStaticsText()
     {
         string staticsString = "";
-        var spiders = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "killed_spiders");
-        var spiderlings = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "killed_spiderlings");
-        var omegas = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "killed_omegas");
-        var giants = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "killed_giants");
-        var flyers = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "killed_flyers");
-        var ghosts = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "killed_ghosts");
-        var worms = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "killed_worms");
-        var misseds = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "missed_shots");
-        var heads = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "head_shots");
-        var bodys = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "body_shots");
-        var jumps = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "jump_kills");
-        var eggs = LocalizationSettings.StringDatabase.GetLocalizedString(stringTableCollection.name, "destroyed_eggs");
+        var spiders = LangHelper.GetLanguageValue("killed_spiders");
+        var spiderlings = LangHelper.GetLanguageValue("killed_spiderlings");
+        var omegas = LangHelper.GetLanguageValue("killed_omegas");
+        var giants = LangHelper.GetLanguageValue("killed_giants");
+        var flyers = LangHelper.GetLanguageValue("killed_flyers");
+        var ghosts = LangHelper.GetLanguageValue("killed_ghosts");
+        var worms = LangHelper.GetLanguageValue("killed_worms");
+        var misseds = LangHelper.GetLanguageValue("missed_shots");
+        var heads = LangHelper.GetLanguageValue("head_shots");
+        var bodys = LangHelper.GetLanguageValue("body_shots");
+        var jumps = LangHelper.GetLanguageValue("jump_kills");
+        var eggs = LangHelper.GetLanguageValue("destroyed_eggs");
 
         staticsString += spiders + " " + spiderKills + "\n\n";
         staticsString += spiderlings + " " + spiderLingKills + "\n\n";

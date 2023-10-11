@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
-using UnityEditor.Localization;
 
 public class ArenaManager : MonoBehaviour
 {
@@ -16,9 +14,6 @@ public class ArenaManager : MonoBehaviour
     public bool disableRestBetweenWaves = false;
     public int startWaveNumber = 1;
     public int waitBeforeExit = 10;
-
-    [Header("Localization")]
-    public StringTableCollection dialogTableCollection;
 
     private int activeWave = 0;
     private bool pause;
@@ -66,7 +61,7 @@ public class ArenaManager : MonoBehaviour
 
     private void Finish()
     {
-        var localstring = LocalizationSettings.StringDatabase.GetLocalizedString(dialogTableCollection.name, "arena_complete");
+        var localstring = LangHelper.GetLanguageValue("arena_complete");
         levelManager.SayWithoutLocalization(localstring, 0.5f, true);
         PlayerPrefs.SetInt("ArenaCompleted", 1);
         StartCoroutine(Exit());
@@ -88,7 +83,7 @@ public class ArenaManager : MonoBehaviour
         if (active > 0)
             waves[active - 1].SetActive(false);
         StartCoroutine(CheckForEnemy());
-        var localstring = LocalizationSettings.StringDatabase.GetLocalizedString(dialogTableCollection.name, "wave");
+        var localstring = LangHelper.GetLanguageValue("wave");
         levelManager.SayWithoutLocalization(localstring + " " + activeWave, 0.5f, false);
     }
 

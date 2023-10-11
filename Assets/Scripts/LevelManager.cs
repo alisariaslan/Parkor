@@ -85,7 +85,8 @@ public class LevelManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
             spawnpoint = player.transform.position;
-        canvasManager.SetStoryText(storyTextKey);
+        if (string.IsNullOrEmpty(storyTextKey) is false)
+            canvasManager.SetStoryText(storyTextKey);
         if ((Application.isMobilePlatform || forceMobile) && platformCheckForTutorials)
             tutorials = false;
         await Task.Delay(100);

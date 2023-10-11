@@ -1,14 +1,10 @@
 using System.Collections;
-using UnityEditor.Localization;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AraSahne : MonoBehaviour
 {
-    public StringTableCollection uiTableCollection;
-    public StringTableCollection storyTableCollection;
     public AudioSource audioSource;
     public AudioClip typing;
     public bool test;
@@ -36,7 +32,7 @@ public class AraSahne : MonoBehaviour
         blackoutPanel.GetComponent<Animator>().Play("Brighten");
         int save = PlayerPrefs.GetInt("save", 1);
         print(save);
-        var text = LocalizationSettings.StringDatabase.GetLocalizedString(storyTableCollection.name, "story_episode" + save);
+        var text = LangHelper.GetLanguageValue("story_episode" + save);
         char[] chars = text.ToCharArray();
         StartCoroutine(co());
         IEnumerator co()
@@ -64,7 +60,7 @@ public class AraSahne : MonoBehaviour
         devamText.SetActive(true);
         ready = true;
         var save = PlayerPrefs.GetInt("save", 1);
-        var text = LocalizationSettings.StringDatabase.GetLocalizedString(storyTableCollection.name, "story_episode" + save);
+        var text = LangHelper.GetLanguageValue("story_episode" + save);
         lbl_txt.text = text;
     }
 
@@ -73,7 +69,7 @@ public class AraSahne : MonoBehaviour
         devam = false;
         if (ready)
         {
-            var text = LocalizationSettings.StringDatabase.GetLocalizedString(uiTableCollection.name, "continues");
+            var text = LangHelper.GetLanguageValue("continues");
             devamText.GetComponent<Text>().text = text;
             GameObject panel = GameObject.Find("Panel");
             if (panel != null)

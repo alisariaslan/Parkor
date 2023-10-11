@@ -688,7 +688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3436773282283229279
 Transform:
   m_ObjectHideFlags: 0
@@ -1369,7 +1369,6 @@ MonoBehaviour:
   takePistol: 0
   noLeftAnim: 0
   noRightAnim: 0
-  arenaGuy: 0
   maxHealth: 100
   health: 100
   speedX: 3

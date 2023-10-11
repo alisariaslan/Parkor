@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +14,7 @@ public class MenuScript : MonoBehaviour
             resume.SetActive(true);
     }
 
-    public void NewGame()
+    public async void NewGame()
     {
         blackScreen.GetComponent<Animator>().Play("Blackout");
         PlayerPrefs.SetInt("save", 1);
@@ -21,6 +22,8 @@ public class MenuScript : MonoBehaviour
         PlayerPrefs.SetInt("pistol", 0);
         PlayerPrefs.SetInt("light", 0);
         ScoreManager.ResetScores();
+        await Task.Delay(5000);
+        SceneManager.LoadScene("Intro");
     }
 
     public void ResumeGame()

@@ -1,7 +1,5 @@
 using System.Collections;
-using UnityEditor.Localization;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
@@ -17,10 +15,6 @@ public class CanvasManager : MonoBehaviour
     public GameObject StoryText;
     public GameObject Log;
     public GameObject Ammo;
-
-    [Header("Localization")]
-    public StringTableCollection storyTableCollection;
-    public StringTableCollection dialogTableCollection;
 
     private LevelManager levelManager;
     private bool devmode = false;
@@ -49,7 +43,7 @@ public class CanvasManager : MonoBehaviour
     {
         if (levelManager.storyTexts)
         {
-            var text = LocalizationSettings.StringDatabase.GetLocalizedString(dialogTableCollection.name, key);
+            var text = LangHelper.GetLanguageValue(key);
             StoryText.GetComponent<Text>().text = text;
             StoryText.GetComponent<Animator>().Play("textAppear", 0, normalizedTime);
         }
@@ -82,7 +76,7 @@ public class CanvasManager : MonoBehaviour
 
     public void SetStoryText(string key)
     {
-        var text = LocalizationSettings.StringDatabase.GetLocalizedString(storyTableCollection.name, key);
+        var text = LangHelper.GetLanguageValue(key);
         StoryText.GetComponent<Text>().text = text;
     }
 

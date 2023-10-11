@@ -1,0 +1,414 @@
+[
+    {
+        "key": "btn_newgame",
+        "value": "YENİ OYUN"
+    },
+    {
+        "key": "btn_continue",
+        "value": "DEVAM ET"
+    },
+    {
+        "key": "btn_selectlevel",
+        "value": "BÖLÜM SEÇ"
+    },
+    {
+        "key": "btn_statics",
+        "value": "İSTATİSTİKLER"
+    },
+    {
+        "key": "btn_exit",
+        "value": "ÇIKIŞ"
+    },
+    {
+        "key": "lbl_welcome",
+        "value": "Hoşgeldiniz"
+    },
+    {
+        "key": "btn_back",
+        "value": "GERİ DÖN"
+    },
+    {
+        "key": "season1",
+        "value": "1. SEZON"
+    },
+    {
+        "key": "episode1",
+        "value": "1. BÖLÜM:\nUYANIŞ"
+    },
+    {
+        "key": "episode2",
+        "value": "2. BÖLÜM:\nOTOPARK"
+    },
+    {
+        "key": "episode3",
+        "value": "3. BÖLÜM:\nYOLCULUK"
+    },
+    {
+        "key": "episode4",
+        "value": "4. BÖLÜM:\nTARLA EVİ"
+    },
+    {
+        "key": "episode5",
+        "value": "5. BÖLÜM:\nKORKULARIM"
+    },
+    {
+        "key": "episode6",
+        "value": "6. BÖLÜM:\nISSIZ ORMAN"
+    },
+    {
+        "key": "episode7",
+        "value": "7. BÖLÜM:\nMEZARLIK"
+    },
+    {
+        "key": "episode8",
+        "value": "8. BÖLÜM:\nYOL"
+    },
+    {
+        "key": "episode9",
+        "value": "9. BÖLÜM:\nHAVALİMANI"
+    },
+    {
+        "key": "episode10",
+        "value": "10. BÖLÜM:\nİNTİKAM"
+    },
+    {
+        "key": "arena",
+        "value": "BONUS BÖLÜM:\nARENA"
+    },
+    {
+        "key": "newgame_warning",
+        "value": "YENİ OYUN BAŞLATMAK İSTEDİĞİNİZDEN EMİN MİSİNİZ? *İLERLEMENİZ SIFIRLANACAKTIR!"
+    },
+    {
+        "key": "start",
+        "value": "BAŞLAT"
+    },
+    {
+        "key": "cancel",
+        "value": "İPTAL"
+    },
+    {
+        "key": "killed_spiders",
+        "value": "ÖLDÜRÜLEN ÖRÜMCEKLER:"
+    },
+    {
+        "key": "killed_spiderlings",
+        "value": "ÖLDÜRÜLEN ÖRÜMCEKCİKLER:"
+    },
+    {
+        "key": "killed_omegas",
+        "value": "ÖLDÜRÜLEN OMEGALAR:"
+    },
+    {
+        "key": "killed_giants",
+        "value": "ÖLDÜRÜLEN DEVASALAR:"
+    },
+    {
+        "key": "killed_flyers",
+        "value": "ÖLDÜRÜLEN UÇKUMRULAR:"
+    },
+    {
+        "key": "killed_ghosts",
+        "value": "ÖLDÜRÜLEN HAYALETLER:"
+    },
+    {
+        "key": "killed_worms",
+        "value": "ÖLDÜRÜLEN SOLUCANLAR:"
+    },
+    {
+        "key": "missed_shots",
+        "value": "ISKALANAN ATIŞLAR:"
+    },
+    {
+        "key": "head_shots",
+        "value": "KAFADAN VURUŞLAR:"
+    },
+    {
+        "key": "body_shots",
+        "value": "VÜCUTTAN VURUŞLAR:"
+    },
+    {
+        "key": "jump_kills",
+        "value": "ZIPLAYARAK ÖLDÜRÜLENLER:"
+    },
+    {
+        "key": "destroyed_eggs",
+        "value": "YOK EDİLMİŞ KOZALAR:"
+    },
+    {
+        "key": "click_to_continue",
+        "value": "DEVAM ETMEK İÇİN TIKLAYIN!"
+    },
+    {
+        "key": "continues",
+        "value": "DEVAM EDİLİYOR..."
+    },
+    {
+        "key": "tutorials_ok",
+        "value": "TAMAM (ENTER)"
+    },
+    {
+        "key": "pc_controllers",
+        "value": "[A] : Sola Yürü\n[D]: Sağa Yürü\n[Boşluk]: Atla veya Kullan\n[Sekme]: Envanter\n[ESC]: Menü"
+    },
+    {
+        "key": "menu_panel",
+        "value": "MENÜ PANELİ"
+    },
+    {
+        "key": "to_menu",
+        "value": "Menüye\nDön"
+    },
+    {
+        "key": "to_exit",
+        "value": "Oyundan\nÇık"
+    },
+    {
+        "key": "inventory",
+        "value": "ENVANTER"
+    },
+    {
+        "key": "select_item",
+        "value": "ELİNDEKİNİ SEÇ"
+    },
+    {
+        "key": "story_episode1",
+        "value": "ÇARPIŞMADAN 10 GÜN SONRA:\n\nJack bir gece ansızın uyanır.\nPencereden kafasını dışarı çıkardığında sokakta anlaşılmadık bir şeyin durduğunu fark eder.\nTelefonu çekmeyen Jack apartmandan aşağı inmeye, olayı yakından incelemeye karar verir."
+    },
+    {
+        "key": "story_episode2",
+        "value": "Jack sokakta bir yaratık ile karşılaşmıştır.\nOnlarca ceset kurumuş kanlarıyla beraber yerde yatmaktadır.\nİçini bir korku kaplar.\nTelefonu ile aramaya yapmaya çalışır fakat kimselere ulaşamaz.\nYapabileceği en iyi şey arabasına ulaşmaya çalışmak ve tarla evlerindeki ailesinin güvenliğini kontrol etmek olacaktır."
+    },
+    {
+        "key": "story_episode3",
+        "value": "Yaratıklar her yerde. Otopark ortadan ikiye bölünmüş durumda.\nYarığın içerisinde bir koza. İçerisinde dev bir yaratık. Jack neye uğradığını şaşırır.\nBir şekilde yaratığın üstesinden gelir ve kanalizsyon yoluyla otoparka geri dönerek arabasına ulaşır.\nJack ailesini merak etmektedir. Otobana çıkar ve gaza basar."
+    },
+    {
+        "key": "story_episode4",
+        "value": "Jack şehir dışına ailesinin yaşadığı köye ulaşır.\nYakınlardaki tarlalardan birinde ailesi yaşamaktadır.\nYollar topraktandır. Yerlerde soğuk su birikintileri bulunmaktadır.\nKarşılaşacağı şeylerden habersiz yoluna devam eder."
+    },
+    {
+        "key": "story_episode5",
+        "value": "Jack ailesinin evine bir şekilde ulaştı.\nYaratık türleri gittikçe farklılaşıyor.\nKaradan saldırdıkları yetmedi, şimdide havadan saldırıyorlar.\nYerde bulunan soğuk sular aracın ısınmasını önledi.\nJack bir an önce ailesinin güvenliğinden emin olmalı."
+    },
+    {
+        "key": "story_episode6",
+        "value": "Jack 'in ailesi evde değil.\nBu iyiye işaret değildi. Ev de bulunan korkunç tablolar ve hayaletler Jack 'in ailesi ile mi ilgiliydi?\nDerken tam o sırada bir Uçkumru, Jack 'i alıp ormana bırakır. Evde yerde bulduğu feneri iyi ki yanına almıştı.\nCebinden feneri çıkardı ve açtı."
+    },
+    {
+        "key": "story_episode7",
+        "value": "Bu fener, bu yaratıklar karşısında olağanüstü bir güce sahip.\nOrman biz ilerledikçe tuhaflaşıyor.\nÇiçekli arazi ilkten çok güzeldi fakat ilerledikçe çiçeklerin siyahlaşmaya, kararmaya başladıklarını gördük. Mezar taşları da cabası."
+    },
+    {
+        "key": "story_episode8",
+        "value": "Jack ormanda devasa ateşli bir solucan ile karşılaşmıştır.\nBunlar dünyaya daha fazla yayılırsa çok kötü şeyler olabilir.\nJack yolu takip etmeye başlar. Fakat arayışı bitmez.\nBir umut, bir kurtuluş arar..."
+    },
+    {
+        "key": "story_episode9",
+        "value": "Jack yolda ilerlerken gözüne bir tabela çarpar.\nTabela da havalimanı işaretini görür. Aklına insanların buraya sığınmış olabileceği gelir.\nİşte aradığı o umudu ona bu tabela verir.\nYolda yürürken çevrede harap olmuş arabaları, yerde cesetleri görür.\nYaratıklar adeta her yeri ele geçirmişlerdir."
+    },
+    {
+        "key": "story_episode10",
+        "value": "Havalimanına ulaşan Jack ilk karşılaştığı şey karşısında çok şaşırır.\nİnsanlığın bile yapamadığı bir şeyi yapıyordur bu yaratık.\nGökten indirdiği yıldırım kendisine zarar vermiyor, ateşden de etkilenmiyor.\nÜstüne bedeni zarar gördüğünde kendisini göğe yükseltiyor.\nİstilacı bu tür, zeki bir tür müdür?"
+    },
+    {
+        "key": "start_episode1",
+        "value": "1. Bölüm: Uyanış\nJack sokakta bir ceset olduğunu fark eder ve ona doğru ilerler."
+    },
+    {
+        "key": "start_episode2",
+        "value": "2. Bölüm: Otopark\nJack 'in telefonla herkesi aramaya çalışır fakat kimse yanıt vermez. Binaların ışıkları açık ama tamamı boş. Sanki yer yarılmış ve herkes içeri düşmüş. Etrafını bir korku kaplıyor."
+    },
+    {
+        "key": "start_episode3",
+        "value": "3. Bölüm: Yolculuk\nJack tamamen yalnız olduğunu düşünmeye başlar ve pencerenin kenarından aldığı kaseti arabanın radyosuna yerleştirir. Bir sigara yakar ve yoluna devam eder. Umutsuzluk onun en nefret ettiği şeydir."
+    },
+    {
+        "key": "start_episode4",
+        "value": "4. Bölüm: Tarla Evi\nJack kasvetli şehir havasından uzaklaşmıştır. Benzin göstergesini kontrol ettiğinde çubuğun turuncu barda olduğu fark eder. Fakat ilerisinde zorlu bir arazi vardır."
+    },
+    {
+        "key": "start_episode5",
+        "value": "Bölüm 5: Korkularım\nJack ailesi ve evini düşünür. Dünyada neler olup bittiğine dair bir fikri yoktur. Yaratıklar buraya kadar gelebilmiştir."
+    },
+    {
+        "key": "start_episode6",
+        "value": "6. Bölüm: Issız Orman\nJack uçan bir yaratık tarafından esir alınıp ormana bırakılmıştır. Bir an önce yolunu bulması gerekmektedir."
+    },
+    {
+        "key": "start_episode7",
+        "value": "7. Bölüm: Mezarlık\nKafa karıştırıcı orman bitmek bilmiyor. Jack şimdi daha da ürpertici bir yere varmıştır. Çevrede sık sık mezar taşları vardır."
+    },
+    {
+        "key": "start_episode8",
+        "value": "8. Bölüm: Yol\nJack her ne kadar korksa dahi karşılaştığı şey inanılmazdı. Fakat insanlık nerede? Herkese ne oldu?"
+    },
+    {
+        "key": "start_episode9",
+        "value": "9. Bölüm : Havalimanı\nJack bir umut bütün hayatta kalanların burada toplanmış olduğunu düşünür. İnsanlığa dair bir iz aramaya devam eder."
+    },
+    {
+        "key": "start_episode10",
+        "value": "10. Bölüm : İntikam\nJack bulduğu bir bombardıman uçağını ele geçirmiştir. Şehire dönme ve nefret duyduğu şeylerden kurtulma isteği ile uçağı kaldırmaya başlar. Jack 'in gözünü kan bürümüştür. Bir katliam yaşanacak."
+    },
+    {
+        "key": "arena_start",
+        "value": "Neredeyim ben?"
+    },
+    {
+        "key": "ep3_credits",
+        "value": "\nHatırlamıyorum.\nÖnceden nerede olduğumu...\nNeler yaptığımı...\nSanki bir başkası\nBenim bedenimi kullanıyormuşçasına\nHissediyorum.\nOdaklanmalıyım.\nAileme ulaşmak zorundayım.\nBana yoksun olduğum\nDuyguları hatırlatıyorlar..\nOnlarda bir şey görüyorum\nSahip olmadığım bir şey.\n"
+    },
+    {
+        "key": "the_end",
+        "value": "Jack insanlığın halen var olduğuna dair bir kanıt bulamamıştır.\n\n\nFakat umudunu da yitirmemiştir.\n\n\nKarşısına çıkan bu istilacı türe karşı sonuna kadar savaşı devam ettirecektir.\n\n\nBulduğu bombardıman uçağı ile yaşadığı şehri bombalayan Jack, gözyaşları ile yoluna devam eder.\n\n\n\n\n\n\n\n\nSON.\n\n\n\n\nOYNADIĞINIZ İÇİN TEŞEKKÜR EDERİZ.\n\n\n\n\n\n\n\n\nProje Yönetimi,\n\n\nBölüm Tasarımı,\n\n\nScriptler,\n\n\nKontroller,\n\n\nUI,\n\n\nEfektler,\n\n\nÇizimler,\n\n\nGrafik,\n\n\nHikaye,\n\n\nSes Yerleştirme ve\n\n\nMüzik Yerleştirme: Ali SARIASLAN."
+    },
+    {
+        "key": "ep1_reaction",
+        "value": "Bu da ne?"
+    },
+    {
+        "key": "ep1_dead",
+        "value": "Aman tanrım, ölmüş!"
+    },
+    {
+        "key": "ep1_sound",
+        "value": "O ses neydi?"
+    },
+    {
+        "key": "ep1_car",
+        "value": "Aracıma ulaşmam lazım."
+    },
+    {
+        "key": "ep2_spiders",
+        "value": "Bunlar da neyin nesi böyle?"
+    },
+    {
+        "key": "ep2_park",
+        "value": "Olamaz, otopark ortadan ikiye bölünmüş!"
+    },
+    {
+        "key": "ep2_that",
+        "value": "Bu da ne!"
+    },
+    {
+        "key": "ep2_saw",
+        "value": "Az önce gördüğüme inanamıyorum."
+    },
+    {
+        "key": "ep2_reach",
+        "value": "Sonunda aracıma ulaştım."
+    },
+    {
+        "key": "ep3_2",
+        "value": "Bu uçan şeyler ışığa hassas görünüyor."
+    },
+    {
+        "key": "ep3_3",
+        "value": "Bu yaratıkları öldürmeden daha ileri gitmesem iyi olacak!"
+    },
+    {
+        "key": "ep3_4",
+        "value": "Az kaldı evi görebiliyorum."
+    },
+    {
+        "key": "ep5_1",
+        "value": "Evim evim güzel evim."
+    },
+    {
+        "key": "ep5_2",
+        "value": "Bütün herkes nereye gitti?"
+    },
+    {
+        "key": "ep5_3",
+        "value": "Herkes nerede?"
+    },
+    {
+        "key": "ep5_4",
+        "value": "Üst katlara bakacağım."
+    },
+    {
+        "key": "ep5_5",
+        "value": "Bir anka kuşu!"
+    },
+    {
+        "key": "ep5_6",
+        "value": "Beni nereye götürüyor?"
+    },
+    {
+        "key": "ep5_7",
+        "value": "Beni ormana bıraktı."
+    },
+    {
+        "key": "ep5_8",
+        "value": "Yanlış yön sanırım."
+    },
+    {
+        "key": "ep5_9",
+        "value": "Bu yaratıklar yürüdükçe daha hızlı oluyor. Eğer zamanı iyi ayarlarsam onlardan kaçınabilirim."
+    },
+    {
+        "key": "ep6_1",
+        "value": "Nereye geldim peki?"
+    },
+    {
+        "key": "ep6_2",
+        "value": "Yanlış yöne gidiyorum."
+    },
+    {
+        "key": "ep6_3",
+        "value": "Çiçekler bu bölgede solmuş."
+    },
+    {
+        "key": "ep6_4",
+        "value": "Bunlar mezar taşları mı?"
+    },
+    {
+        "key": "ep7_1",
+        "value": "Her yer yanıyor. Burada neler oluyor?"
+    },
+    {
+        "key": "ep7_2",
+        "value": "Belki kaçabilirim."
+    },
+    {
+        "key": "ep7_3",
+        "value": "Yolu görebiliyorum. Çok yakın!"
+    },
+    {
+        "key": "ep8_1",
+        "value": "Bu silah oldukça işime yaracak, çok şanslıyım."
+    },
+    {
+        "key": "ep8_2",
+        "value": "Havalimanı tabelasına benziyor."
+    },
+    {
+        "key": "ep8_3",
+        "value": "Daha ne kadar yürüyeceğim acaba?"
+    },
+    {
+        "key": "ep8_4",
+        "value": "Havalimanına geldim sayılır."
+    },
+    {
+        "key": "ep9_1",
+        "value": "Hiç hayatta kalan göremiyorum."
+    },
+    {
+        "key": "ep9_2",
+        "value": "Hepsini katledeceğim."
+    },
+    {
+        "key": "wave",
+        "value": "Baskın"
+    },
+    {
+        "key": "arena_complete",
+        "value": "Tebrikler! Arenayı başarıyla tamamladın."
+    },
+    {
+        "key": "",
+        "value": ""
+    }
+]
