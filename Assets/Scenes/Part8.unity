@@ -12569,6 +12569,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 535588b437faf1249b5d4c426a408202, type: 3}
+--- !u!114 &1171618451 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2005303086012410257, guid: 535588b437faf1249b5d4c426a408202, type: 3}
+  m_PrefabInstance: {fileID: 1171618450}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa08d1f8e7b6b74f93392acbe5f7208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1171618452 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3298561038330255732, guid: 535588b437faf1249b5d4c426a408202, type: 3}
+  m_PrefabInstance: {fileID: 1171618450}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa08d1f8e7b6b74f93392acbe5f7208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1171618453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3834989596555507058, guid: 535588b437faf1249b5d4c426a408202, type: 3}
+  m_PrefabInstance: {fileID: 1171618450}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa08d1f8e7b6b74f93392acbe5f7208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1175045883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16903,6 +16936,18 @@ PrefabInstance:
       propertyPath: kalanMermi
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8939422220534502679, guid: 2f91d99874a6d4b4a892e7749ecf10c5, type: 3}
+      propertyPath: jumpButtonScript
+      value: 
+      objectReference: {fileID: 1171618451}
+    - target: {fileID: 8939422220534502679, guid: 2f91d99874a6d4b4a892e7749ecf10c5, type: 3}
+      propertyPath: gotoleftButtonScript
+      value: 
+      objectReference: {fileID: 1171618453}
+    - target: {fileID: 8939422220534502679, guid: 2f91d99874a6d4b4a892e7749ecf10c5, type: 3}
+      propertyPath: gotorightButtonScript
+      value: 
+      objectReference: {fileID: 1171618452}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

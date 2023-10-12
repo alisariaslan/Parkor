@@ -356,7 +356,7 @@ public class PlayerController : MonoBehaviour
                 else if (gotorightButtonScript.buttonPressed)
                     horizontal = 1;
                 if (jumpButtonScript.buttonPressed)
-                    Jump();
+                    vertical = 1;
             }
 
             if (rigidbody2Da.velocity.y < -5f)

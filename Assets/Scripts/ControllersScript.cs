@@ -15,8 +15,6 @@ public class ControllersScript : MonoBehaviour
     public bool goRightButtonIsActive = true;
     public GameObject jumpButton;
     public bool jumpButtonIsActive = true;
-    public GameObject interactButton;
-    public bool interactButtonIsActive = true;
 
     [Header("Panels")]
     public GameObject menuPanel;
@@ -39,7 +37,6 @@ public class ControllersScript : MonoBehaviour
             goLeftButton.SetActive(goLeftButtonIsActive);
             goRightButton.SetActive(goRightButtonIsActive);
             jumpButton.SetActive(jumpButtonIsActive);
-            interactButton.SetActive(interactButtonIsActive);
         }
     }
 
@@ -50,8 +47,10 @@ public class ControllersScript : MonoBehaviour
         if (inventoryPanel.activeSelf)
         {
             inventoryPanel.SetActive(false);
-            inventoryButton.SetActive(true);
-            menuButton.SetActive(true);
+            if (inventoryButtonIsActive)
+                inventoryButton.SetActive(true);
+            if (menuButtonIsActive)
+                menuButton.SetActive(true);
         }
         else
         {
@@ -68,8 +67,10 @@ public class ControllersScript : MonoBehaviour
         if (menuPanel.activeSelf)
         {
             menuPanel.SetActive(false);
-            menuButton.SetActive(true);
-            inventoryButton.SetActive(true);
+            if (menuButtonIsActive)
+                menuButton.SetActive(true);
+            if (inventoryButtonIsActive)
+                inventoryButton.SetActive(true);
         }
         else
         {
