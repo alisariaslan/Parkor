@@ -95,7 +95,7 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(LoadSceneCoroutine());
         IEnumerator LoadSceneCoroutine()
         {
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.1f);
             canvasManager.StartGame();
         }
     }
