@@ -76,7 +76,7 @@ public class LevelManager : MonoBehaviour
         audioSource.Stop();
     }
 
-    async void Start()
+    void Start()
     {
         if (saveOnStart is true)
         {
@@ -92,8 +92,12 @@ public class LevelManager : MonoBehaviour
             canvasManager.SetStoryText(storyTextKey);
         if ((Application.isMobilePlatform || forceMobile) && platformCheckForTutorials)
             tutorials = false;
-        await Task.Delay(100);
-        canvasManager.StartGame();
+        StartCoroutine(LoadSceneCoroutine());
+        IEnumerator LoadSceneCoroutine()
+        {
+            yield return new WaitForSeconds(0.25f);
+            canvasManager.StartGame();
+        }
     }
 
     private void Update()
